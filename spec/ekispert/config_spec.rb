@@ -15,7 +15,7 @@ RSpec.describe Ekispert::Config do
       expect(Ekispert::Config.api_key).to eq ''
     end
   end
-  describe '#list' do
+  describe '.list' do
     it 'return config list' do
       expect(Ekispert::Config.list).to match(
         {
@@ -27,7 +27,7 @@ RSpec.describe Ekispert::Config do
       )
     end
   end
-  describe '#set' do
+  describe '.set' do
     it 'can set the config with a block' do
       config = Ekispert::Config.set do |c|
         c.host = 'https://example.com'
