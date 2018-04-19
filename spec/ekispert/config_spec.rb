@@ -28,13 +28,15 @@ RSpec.describe Ekispert::Config do
     end
   end
   describe '.set' do
-    it 'can set the config with a block' do
-      config = Ekispert::Config.set do |c|
+    before do
+      Ekispert::Config.set do |c|
         c.host = 'https://example.com'
         c.version = 'v2'
         c.http_proxy = 'http://example.com:8080'
         c.api_key = 'test'
       end
+    end
+    it 'can set the config with a block' do
       expect(Ekispert::Config.list).to match(
         {
           :@host => 'https://example.com',
