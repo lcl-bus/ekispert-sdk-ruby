@@ -2,7 +2,7 @@ module Ekispert
   class Client
     def self.get(path, params=nil)
       set_connection if @connection.nil? || connection_options_update?
-      res = @connection.get(path, params)
+      res = request(path, params)
     end
 
     def self.connection_options
@@ -25,6 +25,10 @@ module Ekispert
 
     def self.connection_options_update?
       @connection_options != connection_options
+    end
+
+    def self.request(path, params)
+      @connection.get(path.sub(/^\//, ""), params)
     end
   end
 end
