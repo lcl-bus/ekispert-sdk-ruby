@@ -3,6 +3,8 @@ module Ekispert
     def self.get(path, params=nil)
       set_connection if @connection.nil? || connection_options_update?
       res = request(path, params)
+      # TODO: check status code and raise error
+      # TODO: return parse_xml when res.status == 200
       parse_xml(res)
     end
 
