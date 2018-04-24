@@ -3,6 +3,7 @@ module Ekispert
     def self.get(path, params=nil)
       set_connection if @connection.nil? || connection_options_update?
       res = request(path, params)
+      parse_xml(res)
     end
 
     def self.connection_options
@@ -29,6 +30,11 @@ module Ekispert
 
     def self.request(path, params)
       @connection.get(path.sub(/^\//, ""), params)
+    end
+
+    def self.parse_xml(res)
+      xml = Nokogiri::XML.parse(res.body)
+      xml.document.children
     end
   end
 end
