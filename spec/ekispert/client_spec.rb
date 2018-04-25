@@ -2,6 +2,14 @@ require 'spec_helper'
 
 RSpec.describe Ekispert::Client do
   describe '.connection_options' do
+    before do
+      Ekispert::Config.set do |c|
+        c.host = 'https://api.ekispert.jp'
+        c.version = 'v1'
+        c.http_proxy = ENV['http_proxy']
+        c.api_key = ''
+      end
+    end
     it 'return default options' do
       expect(Ekispert::Client.connection_options).to match(
         {
@@ -15,8 +23,16 @@ RSpec.describe Ekispert::Client do
     end
   end
   describe '.set_connection' do
-    let(:connection) { Ekispert::Client.set_connection }
-    context 'use default option' do
+    context 'default options' do
+      let(:connection) do
+        Ekispert::Config.set do |c|
+          c.host = 'https://api.ekispert.jp'
+          c.version = 'v1'
+          c.http_proxy = ENV['http_proxy']
+          c.api_key = ''
+        end
+        Ekispert::Client.set_connection
+      end
       it 'default url option' do
         expect(connection.url_prefix.to_s).to eq 'https://api.ekispert.jp/v1/xml'
       end

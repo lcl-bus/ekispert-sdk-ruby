@@ -2,6 +2,14 @@ require 'spec_helper'
 
 RSpec.describe Ekispert::Config do
   describe 'default config' do
+    before do
+      Ekispert::Config.set do |c|
+        c.host = 'https://api.ekispert.jp'
+        c.version = 'v1'
+        c.http_proxy = ENV['http_proxy']
+        c.api_key = ''
+      end
+    end
     it 'return default host' do
       expect(Ekispert::Config.host).to eq 'https://api.ekispert.jp'
     end
@@ -16,6 +24,14 @@ RSpec.describe Ekispert::Config do
     end
   end
   describe '.list' do
+    before do
+      Ekispert::Config.set do |c|
+        c.host = 'https://api.ekispert.jp'
+        c.version = 'v1'
+        c.http_proxy = ENV['http_proxy']
+        c.api_key = ''
+      end
+    end
     it 'return config list' do
       expect(Ekispert::Config.list).to match(
         {
