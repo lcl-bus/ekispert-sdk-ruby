@@ -51,4 +51,42 @@ RSpec.describe Ekispert::Client do
       end
     end
   end
+  describe '.request' do
+    before do
+      Ekispert::Config.set do |c|
+        c.host = 'https://api.ekispert.jp'
+        c.version = 'v1'
+        c.http_proxy = ENV['http_proxy']
+        c.api_key = ENV['EKISPERT_API_KEY']
+      end
+    end
+    context 'first char is "/"' do
+      it 'request url is correct' do
+        res = Ekispert::Client.send(:request, '/example', nil)
+        expect(res.env.url.to_s).to match 'https://api.ekispert.jp/v1/xml/example'
+      end
+    end
+    context 'first char is not "/"' do
+      it 'request url is correct' do
+        res = Ekispert::Client.send(:request, 'example', nil)
+        expect(res.env.url.to_s).to match 'https://api.ekispert.jp/v1/xml/example'
+      end
+    end
+  end
+  describe '.get' do
+    before do
+      Ekispert::Config.set do |c|
+        c.host = 'https://api.ekispert.jp'
+        c.version = 'v1'
+        c.http_proxy = ENV['http_proxy']
+        c.api_key = ENV['EKISPERT_API_KEY']
+      end
+    end
+    context 'request has succeeded' do
+      it 'parse xml' do
+        res = Ekispert::Client.get('/dataversions')
+        expect(res[0].name).to eq 'ResultSet'
+      end
+    end
+  end
 end
