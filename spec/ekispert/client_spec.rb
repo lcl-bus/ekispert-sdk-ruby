@@ -84,7 +84,7 @@ RSpec.describe Ekispert::Client do
     end
     context 'request has succeeded' do
       it 'parse xml' do
-        res = Ekispert::Client.get('/dataversions')
+        res = Ekispert::Client.get('/dataversion')
         expect(res[0].name).to eq 'ResultSet'
       end
     end
