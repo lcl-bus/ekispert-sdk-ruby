@@ -5,7 +5,7 @@ module Ekispert
       res = request(path, params)
       # TODO: check status code and raise error
       # TODO: return parse_xml when res.status == 200
-      parse_xml(res)
+      parse_xml(res.body)
     end
 
     def self.connection_options
@@ -34,9 +34,8 @@ module Ekispert
       @connection.get(path.sub(/^\//, ""), params)
     end
 
-    def self.parse_xml(res)
-      xml = Nokogiri::XML.parse(res.body)
-      xml.document.children
+    def self.parse_xml(xml)
+      Nokogiri::XML.parse(xml).document.children
     end
   end
 end
