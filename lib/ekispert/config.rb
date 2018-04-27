@@ -4,7 +4,7 @@ module Ekispert
       host: 'https://api.ekispert.jp',
       version: 'v1',
       http_proxy: ENV['http_proxy'],
-      api_key: ''
+      api_key: ENV['EKISPERT_API_KEY']
     }.freeze
     DEFAULTS.each do |option, value|
       class_eval %Q{
