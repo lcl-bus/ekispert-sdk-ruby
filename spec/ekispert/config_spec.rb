@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe Ekispert::Config do
+  include Ekispert::SpecHelper::Config
+  before { set_ekispert_default_config }
   describe 'default config' do
     it 'return default host' do
       expect(Ekispert::Config.host).to eq 'https://api.ekispert.jp'
@@ -29,12 +31,12 @@ RSpec.describe Ekispert::Config do
   end
   describe '.set' do
     before do
-      Ekispert::Config.set do |c|
-        c.host = 'https://example.com'
-        c.version = 'v2'
-        c.http_proxy = 'http://example.com:8080'
-        c.api_key = 'test'
-      end
+      set_ekispert_config(
+        host: 'https://example.com',
+        version: 'v2',
+        http_proxy: 'http://example.com:8080',
+        api_key: 'test'
+      )
     end
     it 'can set the config with a block' do
       expect(Ekispert::Config.list).to match(
