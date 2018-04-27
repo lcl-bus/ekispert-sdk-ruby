@@ -9,7 +9,7 @@ RSpec.describe Ekispert::Config do
       expect(Ekispert::Config.version).to eq 'v1'
     end
     it 'return default http_proxy' do
-      expect(Ekispert::Config.http_proxy).to eq ENV['http_proxy']
+      expect(Ekispert::Config.http_proxy).to eq ENV['HTTP_PROXY']
     end
     it 'return default api_key' do
       expect(Ekispert::Config.api_key).to eq ENV['EKISPERT_API_KEY']
@@ -21,7 +21,7 @@ RSpec.describe Ekispert::Config do
         {
           :@host => 'https://api.ekispert.jp',
           :@version => 'v1',
-          :@http_proxy => ENV['http_proxy'],
+          :@http_proxy => ENV['HTTP_PROXY'],
           :@api_key => ENV['EKISPERT_API_KEY']
         }
       )

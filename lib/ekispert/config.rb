@@ -3,7 +3,7 @@ module Ekispert
     DEFAULTS = {
       host: 'https://api.ekispert.jp',
       version: 'v1',
-      http_proxy: ENV['http_proxy'],
+      http_proxy: ENV['HTTP_PROXY'],
       api_key: ENV['EKISPERT_API_KEY']
     }.freeze
     DEFAULTS.each do |option, value|
