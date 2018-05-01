@@ -74,18 +74,31 @@ RSpec.describe Ekispert::Client do
     end
   end
   describe '.get' do
-    before do
-      Ekispert::Config.set do |c|
-        c.host = 'https://api.ekispert.jp'
-        c.version = 'v1'
-        c.http_proxy = ENV['http_proxy']
-        c.api_key = ENV['EKISPERT_API_KEY']
+    let(:res) { Ekispert::Client.get('/dataversion') }
+    context 'request has succeeded' do
+      before do
+        Ekispert::Config.set do |c|
+          c.host = 'https://api.ekispert.jp'
+          c.version = 'v1'
+          c.http_proxy = ENV['http_proxy']
+          c.api_key = ENV['EKISPERT_API_KEY']
+        end
+      end
+      it 'not include "Error" element' do
+        expect(res.xpath('//Error')).to be_empty
       end
     end
-    context 'request has succeeded' do
-      it 'parse xml' do
-        res = Ekispert::Client.get('/dataversion')
-        expect(res[0].name).to eq 'ResultSet'
+    context 'request has failed' do
+      before do
+        Ekispert::Config.set do |c|
+          c.host = 'https://api.ekispert.jp'
+          c.version = 'v1'
+          c.http_proxy = ENV['http_proxy']
+          c.api_key = nil
+        end
+      end
+      it 'include "Error" element' do
+        expect(res.xpath('//Error')).not_to be_empty
       end
     end
   end
