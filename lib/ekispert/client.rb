@@ -31,11 +31,11 @@ module Ekispert
     end
 
     def self.request(path, params)
-      @connection.get(path.sub(/^\//, ""), params)
+      @connection.get(path.sub(/^\//, ''), params)
     end
 
     def self.parse_xml(xml)
-      Nokogiri::XML.parse(xml).document.children
+      Nokogiri::XML.parse(xml).xpath('//ResultSet')
     end
   end
 end
