@@ -1,22 +1,16 @@
 require 'spec_helper'
 
 RSpec.describe Ekispert::Client do
+  include Ekispert::SpecHelper::Config
+  before { set_ekispert_default_config }
   describe '.connection_options' do
-    before do
-      Ekispert::Config.set do |c|
-        c.host = 'https://api.ekispert.jp'
-        c.version = 'v1'
-        c.http_proxy = ENV['http_proxy']
-        c.api_key = ''
-      end
-    end
     it 'return default options' do
       expect(Ekispert::Client.connection_options).to match(
         {
           url: 'https://api.ekispert.jp/v1/xml',
-          proxy: ENV['http_proxy'],
+          proxy: ENV['HTTP_PROXY'],
           headers: { 'Content-Type' => 'application/xml;charset=utf-8' },
-          params: { key: '' },
+          params: { key: ENV['EKISPERT_API_KEY'] },
           request: { timeout: 5, open_timeout: 2 }
         }
       )
@@ -24,15 +18,7 @@ RSpec.describe Ekispert::Client do
   end
   describe '.set_connection' do
     context 'default options' do
-      let(:connection) do
-        Ekispert::Config.set do |c|
-          c.host = 'https://api.ekispert.jp'
-          c.version = 'v1'
-          c.http_proxy = ENV['http_proxy']
-          c.api_key = ''
-        end
-        Ekispert::Client.set_connection
-      end
+      let(:connection) { Ekispert::Client.set_connection }
       it 'default url option' do
         expect(connection.url_prefix.to_s).to eq 'https://api.ekispert.jp/v1/xml'
       end
@@ -43,7 +29,7 @@ RSpec.describe Ekispert::Client do
         expect(connection.headers['Content-Type']).to eq 'application/xml;charset=utf-8'
       end
       it 'default params option' do
-        expect(connection.params[:key]).to eq ''
+        expect(connection.params[:key]).to eq ENV['EKISPERT_API_KEY']
       end
       it 'default request option' do
         expect(connection.options.timeout).to eq 5
@@ -52,23 +38,15 @@ RSpec.describe Ekispert::Client do
     end
   end
   describe '.request' do
-    before do
-      Ekispert::Config.set do |c|
-        c.host = 'https://api.ekispert.jp'
-        c.version = 'v1'
-        c.http_proxy = ENV['http_proxy']
-        c.api_key = ENV['EKISPERT_API_KEY']
-      end
-    end
     context 'first char is "/"' do
+      let(:res) { Ekispert::Client.send(:request, '/example', nil) }
       it 'request url is correct' do
-        res = Ekispert::Client.send(:request, '/example', nil)
         expect(res.env.url.to_s).to match 'https://api.ekispert.jp/v1/xml/example'
       end
     end
     context 'first char is not "/"' do
+      let(:res) { Ekispert::Client.send(:request, 'example', nil) }
       it 'request url is correct' do
-        res = Ekispert::Client.send(:request, 'example', nil)
         expect(res.env.url.to_s).to match 'https://api.ekispert.jp/v1/xml/example'
       end
     end
@@ -76,27 +54,12 @@ RSpec.describe Ekispert::Client do
   describe '.get' do
     let(:res) { Ekispert::Client.get('/dataversion') }
     context 'request has succeeded' do
-      before do
-        Ekispert::Config.set do |c|
-          c.host = 'https://api.ekispert.jp'
-          c.version = 'v1'
-          c.http_proxy = ENV['http_proxy']
-          c.api_key = ENV['EKISPERT_API_KEY']
-        end
-      end
       it 'not include "Error" element' do
         expect(res.xpath('//Error')).to be_empty
       end
     end
     context 'request has failed' do
-      before do
-        Ekispert::Config.set do |c|
-          c.host = 'https://api.ekispert.jp'
-          c.version = 'v1'
-          c.http_proxy = ENV['http_proxy']
-          c.api_key = nil
-        end
-      end
+      before { set_ekispert_config(api_key: nil) }
       it 'include "Error" element' do
         expect(res.xpath('//Error')).not_to be_empty
       end
