@@ -52,16 +52,16 @@ RSpec.describe Ekispert::Client do
     end
   end
   describe '.get' do
-    let(:res) { Ekispert::Client.get('/dataversion') }
+    let(:xml) { Ekispert::Client.get('/dataversion') }
     context 'request has succeeded' do
       it 'not include "Error" element' do
-        expect(res.xpath('//Error')).to be_empty
+        expect(xml.xpath('//Error')).to be_empty
       end
     end
     context 'request has failed' do
       before { set_ekispert_config(api_key: nil) }
       it 'include "Error" element' do
-        expect(res.xpath('//Error')).not_to be_empty
+        expect(xml.xpath('//Error')).not_to be_empty
       end
     end
   end
