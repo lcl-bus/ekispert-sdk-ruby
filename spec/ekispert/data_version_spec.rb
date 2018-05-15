@@ -33,18 +33,18 @@ RSpec.describe Ekispert::DataVersion do
       end
     end
     context 'Copyrights elements has "companyId" and "company" attributes' do
-      it 'Copyrights instance has "companyId" method' do
+      it 'Copyright instance has "companyId" method' do
         expect(data_version.copyright_list[0].companyId).to eq '1'
       end
-      it 'Copyrights instance has "company" method' do
+      it 'Copyright instance has "company" method' do
         expect(data_version.copyright_list[0].company).to eq 'Example'
       end
     end
     context 'Copyrights elements has text node' do
-      it 'Copyrights instance has text method' do
+      it 'Copyright instance has text method' do
         expect(data_version.copyright_list[0].text).to eq 'ExampleText'
       end
-      it 'Copyrights#to_s return text node' do
+      it 'Copyright#to_s return text node' do
         expect(data_version.copyright_list[0].to_s).to eq 'ExampleText'
       end
     end
