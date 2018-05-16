@@ -6,11 +6,11 @@ module Ekispert
       to_ekispert_class(Ekispert::Client.get('/station/info', options), types)
     end
 
-      class Line; end
-      class Corporation; end
-      class WelfareFacilities; end
-      class Exit; end
-      class Type; end
+    class Line; end
+    class Corporation; end
+    class WelfareFacilities; end
+    class Exit; end
+    class Type; end
 
     private
     def self.to_ekispert_class(elem_arr, types)
@@ -75,8 +75,8 @@ module Ekispert
         instance.class.class_eval { attr_accessor elem.name.downcase }
         instance.instance_variable_set("@#{elem.name.downcase}", elem.children.text)
       end
-        instance.class.class_eval { attr_accessor :basetype }
-        instance.instance_variable_set("@basetype", base_type)
+      instance.class.class_eval { attr_accessor :basetype }
+      instance.instance_variable_set("@basetype", base_type)
       instance
     end
 
