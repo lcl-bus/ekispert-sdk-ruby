@@ -1,10 +1,10 @@
 module Ekispert
   class DataVersion
-    attr_accessor :version_list, :copyright_list
+    attr_accessor :version_list, :copyrights_list
 
     def initialize
       @version_list = []
-      @copyright_list = []
+      @copyrights_list = []
     end
 
     def self.get
@@ -12,28 +12,18 @@ module Ekispert
     end
 
     class Version; end
-    class Copyright; end
+    class Copyrights; end
 
     private
     def self.to_data_version(elem_arr)
       data_version = DataVersion.new
       elem_arr.children.each do |element|
-        subclass_name = find_subclass(element.name) || next
-        subclass_instance = create_subclass_instance(element, subclass_name)
+        elem_name = element.name.to_sym
+        next unless DataVersion.constants.include?(elem_name)
+        subclass_instance = create_subclass_instance(element, elem_name)
         set_instance_variable(data_version, subclass_instance)
       end
       data_version
-    end
-
-    def self.find_subclass(name)
-      case name
-      when 'Version'
-        :Version
-      when 'Copyrights'
-        :Copyright
-      else
-        nil
-      end
     end
 
     # ex. Ekispert::DataVersion::Version.new
@@ -64,20 +54,20 @@ module Ekispert
     end
 
     # Ex.
-    # #<Ekispert::DataVersion @version_list=[], @copyright_list=[]>
+    # #<Ekispert::DataVersion @version_list=[], @copyrights_list=[]>
     # -> @version_list=[
     #      #<Ekispert::DataVersion::Version @...>,
     #      <Ekispert::DataVersion::Version @...>
     #    ],
-    # -> @copyright_list=[
-    #      #<Ekispert::DataVersion::Copyright @...>,
-    #      <Ekispert::DataVersion::Copyright @...>
+    # -> @copyrights_list=[
+    #      #<Ekispert::DataVersion::Copyrights @...>,
+    #      <Ekispert::DataVersion::Copyrights @...>
     #    ],
     def self.set_instance_variable(base_instance, instance)
       if instance.is_a?(Ekispert::DataVersion::Version)
         base_instance.version_list << instance
-      elsif instance.is_a?(Ekispert::DataVersion::Copyright)
-        base_instance.copyright_list << instance
+      elsif instance.is_a?(Ekispert::DataVersion::Copyrights)
+        base_instance.copyrights_list << instance
       end
     end
   end
