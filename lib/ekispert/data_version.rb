@@ -41,9 +41,9 @@ module Ekispert
     end
 
     def self.set_methods_from_attributes(attributes, instance)
-      attributes.each do |name, attr|
+      attributes.each do |name, attribute|
         instance.class.class_eval { attr_accessor name }
-        instance.instance_variable_set("@#{name}", attr.value)
+        instance.instance_variable_set("@#{name}", attribute.value)
       end
     end
 
