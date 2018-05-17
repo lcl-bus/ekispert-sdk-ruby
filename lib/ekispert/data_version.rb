@@ -74,9 +74,9 @@ module Ekispert
     #      <Ekispert::DataVersion::Copyright @...>
     #    ],
     def self.set_instance_variable(base_instance, instance)
-      if instance.class == Ekispert::DataVersion::Version
+      if instance.is_a?(Ekispert::DataVersion::Version)
         base_instance.version_list << instance
-      elsif instance.class == Ekispert::DataVersion::Copyright
+      elsif instance.is_a?(Ekispert::DataVersion::Copyright)
         base_instance.copyright_list << instance
       end
     end
