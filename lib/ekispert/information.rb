@@ -16,20 +16,15 @@ module Ekispert
     def self.to_ekispert_class(elem_arr, types)
       information = Information.new
       element_list = []
-
       # ex.[type,line,corporation]
       create_element_list(element_list, elem_arr.children)
-
       # ex.@type_list,@line_list,@corporation_list
       variable_definition(information, element_list)
-
       elem_arr.children.each do |elements|
         base_type = get_basetype_name(elements)
         elements.children.each do |element|
           subclass_name = element.name
-
           subclass_instance = create_subclass_instance(element, subclass_name, base_type)
-
           push_self_instance(information, subclass_instance, subclass_name)
         end
       end
