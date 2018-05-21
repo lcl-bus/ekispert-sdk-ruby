@@ -35,12 +35,6 @@ Layout/SpaceAroundOperators:
   Exclude:
     - 'ekispert-sdk-ruby.gemspec'
 
-# Offense count: 9
-Lint/IneffectiveAccessModifier:
-  Exclude:
-    - 'lib/ekispert/client.rb'
-    - 'lib/ekispert/data_version.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods.
