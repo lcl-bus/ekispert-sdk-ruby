@@ -51,7 +51,7 @@ RSpec.describe Ekispert::DataVersion do
     context 'xml contains unexpected element' do
       let(:parsed_xml) { Ekispert::Client.send(:parse_xml, unexpected_res_body) }
       it 'should not raise Exception' do
-        expect {Ekispert::DataVersion.send(:to_data_version, parsed_xml)}.not_to raise_error
+        expect { Ekispert::DataVersion.send(:to_data_version, parsed_xml) }.not_to raise_error
       end
     end
   end
