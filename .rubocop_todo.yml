@@ -111,13 +111,6 @@ Style/PercentLiteralDelimiters:
     - 'ekispert-sdk-ruby.gemspec'
     - 'lib/ekispert/config.rb'
 
-# Offense count: 4
-# Cop supports --auto-correct.
-Style/RedundantSelf:
-  Exclude:
-    - 'lib/ekispert/config.rb'
-    - 'lib/ekispert/data_version.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, AllowInnerSlashes.

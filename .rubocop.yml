@@ -21,4 +21,7 @@ Style/IfUnlessModifier:
 Style/NumericPredicate:
   Enabled: false
 
+Style/RedundantSelf:
+  Enabled: false
+
 inherit_from: .rubocop_todo.yml
