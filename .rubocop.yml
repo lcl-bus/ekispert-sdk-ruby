@@ -12,4 +12,7 @@ Style/FrozenStringLiteralComment:
 Lint/UselessAccessModifier:
   Enabled: false
 
+Style/Documentation:
+  Enabled: false
+
 inherit_from: .rubocop_todo.yml

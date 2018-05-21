@@ -78,15 +78,6 @@ Style/BracesAroundHashParameters:
     - 'spec/ekispert/client_spec.rb'
     - 'spec/ekispert/config_spec.rb'
 
-# Offense count: 3
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'lib/ekispert/client.rb'
-    - 'lib/ekispert/config.rb'
-    - 'lib/ekispert/data_version.rb'
-
 # Offense count: 1
 Style/EvalWithLocation:
   Exclude:
