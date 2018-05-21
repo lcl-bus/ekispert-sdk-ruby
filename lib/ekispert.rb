@@ -2,5 +2,8 @@ require 'faraday'
 require 'faraday_middleware'
 require 'nokogiri'
 
-# require all files in the ./lib/ekispert directory
-Dir.glob("#{File.dirname(__FILE__)}/ekispert/**/*.rb", &method(:require))
+require 'ekispert/util'
+require 'ekispert/version'
+require 'ekispert/config'
+require 'ekispert/client'
+require 'ekispert/data_version'
