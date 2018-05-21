@@ -15,6 +15,7 @@ module Ekispert
     class Copyrights; end
 
     private
+
     def self.to_data_version(elem_arr)
       data_version = self.new
       elem_arr.children.each do |element|

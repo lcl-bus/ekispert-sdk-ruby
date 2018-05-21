@@ -14,13 +14,6 @@ Gemspec/OrderedDependencies:
   Exclude:
     - 'ekispert-sdk-ruby.gemspec'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Layout/EmptyLinesAroundAccessModifier:
-  Exclude:
-    - 'lib/ekispert/client.rb'
-    - 'lib/ekispert/data_version.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
