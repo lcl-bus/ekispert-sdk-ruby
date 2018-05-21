@@ -119,9 +119,3 @@ Style/UnneededPercentQ:
   Exclude:
     - 'ekispert-sdk-ruby.gemspec'
     - 'lib/ekispert/config.rb'
-
-# Offense count: 10
-# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
-# URISchemes: http, https
-Metrics/LineLength:
-  Max: 96

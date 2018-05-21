@@ -16,6 +16,9 @@ Lint/IneffectiveAccessModifier:
 Lint/UselessAccessModifier:
   Enabled: false
 
+Metrics/LineLength:
+  Max: 96
+
 # Missing top-level class documentation comment.
 Style/Documentation:
   Enabled: false
