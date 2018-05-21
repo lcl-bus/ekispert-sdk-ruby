@@ -9,4 +9,7 @@ AllCops:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Lint/UselessAccessModifier:
+  Enabled: false
+
 inherit_from: .rubocop_todo.yml

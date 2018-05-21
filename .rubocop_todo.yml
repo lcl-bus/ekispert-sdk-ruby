@@ -48,13 +48,6 @@ Lint/UnusedMethodArgument:
   Exclude:
     - 'lib/ekispert/config.rb'
 
-# Offense count: 2
-# Configuration parameters: ContextCreatingMethods, MethodCreatingMethods.
-Lint/UselessAccessModifier:
-  Exclude:
-    - 'lib/ekispert/client.rb'
-    - 'lib/ekispert/data_version.rb'
-
 # Offense count: 5
 # Configuration parameters: CountComments, ExcludedMethods.
 Metrics/BlockLength:
