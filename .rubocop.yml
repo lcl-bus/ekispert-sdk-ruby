@@ -6,6 +6,8 @@ AllCops:
   Exclude:
     - "vendor/**/*"
 
+inherit_from: .rubocop_todo.yml
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -29,5 +31,3 @@ Style/RedundantSelf:
 
 Style/ZeroLengthPredicate:
   Enabled: false
-
-inherit_from: .rubocop_todo.yml
