@@ -16,10 +16,10 @@ module Ekispert
 
     private
     def self.to_data_version(elem_arr)
-      data_version = DataVersion.new
+      data_version = self.new
       elem_arr.children.each do |element|
         elem_name = element.name.to_sym
-        next unless DataVersion.constants.include?(elem_name)
+        next unless self.constants.include?(elem_name)
         subclass_instance = create_subclass_instance(element, elem_name)
         set_instance_variable(data_version, subclass_instance)
       end
@@ -28,7 +28,7 @@ module Ekispert
 
     # ex. Ekispert::DataVersion::Version.new
     def self.create_subclass_instance(element, subclass_name)
-      instance = DataVersion.const_get(subclass_name).new
+      instance = self.const_get(subclass_name).new
       # attribute
       if element.attributes.size > 0
         set_methods_from_attributes(element.attributes, instance)
