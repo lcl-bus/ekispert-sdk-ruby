@@ -24,4 +24,7 @@ Style/NumericPredicate:
 Style/RedundantSelf:
   Enabled: false
 
+Style/ZeroLengthPredicate:
+  Enabled: false
+
 inherit_from: .rubocop_todo.yml

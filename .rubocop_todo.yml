@@ -139,12 +139,6 @@ Style/UnneededPercentQ:
     - 'ekispert-sdk-ruby.gemspec'
     - 'lib/ekispert/config.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/ZeroLengthPredicate:
-  Exclude:
-    - 'lib/ekispert/data_version.rb'
-
 # Offense count: 10
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
