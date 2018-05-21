@@ -33,7 +33,6 @@ RSpec.describe Ekispert::DataVersion do
       end
     end
     context 'Copyrights elements has "companyId" and "company" attributes' do
-
       it 'Copyrights instance has "companyId" method' do
         expect(data_version.copyrights_list[0].companyId).to eq '1'
       end
