@@ -15,4 +15,7 @@ Lint/UselessAccessModifier:
 Style/Documentation:
   Enabled: false
 
+Style/IfUnlessModifier:
+  Enabled: false
+
 inherit_from: .rubocop_todo.yml
