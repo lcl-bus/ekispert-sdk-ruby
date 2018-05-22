@@ -6,7 +6,42 @@ AllCops:
   Exclude:
     - "vendor/**/*"
 
+inherit_from: .rubocop_todo.yml
+
+# private does not make singleton methods private. Use private_class_method or private inside a class << self block instead.
+Lint/IneffectiveAccessModifier:
+  Enabled: false
+
+# Useless private access modifier.
+Lint/UselessAccessModifier:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+# Missing top-level class documentation comment.
+Style/Documentation:
+  Enabled: false
+
+# Missing magic comment # frozen_string_literal: true.
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-inherit_from: .rubocop_todo.yml
+# Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+# https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.md#if-as-a-modifier
+Style/IfUnlessModifier:
+  Enabled: false
+
+# Use element.attributes.size.positive? instead of element.attributes.size > 0.
+# https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.md#predicate-methods
+Style/NumericPredicate:
+  Enabled: false
+
+# Redundant self detected.
+# https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.md#no-self-unless-required
+Style/RedundantSelf:
+  Enabled: false
+
+# Use !empty? instead of size > 0.
+Style/ZeroLengthPredicate:
+  Enabled: false

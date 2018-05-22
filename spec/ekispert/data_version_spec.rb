@@ -33,7 +33,6 @@ RSpec.describe Ekispert::DataVersion do
       end
     end
     context 'Copyrights elements has "companyId" and "company" attributes' do
-
       it 'Copyrights instance has "companyId" method' do
         expect(data_version.copyrights_list[0].companyId).to eq '1'
       end
@@ -52,7 +51,7 @@ RSpec.describe Ekispert::DataVersion do
     context 'xml contains unexpected element' do
       let(:parsed_xml) { Ekispert::Client.send(:parse_xml, unexpected_res_body) }
       it 'should not raise Exception' do
-        expect{Ekispert::DataVersion.send(:to_data_version, parsed_xml)}.not_to raise_error
+        expect { Ekispert::DataVersion.send(:to_data_version, parsed_xml) }.not_to raise_error
       end
     end
   end
