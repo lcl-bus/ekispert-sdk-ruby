@@ -18,6 +18,7 @@ module Ekispert
     end
 
     private
+
     def self.set_connection
       @connection_options = connection_options
       @connection = Faraday.new(@connection_options) do |c|
