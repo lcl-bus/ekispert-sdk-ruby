@@ -46,9 +46,6 @@ RSpec.describe Ekispert::Information do
       it 'Ekispert::Information::Exit instance in exit_list' do
         expect(information.exit_list[0].class).to eq Ekispert::Information::Exit
       end
-      it 'Other list is empty' do
-        expect(information.welfarefacilities_list).to be_empty
-      end
     end
 
     context 'There are same elements' do
