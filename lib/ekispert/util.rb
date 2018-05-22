@@ -62,7 +62,7 @@ module Ekispert
     #   -> @version_list = [
     #        #<Ekispert::DataVersion::Version @...>
     #      ]
-    def set_instance_variable(base_instance, sub_instance)
+    def update_class_list_variable(base_instance, sub_instance)
       class_name = sub_instance.class.to_s.split('::').last
       class_list_name = "#{snakecase(class_name)}_list"
       # Ex. base_instance.version_list << sub_instance

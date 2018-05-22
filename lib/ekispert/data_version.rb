@@ -22,7 +22,7 @@ module Ekispert
         elem_name = element.name.to_sym
         next unless self.constants.include?(elem_name)
         subclass_instance = create_subclass_instance(element, elem_name)
-        Ekispert::Util.set_instance_variable(data_version, subclass_instance)
+        Ekispert::Util.update_class_list_variable(data_version, subclass_instance)
       end
       data_version
     end
