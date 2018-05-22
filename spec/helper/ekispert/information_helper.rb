@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 module Ekispert
   module SpecHelper
     module Information
