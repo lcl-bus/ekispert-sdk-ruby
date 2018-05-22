@@ -11,7 +11,7 @@ module Ekispert
     end
 
     def self.get(code, types)
-      options = {code: code, type: types}
+      options = { code: code, type: types }
       to_ekispert_class(Ekispert::Client.get('/station/info', options), types)
     end
 
@@ -22,7 +22,8 @@ module Ekispert
     class Type; end
 
     private
-    def self.to_ekispert_class(elem_arr, types)
+
+    def self.to_ekispert_class(elem_arr, _types)
       information = self.new
 
       elem_arr.children.each do |elements|
@@ -38,10 +39,10 @@ module Ekispert
       information
     end
 
-    def self.get_basetype_name (elements)
+    def self.get_basetype_name(elements)
       elements.children.each do |element|
-        if element.name == "Type"
-         return element.text.capitalize
+        if element.name == 'Type'
+          return element.text.capitalize
         end
       end
     end
@@ -53,15 +54,15 @@ module Ekispert
 
     def self.set_methods_from_element(element, instance, base_type)
       element.children.each do |elem|
-        if elem.name == "text"
+        if elem.name == 'text'
           instance.class.class_eval { attr_accessor :name }
-          instance.instance_variable_set("@name", elem.text)
+          instance.instance_variable_set('@name', elem.text)
         end
         instance.class.class_eval { attr_accessor elem.name.downcase }
         instance.instance_variable_set("@#{elem.name.downcase}", elem.children.text)
       end
-        instance.class.class_eval { attr_accessor :basetype }
-        instance.instance_variable_set("@basetype", base_type)
+      instance.class.class_eval { attr_accessor :basetype }
+      instance.instance_variable_set('@basetype', base_type)
       instance
     end
 

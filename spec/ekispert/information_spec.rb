@@ -7,7 +7,7 @@ RSpec.describe Ekispert::Information do
   describe '.get' do
     before { set_ekispert_default_config }
     it 'Information class' do
-      expect(Ekispert::Information.get(22828, 'rail').class).to eq Ekispert::Information
+      expect(Ekispert::Information.get(22_828, 'rail').class).to eq Ekispert::Information
     end
   end
 
