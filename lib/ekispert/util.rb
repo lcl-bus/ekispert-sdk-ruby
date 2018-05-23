@@ -9,7 +9,7 @@ module Ekispert
     end
 
     # argument:
-    #   attributes : XML(parsed Nokogiri)
+    #   attributes : XML attributes (parsed Nokogiri)
     #   instance   : modified instance
     #
     # Ex. DataVersion class
