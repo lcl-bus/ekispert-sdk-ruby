@@ -48,6 +48,25 @@ module Ekispert
             </ResultSet>
           XML_TAG
         end
+
+        def old_station_name
+          <<~XML_TAG.gsub(/\n\s*/, '')
+            <ResultSet apiVersion="1.27.0.0" engineVersion="201805_03a">
+              <Point>
+                <Station code="22859">
+                  <OldName>業平橋</OldName>
+                  <Name>とうきょうスカイツリー</Name>
+                  <Type>train</Type>
+                  <Yomi>とうきょうすかいつりー</Yomi>
+                </Station>
+                <Prefecture code="13">
+                  <Name>東京都</Name>
+                </Prefecture>
+                <GeoPoint longi="139.48.44.19" lati="35.42.25.59" longi_d="139.812278" lati_d="35.70711" gcs="tokyo"/>
+              </Point>
+            </ResultSet>
+          XML_TAG
+        end
       end
     end
   end

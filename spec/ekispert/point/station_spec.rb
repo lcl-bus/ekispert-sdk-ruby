@@ -51,10 +51,10 @@ RSpec.describe Ekispert::Point::Station do
     end
   end
   describe '.convert_point_to_station' do
+    let(:point_list) { Ekispert::Point.to_point(parsed_xml) }
+    let(:station_list) { Ekispert::Point::Station.send(:convert_point_to_station, point_list) }
     context 'get Tokyo station' do
       let(:parsed_xml) { Ekispert::Client.send(:parse_xml, tokyo_station) }
-      let(:point_list) { Ekispert::Point.to_point(parsed_xml) }
-      let(:station_list) { Ekispert::Point::Station.send(:convert_point_to_station, point_list) }
       context 'params = { code: "22828" }' do
         context 'call Station#code' do
           it 'should return "22828"' do
@@ -128,6 +128,21 @@ RSpec.describe Ekispert::Point::Station do
         end
       end
       # TODO: params include railName param
+    end
+    context 'use oldName param' do
+      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, old_station_name) }
+      context 'params = { oldName: "業平橋" }' do
+        context 'call Station::Name#text' do
+          it 'should return "とうきょうスカイツリー"' do
+            expect(station_list[0].name_list[0].text).to eq 'とうきょうスカイツリー'
+          end
+        end
+        context 'call Station::OldName#text' do
+          it 'should return "業平橋"' do
+            expect(station_list[0].old_name_list[0].text).to eq '業平橋'
+          end
+        end
+      end
     end
   end
 end
