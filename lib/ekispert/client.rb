@@ -43,16 +43,15 @@ module Ekispert
       when 1
         raise InternalError, 'Engine Error'
       when 400
-        raise BadRequest.new(res)
+        raise BadRequest, res
       when 403
-        raise Forbidden.new(res)
+        raise Forbidden, res
       when 404
-        raise NotFound.new(res)
+        raise NotFound, res
       when 400..499
-        raise ClientError.new(res)
+        raise ClientError, res
       when 500..599
-        raise ServerError.new('OMG!')
-      else
+        raise ServerError, 'OMG!'
       end
     end
   end

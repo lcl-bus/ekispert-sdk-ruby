@@ -6,31 +6,31 @@ RSpec.describe Ekispert::ClientError do
     context '1 error' do
       let(:error_code) { 1 }
       it 'Ekispert::InternalError class' do
-        expect{ error }.to raise_error(Ekispert::InternalError)
+        expect { error }.to raise_error(Ekispert::InternalError)
       end
     end
     context '400 error' do
       let(:error_code) { 400 }
       it 'Ekispert::BadRequest class' do
-        expect{ error }.to raise_error(Ekispert::BadRequest)
+        expect { error }.to raise_error(Ekispert::BadRequest)
       end
     end
     context '403 error' do
       let(:error_code) { 403 }
       it 'Ekispert::Forbidden class' do
-        expect{ error }.to raise_error(Ekispert::Forbidden)
+        expect { error }.to raise_error(Ekispert::Forbidden)
       end
     end
     context '450 error' do
       let(:error_code) { 450 }
       it 'Ekispert::ClientError class' do
-        expect{ error }.to raise_error(Ekispert::ClientError)
+        expect { error }.to raise_error(Ekispert::ClientError)
       end
     end
     context '500 error' do
       let(:error_code) { 500 }
       it 'Ekispert::ServerError class' do
-        expect{ error }.to raise_error(Ekispert::ServerError)
+        expect { error }.to raise_error(Ekispert::ServerError)
       end
     end
   end
