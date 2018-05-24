@@ -8,6 +8,10 @@ AllCops:
 
 inherit_from: .rubocop_todo.yml
 
+# Use only ascii symbols in comments.
+AsciiComments:
+  Enabled: false
+
 # private does not make singleton methods private. Use private_class_method or private inside a class << self block instead.
 Lint/IneffectiveAccessModifier:
   Enabled: false
