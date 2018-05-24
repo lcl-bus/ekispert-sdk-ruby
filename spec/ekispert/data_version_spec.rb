@@ -25,16 +25,16 @@ RSpec.describe Ekispert::DataVersion do
       it 'Version instance has "create" method' do
         expect(data_version.version_list[0].create).to eq '20160202'
       end
-      it 'Version instance has "createType" method' do
-        expect(data_version.version_list[0].createType).to eq 'Edition'
+      it 'Version instance has "create_type" method' do
+        expect(data_version.version_list[0].create_type).to eq 'Edition'
       end
       it 'Version instance has "caption" method' do
         expect(data_version.version_list[0].caption).to eq '知識ベース'
       end
     end
     context 'Copyrights elements has "companyId" and "company" attributes' do
-      it 'Copyrights instance has "companyId" method' do
-        expect(data_version.copyrights_list[0].companyId).to eq '1'
+      it 'Copyrights instance has "company_id" method' do
+        expect(data_version.copyrights_list[0].company_id).to eq '1'
       end
       it 'Copyrights instance has "company" method' do
         expect(data_version.copyrights_list[0].company).to eq 'Example'
