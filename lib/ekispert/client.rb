@@ -40,6 +40,8 @@ module Ekispert
 
     def self.raise_error(res)
       case res.status
+      when 1
+        raise InternalError, 'Engine Error'
       when 400
         raise BadRequest.new(res)
       when 403

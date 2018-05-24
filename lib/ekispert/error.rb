@@ -12,7 +12,8 @@ module Ekispert
       EOS
       super(error_body)
     end
-  end # 400..499
+  end # 1,400..499
+  class InternalError < Error; end # 1
   class BadRequest < ClientError; end # 400
   class Forbidden < ClientError; end # 403
   class NotFound < ClientError; end # 404
