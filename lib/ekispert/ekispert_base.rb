@@ -30,8 +30,8 @@ module Ekispert
     # Ex. Station::Name class
     #     XML: <Name>東京</Name>
     # result:
-    #   instance.text #=> '東京'
-    #   instance.to_s #=> '東京'
+    #   Ekispert::Point::Statio::Name#text #=> '東京'
+    #   Ekispert::Point::Statio::Name#to_s #=> '東京'
     def set_method_from_text
       child_elem = @element.children[0]
       return unless child_elem&.text?
