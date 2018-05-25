@@ -50,7 +50,7 @@ RSpec.describe Ekispert::Point::Station do
   end
   describe '.convert_point_to_station' do
     let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
-    let(:point_list) { Ekispert::Point.to_point(parsed_xml) }
+    let(:point_list) { Ekispert::Point.send(:to_point, parsed_xml) }
     let(:station_list) { Ekispert::Point::Station.send(:convert_point_to_station, point_list) }
     context 'get Tokyo station' do
       let(:xml) { File.read('spec/sample_xml/point/tokyo_station.xml') }
