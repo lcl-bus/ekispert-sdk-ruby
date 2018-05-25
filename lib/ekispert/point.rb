@@ -1,6 +1,6 @@
 module Ekispert
   class Point < EkispertBase
-    attr_accessor :station_list, :prefecture_list, :geo_point_list, :gate_group_list
+    attr_accessor :station_list, :prefecture_list, :geo_point_list
 
     def initialize(element)
       @station_list = []
