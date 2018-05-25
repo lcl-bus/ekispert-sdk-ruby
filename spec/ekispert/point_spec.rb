@@ -52,37 +52,37 @@ RSpec.describe Ekispert::Point do
     context 'params include only code param' do
       let(:params) { { code: '22828' } }
       it 'should return "/station/light"' do
-        expect(Ekispert::Point::Station.send(:station_request_path, params)).to eq '/station/light'
+        expect(Ekispert::Point.send(:station_request_path, params)).to eq '/station/light'
       end
     end
     context 'params include code and gcs params' do
       let(:params) { { code: '22828', gcs: 'tokyo' } }
       it 'should return "/station"' do
-        expect(Ekispert::Point::Station.send(:station_request_path, params)).to eq '/station'
+        expect(Ekispert::Point.send(:station_request_path, params)).to eq '/station'
       end
     end
     context 'params include code and corporationBind params' do
       let(:params) { { name: '東京', corporationBind: 'JR' } }
       it 'should return "/station/light"' do
-        expect(Ekispert::Point::Station.send(:station_request_path, params)).to eq '/station/light'
+        expect(Ekispert::Point.send(:station_request_path, params)).to eq '/station/light'
       end
     end
     context 'params include corporationName param' do
       let(:params) { { corporationName: 'JR' } }
       it 'should return "/station"' do
-        expect(Ekispert::Point::Station.send(:station_request_path, params)).to eq '/station'
+        expect(Ekispert::Point.send(:station_request_path, params)).to eq '/station'
       end
     end
     context 'params include prefectureCode param' do
       let(:params) { { prefectureCode: '1' } }
       it 'should return "/station/light"' do
-        expect(Ekispert::Point::Station.send(:station_request_path, params)).to eq '/station/light'
+        expect(Ekispert::Point.send(:station_request_path, params)).to eq '/station/light'
       end
     end
     context 'params include prefectureCode and gcs params' do
       let(:params) { { prefectureCode: '1', gcs: 'tokyo' } }
       it 'should return "/station"' do
-        expect(Ekispert::Point::Station.send(:station_request_path, params)).to eq '/station'
+        expect(Ekispert::Point.send(:station_request_path, params)).to eq '/station'
       end
     end
   end
