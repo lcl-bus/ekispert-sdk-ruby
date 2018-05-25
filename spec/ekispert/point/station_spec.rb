@@ -1,9 +1,7 @@
 require 'spec_helper'
-require 'helper/ekispert/point/station_helper'
 
 RSpec.describe Ekispert::Point::Station do
   include Ekispert::SpecHelper::Config
-  include Ekispert::SpecHelper::Point::Station
 
   describe '.get' do
     before { set_ekispert_default_config }
@@ -51,10 +49,11 @@ RSpec.describe Ekispert::Point::Station do
     end
   end
   describe '.convert_point_to_station' do
+    let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
     let(:point_list) { Ekispert::Point.to_point(parsed_xml) }
     let(:station_list) { Ekispert::Point::Station.send(:convert_point_to_station, point_list) }
     context 'get Tokyo station' do
-      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, tokyo_station) }
+      let(:xml) { File.read('spec/sample_xml/point/tokyo_station.xml') }
       context 'params = { code: "22828" }' do
         context 'call Station#code' do
           it 'should return "22828"' do
@@ -95,7 +94,7 @@ RSpec.describe Ekispert::Point::Station do
         end
       end
       context "params = { code: '22671', gcs: 'tokyo', addGateGroup: 'true' }" do
-        let(:parsed_xml) { Ekispert::Client.send(:parse_xml, koenji_station_with_geopoint_and_gate_group) }
+        let(:xml) { File.read('spec/sample_xml/point/use_geopoint_and_gate_group.xml') }
         it 'Station instance can be called #geo_point_list' do
           expect(station_list[0].geo_point_list.size).to eq 1
         end
@@ -130,7 +129,7 @@ RSpec.describe Ekispert::Point::Station do
       # TODO: params include railName param
     end
     context 'use oldName param' do
-      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, old_station_name) }
+      let(:xml) { File.read('spec/sample_xml/point/use_old_station_name.xml') }
       context 'params = { oldName: "業平橋" }' do
         context 'call Station::Name#text' do
           it 'should return "とうきょうスカイツリー"' do

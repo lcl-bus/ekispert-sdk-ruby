@@ -1,9 +1,7 @@
 require 'spec_helper'
-require 'helper/ekispert/point/station_helper'
 
 RSpec.describe Ekispert::Point do
   include Ekispert::SpecHelper::Config
-  include Ekispert::SpecHelper::Point::Station
 
   describe '.get_station' do
     before { set_ekispert_default_config }

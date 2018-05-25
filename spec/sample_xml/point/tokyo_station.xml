@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResultSet apiVersion="1.14.0.0" engineVersion="201404_01a">
+  <Point>
+    <Station code="22828">
+      <Name>東京</Name>
+      <Yomi>とうきょう</Yomi>
+      <Type>train</Type>
+    </Station>
+    <Prefecture code="13">
+      <Name>東京都</Name>
+    </Prefecture>
+  </Point>
+</ResultSet>
