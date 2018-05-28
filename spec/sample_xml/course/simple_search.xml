@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResultSet apiVersion="1.27.0.0" engineVersion="201806_02a">
+  <Course searchType="departure" dataType="onTimetable">
+    <Route timeOther="5" timeOnBoard="42" exhaustCO2="891" index="1" exhaustCO2atPassengerCar="6804" distance="405" timeWalk="0" transferCount="1">
+      <Point index="1">
+        <Station code="22828">
+          <Name>東京</Name>
+          <Type>train</Type>
+          <Yomi>とうきょう</Yomi>
+        </Station>
+        <Prefecture code="13">
+          <Name>東京都</Name>
+        </Prefecture>
+        <GeoPoint longi="139.46.13.59" lati="35.40.41.9" longi_d="139.770444" gcs="tokyo" lati_d="35.678083"/>
+      </Point>
+      <Line stopStationCount="8" teiki3Index="1" teiki6Index="1" timeOnBoard="38" track="railway" exhaustCO2="858" fareIndex="1" index="1" exhaustCO2atPassengerCar="6552" distance="390" teiki1Index="1">
+        <Name>ＪＲ京葉線快速・蘇我行</Name>
+        <Type>train</Type>
+        <ArrivalState no="1・2">
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-06T15:56:00+09:00</Datetime>
+        </ArrivalState>
+        <Destination>蘇我</Destination>
+        <TimeReliability>onTimetable</TimeReliability>
+        <DepartureState no="京葉4">
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-06T15:18:00+09:00</Datetime>
+        </DepartureState>
+        <Color>220050085</Color>
+      </Line>
+      <Point index="2">
+        <Station code="22366">
+          <Name>千葉みなと</Name>
+          <Type>train</Type>
+          <Yomi>ちばみなと</Yomi>
+        </Station>
+        <Prefecture code="12">
+          <Name>千葉県</Name>
+        </Prefecture>
+        <GeoPoint longi="140.6.21.29" lati="35.36.13.9" longi_d="140.105916" gcs="tokyo" lati_d="35.603638"/>
+      </Point>
+      <Line stopStationCount="1" teiki3Index="2" teiki6Index="2" timeOnBoard="4" track="monorail" exhaustCO2="33" fareIndex="2" index="2" exhaustCO2atPassengerCar="252" distance="15" teiki1Index="2">
+        <Name>千葉モノレール・千城台行</Name>
+        <Type>train</Type>
+        <ArrivalState no="2">
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-06T16:05:00+09:00</Datetime>
+        </ArrivalState>
+        <Destination>千城台</Destination>
+        <TimeReliability>onTimetable</TimeReliability>
+        <DepartureState>
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-06T16:01:00+09:00</Datetime>
+        </DepartureState>
+        <Color>014110184</Color>
+      </Line>
+      <Point index="3">
+        <Station code="22361">
+          <Name>千葉</Name>
+          <Type>train</Type>
+          <Yomi>ちば</Yomi>
+        </Station>
+        <Prefecture code="12">
+          <Name>千葉県</Name>
+        </Prefecture>
+        <GeoPoint longi="140.7.2.0" lati="35.36.34.0" longi_d="140.117222" gcs="tokyo" lati_d="35.609444"/>
+      </Point>
+    </Route>
+    <Price kind="FareSummary">
+      <Oneway>840</Oneway>
+      <Round>1680</Round>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Fare" index="1" selected="true">
+      <Type>Fare</Type>
+      <Oneway>640</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+      <Round>1280</Round>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="2" fromLineIndex="2" kind="Fare" index="2" selected="true">
+      <Type>Fare</Type>
+      <Oneway>200</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+      <Round>400</Round>
+    </Price>
+    <Price kind="Teiki1Summary">
+      <Oneway>26710</Oneway>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Teiki1" index="1" selected="true">
+      <Type>Teiki1</Type>
+      <Oneway>18990</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="2" fromLineIndex="2" kind="Teiki1" index="2" selected="true">
+      <Type>Teiki1</Type>
+      <Oneway>7720</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <Price kind="Teiki3Summary">
+      <Oneway>76140</Oneway>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Teiki3" index="1" selected="true">
+      <Type>Teiki3</Type>
+      <Oneway>54130</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="2" fromLineIndex="2" kind="Teiki3" index="2" selected="true">
+      <Type>Teiki3</Type>
+      <Oneway>22010</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <Price kind="Teiki6Summary">
+      <Oneway>133200</Oneway>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Teiki6" index="1" selected="true">
+      <Type>Teiki6</Type>
+      <Oneway>91510</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="2" fromLineIndex="2" kind="Teiki6" index="2" selected="true">
+      <Type>Teiki6</Type>
+      <Oneway>41690</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <SerializeData>VkV4QaECp67IAsMCpgEz7noDpgEz7nkEkcIBQwAAAAKmATPueQPJAQECAQMBBAEHAQgBCgIPQv9_EKX_9wWVwQKlWSzBAqVXXsECpVdZwQKlV0XBAqVXVgaSwwEBAgEDxgGlM0ECAQMKBQMGRTE1MDlBCAPDAQECAQPFAaXtWgIBAwMHAQgEB5LFAaYBM|5|A6UDlgSlA7wFAAgAxgGmATPufgIBA6UDwQSlA8UFAAgACJLFBAEFAQYBB6RfCAHGAgEEAgUBBgEHpQHjCAIJksEDAcMBAQIBAwEPkcUBkwABAgKSwwEAAgADAMMBAQIBAwEDksMBAAIAAwDDAQECAQMBBJIAAQWSAAA*--T3221233232319:F332112212000:A23121141:--9bf891747e0d2ff70156bce1625fa8cc0db7f3ff--0--0--0--266</SerializeData>
+  </Course>
+  <Course searchType="departure" dataType="onTimetable">
+    <Route timeOther="0" timeOnBoard="42" exhaustCO2="862" index="2" exhaustCO2atPassengerCar="6585" distance="392" timeWalk="0" transferCount="0">
+      <Point index="1">
+        <Station code="22828">
+          <Name>東京</Name>
+          <Type>train</Type>
+          <Yomi>とうきょう</Yomi>
+        </Station>
+        <Prefecture code="13">
+          <Name>東京都</Name>
+        </Prefecture>
+        <GeoPoint longi="139.46.13.59" lati="35.40.41.9" longi_d="139.770444" gcs="tokyo" lati_d="35.678083"/>
+      </Point>
+      <Line stopStationCount="8" teiki3Index="1" chargeIndex="1" teiki6Index="1" timeOnBoard="42" track="railway" exhaustCO2="862" fareIndex="1" index="1" exhaustCO2atPassengerCar="6585" distance="392" teiki1Index="1">
+        <Name>ＪＲ総武線快速・千葉行</Name>
+        <Type>train</Type>
+        <ArrivalState no="9">
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-06T16:07:00+09:00</Datetime>
+        </ArrivalState>
+        <Destination>千葉</Destination>
+        <TimeReliability>onTimetable</TimeReliability>
+        <DepartureState no="総武3">
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-06T15:25:00+09:00</Datetime>
+        </DepartureState>
+        <Color>019033196</Color>
+      </Line>
+      <Point index="2">
+        <Station code="22361">
+          <Name>千葉</Name>
+          <Type>train</Type>
+          <Yomi>ちば</Yomi>
+        </Station>
+        <Prefecture code="12">
+          <Name>千葉県</Name>
+        </Prefecture>
+        <GeoPoint longi="140.7.2.0" lati="35.36.34.0" longi_d="140.117222" gcs="tokyo" lati_d="35.609444"/>
+      </Point>
+    </Route>
+    <Price kind="FareSummary">
+      <Oneway>640</Oneway>
+      <Round>1280</Round>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Fare" index="1" selected="true">
+      <Type>Fare</Type>
+      <Oneway>640</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+      <Round>1280</Round>
+    </Price>
+    <Price kind="ChargeSummary">
+      <Oneway>0</Oneway>
+      <Round>0</Round>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Charge" index="1" selected="true">
+      <Name>自由席</Name>
+      <Type>Free</Type>
+      <Oneway>0</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+      <Round>0</Round>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Charge" index="2" selected="false">
+      <Name>グリーン(事前購入時)</Name>
+      <Type>Green</Type>
+      <Oneway>770</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+      <Round>1540</Round>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Charge" index="3" selected="false">
+      <Name>グリーン(車内購入時)</Name>
+      <Type>GreenInCar</Type>
+      <Oneway>1030</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+      <Round>2060</Round>
+    </Price>
+    <Price kind="Teiki1Summary">
+      <Oneway>19060</Oneway>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Teiki1" index="1" vehicleIndex="1" selected="true">
+      <Type>Teiki1</Type>
+      <Oneway>19060</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <Price kind="Teiki3Summary">
+      <Oneway>54340</Oneway>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Teiki3" index="1" vehicleIndex="1" selected="true">
+      <Type>Teiki3</Type>
+      <Oneway>54340</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <Price kind="Teiki6Summary">
+      <Oneway>91510</Oneway>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Teiki6" index="1" vehicleIndex="1" selected="true">
+      <Type>Teiki6</Type>
+      <Oneway>91510</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <SerializeData>VkV4QaECp07JAsMCpgEz7noDpgEz7nkEkcIBQwAAAAKmATPueQPJAQECAQMBBAEHAQgBCgIPQv9_EKX_9wWTwQKlWSzBAqVXWcECpVqxBpHDAQECAQPHAaWXzgIOAxcFAwZFMTQwNUYHAggBB5HGAaYBM|5|A6UDnQSlA8cFAAYCCAAIkcUEAQUBBgEHpF4IAQmRwQMBC5HBAwEPkcYBkgABApHDAQACAAMAA5HDAQACAAMABJEABZEABpEA--T3221233232319:F332112212000:A23121141:--efdd569c8ccbfb838f4d41a84e740f0cfed5cb82--0--0--0--189</SerializeData>
+    <PassStatus teiki3Index="1" teiki6Index="1" kind="vehicle" index="1" selected="true" teiki1Index="1">
+      <Name>普通</Name>
+      <Type>Normal</Type>
+    </PassStatus>
+    <PassStatus teiki3Index="1" teiki6Index="1" kind="vehicle" index="2" selected="false" teiki1Index="1">
+      <Name>グリーン</Name>
+      <Type>Green</Type>
+    </PassStatus>
+  </Course>
+</ResultSet>
