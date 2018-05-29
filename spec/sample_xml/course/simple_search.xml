@@ -226,6 +226,7 @@
     <PassStatus teiki3Index="1" teiki6Index="1" kind="vehicle" index="1" selected="true" teiki1Index="1">
       <Name>普通</Name>
       <Type>Normal</Type>
+      <Comment>Dummy</Comment>
     </PassStatus>
     <PassStatus teiki3Index="1" teiki6Index="1" kind="vehicle" index="2" selected="false" teiki1Index="1">
       <Name>グリーン</Name>

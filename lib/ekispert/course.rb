@@ -1,10 +1,11 @@
 module Ekispert
   class Course < EkispertBase
-    attr_accessor :route_list, :price_list
+    attr_accessor :route_list, :price_list, :pass_status_list
 
     def initialize(element)
       @route_list = []
       @price_list = []
+      @pass_status_list = []
       super(element)
     end
 

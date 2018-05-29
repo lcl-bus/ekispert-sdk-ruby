@@ -41,6 +41,12 @@ RSpec.describe Ekispert::Course do
             expect(course.price_list[0].class).to eq Ekispert::Course::Price
           end
         end
+        describe '#pass_status_list' do
+          let(:course) { course_list[1] }
+          it 'return Array and contains Course::PassStatus instance' do
+            expect(course.pass_status_list[0].class).to eq Ekispert::Course::PassStatus
+          end
+        end
       end
     end
   end
