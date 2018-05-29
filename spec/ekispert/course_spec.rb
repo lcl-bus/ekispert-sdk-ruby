@@ -36,6 +36,11 @@ RSpec.describe Ekispert::Course do
             expect(course.route_list[0].class).to eq Ekispert::Course::Route
           end
         end
+        describe '#price_list' do
+          it 'return Array and contains Course::Price instance' do
+            expect(course.price_list[0].class).to eq Ekispert::Course::Price
+          end
+        end
       end
     end
   end

@@ -86,6 +86,7 @@
       <Type>Reserved</Type>
       <Oneway>5500</Oneway>
       <RevisionStatus>latest</RevisionStatus>
+      <RevisionStatusComment>DummyData</RevisionStatusComment>
       <Round>11000</Round>
       <Rate area="Main">Low</Rate>
     </Price>
