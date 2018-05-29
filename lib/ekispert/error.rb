@@ -6,8 +6,8 @@ module Ekispert
       error_body = <<-EOS
         status : #{res.status}
         URL : #{res.env.url}"
-        message : #{Nokogiri::XML(res.body).xpath('/ResultSet/Error/Message').map(&:text).join(', ')}
         \n
+        message : #{Nokogiri::XML(res.body).xpath('/ResultSet/Error/Message').map(&:text).join("\n")}
       EOS
       super(error_body)
     end
