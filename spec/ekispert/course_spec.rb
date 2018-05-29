@@ -47,6 +47,11 @@ RSpec.describe Ekispert::Course do
             expect(course.pass_status_list[0].class).to eq Ekispert::Course::PassStatus
           end
         end
+        describe '#serialize_data_list' do
+          it 'return Array and contains Course::SerializeData instance' do
+            expect(course.serialize_data_list[0].class).to eq Ekispert::Course::SerializeData
+          end
+        end
       end
     end
   end
