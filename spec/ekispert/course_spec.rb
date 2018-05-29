@@ -31,6 +31,11 @@ RSpec.describe Ekispert::Course do
             expect(course.search_type).to eq 'departure'
           end
         end
+        describe '#route_list' do
+          it 'return Array and contains Course::Route instance' do
+            expect(course.route_list[0].class).to eq Ekispert::Course::Route
+          end
+        end
       end
     end
   end
