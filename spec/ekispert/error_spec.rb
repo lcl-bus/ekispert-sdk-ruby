@@ -7,19 +7,19 @@ RSpec.describe Ekispert::Error do
       Faraday.new do |conn|
         conn.adapter :test, Faraday::Adapter::Test::Stubs.new do |stub|
           stub.get('internalerror') do
-            [1, {}, 'InternalError' ]
+            [1, {}, 'InternalError']
           end
           stub.get('badrequest') do
-            [400, {}, 'BadRequest error' ]
+            [400, {}, 'BadRequest error']
           end
           stub.get('forbidden') do
-            [403, {}, 'Forbidden error' ]
+            [403, {}, 'Forbidden error']
           end
           stub.get('clienterror') do
-            [450, {}, 'ClientError' ]
+            [450, {}, 'ClientError']
           end
           stub.get('servererror') do
-            [500, {}, 'ServerError' ]
+            [500, {}, 'ServerError']
           end
         end
       end
