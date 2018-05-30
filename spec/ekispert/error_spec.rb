@@ -25,7 +25,7 @@ RSpec.describe Ekispert::Error do
       end
     end
 
-    context '1 error' do
+    context '001 error' do
       let(:res) { stub_conn.get('internalerror') }
       it 'Ekispert::InternalError class' do
         expect { error }.to raise_error(Ekispert::InternalError)
