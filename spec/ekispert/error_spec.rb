@@ -1,8 +1,8 @@
 require 'helper/ekispert/error_helper'
 
-RSpec.describe Ekispert::Error do
-  describe 'test raise_error' do
     let(:error) { Ekispert::Client .send(:raise_error, res) }
+RSpec.describe Ekispert::Client do
+  describe '.raise_error' do
     let!(:stub_conn) do
       Faraday.new do |conn|
         conn.adapter :test, Faraday::Adapter::Test::Stubs.new do |stub|
