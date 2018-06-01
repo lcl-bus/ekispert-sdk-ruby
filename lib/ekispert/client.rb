@@ -41,17 +41,17 @@ module Ekispert
     def self.raise_error(res)
       case res.status
       when 1
-        raise InternalError, 'Engine Error'
+        raise Error::InternalError, 'Engine Error'
       when 400
-        raise BadRequest, res
+        raise Error::BadRequest, res
       when 403
-        raise Forbidden, res
+        raise Error::Forbidden, res
       when 404
-        raise NotFound, res
+        raise Error::NotFound, res
       when 400..499
-        raise ClientError, res
+        raise Error::ClientError, res
       when 500..599
-        raise ServerError, 'OMG!'
+        raise Error::ServerError, 'OMG!'
       end
     end
   end
