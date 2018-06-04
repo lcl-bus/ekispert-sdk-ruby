@@ -7,13 +7,14 @@ RSpec.describe Ekispert::Client do
     let(:error) { Ekispert::Client.send(:raise_error, res) }
     let(:res_data) { Ekispert::ClientError.new(res) }
     let(:stub_conn) { Faraday::Adapter::Test::Stubs.new }
-    let(:error_msg) { <<-EOS
+    let(:error_msg) do
+      <<-EOS
           \n
           status  : #{res.status}
           URL     : #{res.env.url}"
           message : #{Nokogiri::XML(res.body).xpath('/ResultSet/Error/Message').map(&:text).join("\n")}
         EOS
-      }
+    end
 
     context '001 error' do
       let(:res) { test_faraday.get('/internalerror') }
