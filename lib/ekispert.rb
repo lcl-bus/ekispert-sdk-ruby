@@ -1,6 +1,7 @@
 require 'faraday'
 require 'faraday_middleware'
 require 'nokogiri'
+require 'yaml'
 
 require 'ekispert/util'
 require 'ekispert/ekispert_base'
