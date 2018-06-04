@@ -59,15 +59,12 @@ module Ekispert
       #   Point::Station#prefecture_list
       #   Point::Station#geo_point_list
       def self.convert_point_to_station(point_list)
-        converted_station_list = []
-        point_list.each do |point|
-          point.station_list.each do |station|
-            station.prefecture_list = point.prefecture_list
-            station.geo_point_list = point.geo_point_list
-            converted_station_list << station
-          end
+        point_list.map do |point|
+          station = point.station_list[0]
+          station.prefecture_list = point.prefecture_list
+          station.geo_point_list = point.geo_point_list
+          station
         end
-        converted_station_list
       end
     end
   end

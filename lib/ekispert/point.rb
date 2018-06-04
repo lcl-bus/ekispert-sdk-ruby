@@ -23,9 +23,7 @@ module Ekispert
     end
 
     def self.to_point(elem_arr)
-      point_list = []
-      elem_arr.xpath('//Point').each { |point_elem| point_list << self.new(point_elem) }
-      point_list
+      elem_arr.xpath('//Point').map { |elem| self.new(elem) }
     end
   end
 end
