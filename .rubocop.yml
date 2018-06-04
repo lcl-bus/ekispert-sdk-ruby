@@ -21,7 +21,7 @@ Lint/UselessAccessModifier:
   Enabled: false
 
 Metrics/LineLength:
-  Max: 260
+  Max: 120
 
 # Missing top-level class documentation comment.
 Style/Documentation:
