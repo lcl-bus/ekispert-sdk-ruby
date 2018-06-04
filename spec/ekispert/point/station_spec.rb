@@ -67,65 +67,31 @@ RSpec.describe Ekispert::Point::Station do
             expect(station_list[0].name_list[0].text).to eq '東京'
           end
         end
-        context 'call Station::Name#to_s' do
-          it 'should return "東京"' do
-            expect(station_list[0].name_list[0].to_s).to eq '東京'
-          end
-        end
         context 'call Station::Yomi#text' do
           it 'should return "とうきょう"' do
             expect(station_list[0].yomi_list[0].text).to eq 'とうきょう'
           end
         end
-        context 'Station::Yomi#to_s' do
-          it 'should return "とうきょう"' do
-            expect(station_list[0].yomi_list[0].to_s).to eq 'とうきょう'
-          end
+        it 'Station instance has Point::Prefecture instance' do
+          expect(station_list[0].prefecture_list[0].class).to eq Ekispert::Point::Prefecture
         end
-        it 'Station instance can be called #prefecture_list' do
-          expect(station_list[0].prefecture_list.size).to eq 1
-        end
-        it 'Station instance can be called Point::Prefecture#code' do
-          expect(station_list[0].prefecture_list[0].code).to eq '13'
-        end
-        it 'Station instance can be called Point::Prefecture::Name#text' do
-          expect(station_list[0].prefecture_list[0].name_list[0].text).to eq '東京都'
-        end
-        it 'Station instance can be called Point::Prefecture::Name#to_s' do
-          expect(station_list[0].prefecture_list[0].name_list[0].to_s).to eq '東京都'
+        it 'Station instance has Point::Prefecture::Name insance' do
+          expect(station_list[0].prefecture_list[0].name_list[0].class).to eq Ekispert::Point::Prefecture::Name
         end
       end
       context "params = { code: '22671', gcs: 'tokyo', addGateGroup: 'true' }" do
         let(:xml) { read_xml('point/use_geopoint_and_gate_group.xml') }
-        it 'Station instance can be called #geo_point_list' do
-          expect(station_list[0].geo_point_list.size).to eq 1
+        it 'Station instance has Point::Station::GeoPoint instance' do
+          expect(station_list[0].geo_point_list[0].class).to eq Ekispert::Point::Station::GeoPoint
         end
-        it 'Station instance can be called Point::Point::GeoPoint#longi' do
-          expect(station_list[0].geo_point_list[0].longi).to eq '139.39.10.89'
+        it 'Station instance has Point::Station::GateGroup::Gate instance' do
+          expect(station_list[0].gate_group_list[0].gate_list[0].class).to eq Ekispert::Point::Station::GateGroup::Gate
         end
-        it 'Station instance can be called Point::GeoPoint#lati' do
-          expect(station_list[0].geo_point_list[0].lati).to eq '35.42.7.59'
+        it 'Station instance has Point::Station::GateGroup::Gate::Name instance' do
+          expect(station_list[0].gate_group_list[0].gate_list[0].name_list[0].class).to eq Ekispert::Point::Station::GateGroup::Gate::Name
         end
-        it 'Station instance can be called Point::GeoPoint#longi_d' do
-          expect(station_list[0].geo_point_list[0].longi_d).to eq '139.653027'
-        end
-        it 'Station instance can be called Point::GeoPoint#lati_d' do
-          expect(station_list[0].geo_point_list[0].lati_d).to eq '35.70211'
-        end
-        it 'Station instance can be called Point::GeoPoint#gcs' do
-          expect(station_list[0].geo_point_list[0].gcs).to eq 'tokyo'
-        end
-        it 'Station instance can be called #gate_group_list' do
-          expect(station_list[0].gate_group_list.size).to eq 1
-        end
-        it 'Station instance can be called Point::GateGroup::Gate#code' do
-          expect(station_list[0].gate_group_list[0].gate_list[0].code).to eq 'G3929'
-        end
-        it 'Station instance can be called Point::GateGroup::Gate::Name#text' do
-          expect(station_list[0].gate_group_list[0].gate_list[0].name_list[0].text).to eq '南口'
-        end
-        it 'Station instance can be called Point::GateGroup::Gate::GeoPoint#gcs' do
-          expect(station_list[0].gate_group_list[0].gate_list[0].geo_point_list[0].gcs).to eq 'tokyo'
+        it 'Station instance has Point::Station::GateGroup::Gate::GeoPoint instance' do
+          expect(station_list[0].gate_group_list[0].gate_list[0].geo_point_list[0].class).to eq Ekispert::Point::Station::GateGroup::Gate::GeoPoint
         end
       end
       # TODO: params include railName param
