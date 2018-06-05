@@ -20,8 +20,17 @@ Lint/IneffectiveAccessModifier:
 Lint/UselessAccessModifier:
   Enabled: false
 
+# Offense count: 12
+# Configuration parameters: CountComments, ExcludedMethods.
+Metrics/BlockLength:
+  Max: 108
+  Exclude:
+    - 'spec/**/*'
+
 Metrics/LineLength:
   Max: 120
+  Exclude:
+    - 'spec/**/*'
 
 # Missing top-level class documentation comment.
 Style/Documentation:
