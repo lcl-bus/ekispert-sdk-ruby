@@ -23,6 +23,9 @@ Lint/UselessAccessModifier:
 Metrics/LineLength:
   Max: 120
 
+Metrics/BlockLength:
+  Max: 104
+
 # Missing top-level class documentation comment.
 Style/Documentation:
   Enabled: false
@@ -49,3 +52,7 @@ Style/RedundantSelf:
 # Use !empty? instead of size > 0.
 Style/ZeroLengthPredicate:
   Enabled: false
+
+Style/CommentedKeyword:
+  Exclude:
+    - 'lib/ekispert/error.rb'
