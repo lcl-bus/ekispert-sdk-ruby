@@ -1,11 +1,11 @@
 module Ekispert
   class Information
-    attr_accessor :line_list, :corporation_list, :welfarefacilities_list, :exit_list, :type_list
+    attr_accessor :line_list, :corporation_list, :welfare_facilities_list, :exit_list, :type_list
 
     def initialize
       @line_list = []
       @corporation_list = []
-      @welfarefacilities_list = []
+      @welfare_facilities_list = []
       @exit_list = []
       @type_list = []
     end
