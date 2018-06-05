@@ -7,7 +7,7 @@ module Ekispert
       api_key: ENV['EKISPERT_API_KEY']
     }.freeze
     DEFAULTS.each do |option, value|
-      class_eval %Q{
+      class_eval %{
         class << self
           attr_accessor :#{option}
         end
