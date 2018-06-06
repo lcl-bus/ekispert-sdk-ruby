@@ -32,6 +32,10 @@ Metrics/LineLength:
   Exclude:
     - 'spec/**/*'
 
+# Method has too many lines.
+Metrics/MethodLength:
+  Enabled: false
+
 # Missing top-level class documentation comment.
 Style/Documentation:
   Enabled: false
