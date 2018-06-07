@@ -26,7 +26,7 @@ RSpec.describe Ekispert::Information do
         expect(information[0].line_list[0].class).to eq Ekispert::Information::Line
       end
       it 'Name element is included Ekispert::Information::Line instance' do
-        expect(information[0].line_list[0].name_list[0].text).to eq "ＪＲ新幹線のぞみ"
+        expect(information[0].line_list[0].name_list[0].text).to eq 'ＪＲ新幹線のぞみ'
       end
       it 'Type element is included Ekispert::Information::Line instance' do
         expect(information[0].line_list[0].type_list[0].text).to eq 'train'
@@ -38,7 +38,7 @@ RSpec.describe Ekispert::Information do
         expect(information[0].corporation_list[0].class).to eq Ekispert::Information::Corporation
       end
       it 'Corporation element is included Ekispert::Information::Corporation instance' do
-        expect(information[0].corporation_list[0].name_list[0].text).to eq "ＪＲ"
+        expect(information[0].corporation_list[0].name_list[0].text).to eq 'ＪＲ'
       end
       it 'type_list in Ekispert::Information::Type instance' do
         expect(information[0].type_list[0].class).to eq Ekispert::Information::Type
@@ -59,7 +59,7 @@ RSpec.describe Ekispert::Information do
         expect(information[0].line_list[0].class).to eq Ekispert::Information::Line
       end
       it 'Name element is included Ekispert::Information::Line instance' do
-        expect(information[0].line_list[0].name_list[0].text).to eq "ＪＲ新幹線ひかり(東京－博多)"
+        expect(information[0].line_list[0].name_list[0].text).to eq 'ＪＲ新幹線ひかり(東京－博多)'
       end
       it 'Type element is included Ekispert::Information::Line instance' do
         expect(information[0].line_list[0].type_list[0].text).to eq 'train'
@@ -71,7 +71,7 @@ RSpec.describe Ekispert::Information do
         expect(information[0].corporation_list[0].class).to eq Ekispert::Information::Corporation
       end
       it 'Corporation element is included Ekispert::Information::Corporation instance' do
-        expect(information[0].corporation_list[0].name_list[0].text).to eq "ＪＲ"
+        expect(information[0].corporation_list[0].name_list[0].text).to eq 'ＪＲ'
       end
       it 'type_list in Ekispert::Information::Type instance' do
         expect(information[0].type_list[0].class).to eq Ekispert::Information::Type
@@ -86,7 +86,7 @@ RSpec.describe Ekispert::Information do
         expect(information[-1].exit_list[0].class).to eq Ekispert::Information::Exit
       end
       it 'Name element is included Ekispert::Information::Exit instance' do
-        expect(information[-1].exit_list[0].name_list[0].text).to eq "１出口"
+        expect(information[-1].exit_list[0].name_list[0].text).to eq '１出口'
       end
       it 'Ekispert::Information::Exit instance not in Ekispert::Information::Line instance' do
         expect(information[-1].line_list).to be_empty
@@ -101,7 +101,7 @@ RSpec.describe Ekispert::Information do
         expect(information[0].line_list[0].class).to eq Ekispert::Information::Line
       end
       it 'Name element of RailInstance is included Ekispert::Information::Line RailInstance' do
-        expect(information[0].line_list[0].name_list[0].text).to eq "ＪＲ新幹線やまびこ"
+        expect(information[0].line_list[0].name_list[0].text).to eq 'ＪＲ新幹線やまびこ'
       end
       it 'Type element of RailInstance is included Ekispert::Information::Line RailInstance' do
         expect(information[0].line_list[0].type_list[0].text).to eq 'train'
@@ -113,7 +113,7 @@ RSpec.describe Ekispert::Information do
         expect(information[0].corporation_list[0].class).to eq Ekispert::Information::Corporation
       end
       it 'Corporation element of RailInstance is included Ekispert::Information::Corporation RailInstance' do
-        expect(information[0].corporation_list[0].name_list[0].text).to eq "ＪＲ"
+        expect(information[0].corporation_list[0].name_list[0].text).to eq 'ＪＲ'
       end
       it 'type_list in Ekispert::Information::Type RailInstance' do
         expect(information[0].type_list[0].class).to eq Ekispert::Information::Type
@@ -125,7 +125,7 @@ RSpec.describe Ekispert::Information do
         expect(information[-1].line_list[0].class).to eq Ekispert::Information::Line
       end
       it 'Name element of NearraailInstance is included Ekispert::Information::Line NearraailInstance' do
-        expect(information[-1].line_list[0].name_list[0].text).to eq "都営バス・Ｓ－１(東京駅丸の内北口－錦糸町駅前)"
+        expect(information[-1].line_list[0].name_list[0].text).to eq '都営バス・Ｓ－１(東京駅丸の内北口－錦糸町駅前)'
       end
       it 'Type element of NearraailInstance is included Ekispert::Information::Line NearraailInstance' do
         expect(information[-1].line_list[0].type_list[0].text).to eq 'bus'
@@ -137,7 +137,7 @@ RSpec.describe Ekispert::Information do
         expect(information[-1].corporation_list[0].class).to eq Ekispert::Information::Corporation
       end
       it 'Corporation element of NearraailInstance is included Ekispert::Information::Corporation NearraailInstance' do
-        expect(information[-1].corporation_list[0].name_list[0].text).to eq "都営バス"
+        expect(information[-1].corporation_list[0].name_list[0].text).to eq '都営バス'
       end
       it 'type_list in Ekispert::Information::Type NearraailInstance' do
         expect(information[-1].type_list[0].class).to eq Ekispert::Information::Type
