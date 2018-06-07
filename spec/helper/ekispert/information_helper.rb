@@ -72,6 +72,7 @@ module Ekispert
                 <Name>都営バス・Ｓ－１(東京駅丸の内北口－錦糸町駅前)</Name>
                 <Type detail="local">bus</Type>
                 <Color>015128015</Color>
+              </Line>
             </Information>
           </ResultSet>
         XML_TAG
