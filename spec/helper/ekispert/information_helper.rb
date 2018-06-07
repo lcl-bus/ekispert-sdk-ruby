@@ -30,9 +30,9 @@ module Ekispert
               </Corporation>
               <Type>rail</Type>
               <Line corporationIndex="1">
-                <Name>ＪＲ新幹線のぞみ</Name>
+                <Name>ＪＲ新幹線ひかり(東京－博多)</Name>
                 <Type detail="shinkansen">train</Type>
-                <Color>051102255</Color>
+                <Color>001044255</Color>
               </Line>
             </Information>
             <Information>
@@ -58,9 +58,9 @@ module Ekispert
               </Corporation>
               <Type>rail</Type>
               <Line corporationIndex="1">
-                <Name>ＪＲ新幹線のぞみ</Name>
+                <Name>ＪＲ新幹線やまびこ</Name>
                 <Type detail="shinkansen">train</Type>
-                <Color>051102255</Color>
+                <Color>000208030</Color>
               </Line>
             </Information>
             <Information>
@@ -69,9 +69,9 @@ module Ekispert
               </Corporation>
               <Type>nearrail</Type>
               <Line corporationIndex="1">
-                <Name>ＪＲ新幹線のぞみ</Name>
+                <Name>ＪＲ新幹線たにがわ</Name>
                 <Type detail="shinkansen">train</Type>
-                <Color>051102255</Color>
+                <Color>000208030</Color>
               </Line>
             </Information>
           </ResultSet>
