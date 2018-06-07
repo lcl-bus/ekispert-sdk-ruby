@@ -1,6 +1,7 @@
 require 'faraday'
 require 'faraday_middleware'
 require 'nokogiri'
+require 'yaml'
 
 require 'ekispert/util'
 require 'ekispert/ekispert_base'
@@ -9,3 +10,8 @@ require 'ekispert/config'
 require 'ekispert/client'
 require 'ekispert/data_version'
 require 'ekispert/error'
+require 'ekispert/point'
+require 'ekispert/point/station'
+require 'ekispert/point/prefecture'
+require 'ekispert/point/geo_point'
+

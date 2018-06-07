@@ -1,0 +1,9 @@
+- :oldName
+- :corporationName
+- :railName
+- :operationLineCode
+- :offset
+- :limit
+- :direction
+- :addGateGroup
+- :gcs
