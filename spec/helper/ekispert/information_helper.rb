@@ -65,14 +65,13 @@ module Ekispert
             </Information>
             <Information>
               <Corporation index="1">
-                <Name>ＪＲ</Name>
+                <Name>都営バス</Name>
               </Corporation>
               <Type>nearrail</Type>
               <Line corporationIndex="1">
-                <Name>ＪＲ新幹線たにがわ</Name>
-                <Type detail="shinkansen">train</Type>
-                <Color>000208030</Color>
-              </Line>
+                <Name>都営バス・Ｓ－１(東京駅丸の内北口－錦糸町駅前)</Name>
+                <Type detail="local">bus</Type>
+                <Color>015128015</Color>
             </Information>
           </ResultSet>
         XML_TAG

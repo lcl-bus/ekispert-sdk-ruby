@@ -125,19 +125,19 @@ RSpec.describe Ekispert::Information do
         expect(information[-1].line_list[0].class).to eq Ekispert::Information::Line
       end
       it 'Name element of NearraailInstance is included Ekispert::Information::Line NearraailInstance' do
-        expect(information[-1].line_list[0].name_list[0].text).to eq "ＪＲ新幹線たにがわ"
+        expect(information[-1].line_list[0].name_list[0].text).to eq "都営バス・Ｓ－１(東京駅丸の内北口－錦糸町駅前)"
       end
       it 'Type element of NearraailInstance is included Ekispert::Information::Line NearraailInstance ' do
-        expect(information[-1].line_list[0].type_list[0].text).to eq 'train'
+        expect(information[-1].line_list[0].type_list[0].text).to eq 'bus'
       end
       it 'Color element of NearraailInstance is included Ekispert::Information::Line NearraailInstance ' do
-        expect(information[-1].line_list[0].color_list[0].text).to eq '000208030'
+        expect(information[-1].line_list[0].color_list[0].text).to eq '015128015'
       end
       it 'Ekispert::Information::Corporation NearraailInstance in corporation_list' do
         expect(information[-1].corporation_list[0].class).to eq Ekispert::Information::Corporation
       end
       it 'Corporation element of NearraailInstance is included Ekispert::Information::Corporation NearraailInstance' do
-        expect(information[-1].corporation_list[0].name_list[0].text).to eq "ＪＲ"
+        expect(information[-1].corporation_list[0].name_list[0].text).to eq "都営バス"
       end
       it 'type_list in Ekispert::Information::Type NearraailInstance' do
         expect(information[-1].type_list[0].class).to eq Ekispert::Information::Type
