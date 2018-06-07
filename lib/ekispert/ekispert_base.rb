@@ -47,11 +47,11 @@ module Ekispert
     #       </Point>
     # result:
     #   before:
-    #     Ekispert::Point#station_list = []
-    #     Ekispert::Point#prefecture_list = []
+    #     Ekispert::Point#station_list    #=> []
+    #     Ekispert::Point#prefecture_list #=> []
     #   after:
-    #     Ekispert::Point#station_list = [#<Ekispert::Point::Station @...>]
-    #     Ekispert::Point#prefecture_list = [#<Ekispert::Point::Prefecture @...>]
+    #     Ekispert::Point#station_list    #=> [#<Ekispert::Point::Station @...>]
+    #     Ekispert::Point#prefecture_list #=> [#<Ekispert::Point::Prefecture @...>]
     def update_class_list_variable
       @element.children.each do |element|
         elem_name = element.name.to_sym
