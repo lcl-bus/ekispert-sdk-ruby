@@ -28,10 +28,10 @@ RSpec.describe Ekispert::Information do
       it 'Name element is included Ekispert::Information::Line instance' do
         expect(information[0].line_list[0].name_list[0].text).to eq "ＪＲ新幹線のぞみ"
       end
-      it 'Type element is included Ekispert::Information::Line instance ' do
+      it 'Type element is included Ekispert::Information::Line instance' do
         expect(information[0].line_list[0].type_list[0].text).to eq 'train'
       end
-      it 'Color element is included Ekispert::Information::Line instance ' do
+      it 'Color element is included Ekispert::Information::Line instance' do
         expect(information[0].line_list[0].color_list[0].text).to eq '051102255'
       end
       it 'corporation_list in Ekispert::Information::Corporation instance' do
@@ -58,13 +58,13 @@ RSpec.describe Ekispert::Information do
       it 'Ekispert::Information::Line instance in line_list' do
         expect(information[0].line_list[0].class).to eq Ekispert::Information::Line
       end
-      it 'Name element is included Ekispert::Information::Line instance ' do
+      it 'Name element is included Ekispert::Information::Line instance' do
         expect(information[0].line_list[0].name_list[0].text).to eq "ＪＲ新幹線ひかり(東京－博多)"
       end
-      it 'Type element is included Ekispert::Information::Line instance ' do
+      it 'Type element is included Ekispert::Information::Line instance' do
         expect(information[0].line_list[0].type_list[0].text).to eq 'train'
       end
-      it 'Color element is included Ekispert::Information::Line instance ' do
+      it 'Color element is included Ekispert::Information::Line instance' do
         expect(information[0].line_list[0].color_list[0].text).to eq '001044255'
       end
       it 'Ekispert::Information::Corporation instance in corporation_list' do
@@ -103,10 +103,10 @@ RSpec.describe Ekispert::Information do
       it 'Name element of RailInstance is included Ekispert::Information::Line RailInstance' do
         expect(information[0].line_list[0].name_list[0].text).to eq "ＪＲ新幹線やまびこ"
       end
-      it 'Type element of RailInstance is included Ekispert::Information::Line RailInstance ' do
+      it 'Type element of RailInstance is included Ekispert::Information::Line RailInstance' do
         expect(information[0].line_list[0].type_list[0].text).to eq 'train'
       end
-      it 'Color element of is included Ekispert::Information::Line RailInstance ' do
+      it 'Color element of is included Ekispert::Information::Line RailInstance' do
         expect(information[0].line_list[0].color_list[0].text).to eq '000208030'
       end
       it 'Ekispert::Information::Corporation RailInstance in corporation_list' do
@@ -127,10 +127,10 @@ RSpec.describe Ekispert::Information do
       it 'Name element of NearraailInstance is included Ekispert::Information::Line NearraailInstance' do
         expect(information[-1].line_list[0].name_list[0].text).to eq "都営バス・Ｓ－１(東京駅丸の内北口－錦糸町駅前)"
       end
-      it 'Type element of NearraailInstance is included Ekispert::Information::Line NearraailInstance ' do
+      it 'Type element of NearraailInstance is included Ekispert::Information::Line NearraailInstance' do
         expect(information[-1].line_list[0].type_list[0].text).to eq 'bus'
       end
-      it 'Color element of NearraailInstance is included Ekispert::Information::Line NearraailInstance ' do
+      it 'Color element of NearraailInstance is included Ekispert::Information::Line NearraailInstance' do
         expect(information[-1].line_list[0].color_list[0].text).to eq '015128015'
       end
       it 'Ekispert::Information::Corporation NearraailInstance in corporation_list' do
