@@ -68,4 +68,3 @@ module Ekispert
     end
   end
 end
-
