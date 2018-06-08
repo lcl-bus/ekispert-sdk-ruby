@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Ekispert::VERSION
   spec.authors       = ['Ekispert Web Service']
 
-  spec.summary       = %q{Ekispert API Client}
-  spec.description   = %q{wrapper for the Ekispert API}
+  spec.summary       = %q(Ekispert API Client)
+  spec.description   = %q(wrapper for the Ekispert API)
   spec.homepage      = 'https://github.com/EkispertWebService/ekispert-sdk-ruby/'
   spec.license       = 'MIT'
 
