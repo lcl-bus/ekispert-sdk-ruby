@@ -47,6 +47,10 @@ Metrics/MethodLength:
 Naming/HeredocDelimiterNaming:
   Enabled: false
 
+# Do not place comments on the same line as the class keyword.
+Style/CommentedKeyword:
+  Enabled: false
+
 # Missing top-level class documentation comment.
 Style/Documentation:
   Enabled: false

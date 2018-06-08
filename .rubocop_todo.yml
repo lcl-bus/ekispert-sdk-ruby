@@ -20,11 +20,6 @@ Layout/SpaceAroundOperators:
   Exclude:
     - 'ekispert-sdk-ruby.gemspec'
 
-# Offense count: 5
-Style/CommentedKeyword:
-  Exclude:
-    - 'lib/ekispert/error.rb'
-
 # Offense count: 1
 Style/EvalWithLocation:
   Exclude:
