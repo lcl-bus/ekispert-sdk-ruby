@@ -21,11 +21,6 @@ Layout/SpaceAroundOperators:
     - 'ekispert-sdk-ruby.gemspec'
 
 # Offense count: 1
-Style/EvalWithLocation:
-  Exclude:
-    - 'lib/ekispert/config.rb'
-
-# Offense count: 1
 # Cop supports --auto-correct.
 Style/MutableConstant:
   Exclude:
