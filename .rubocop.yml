@@ -31,6 +31,9 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
 
+Metrics/CyclomaticComplexity:
+  Max: 10
+
 Metrics/LineLength:
   Max: 120
   Exclude:

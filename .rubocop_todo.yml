@@ -20,10 +20,6 @@ Layout/SpaceAroundOperators:
   Exclude:
     - 'ekispert-sdk-ruby.gemspec'
 
-# Offense count: 1
-Metrics/CyclomaticComplexity:
-  Max: 7
-
 # Offense count: 2
 # Configuration parameters: Blacklist.
 # Blacklist: (?-mix:(^|\s)(EO[A-Z]{1}|END)(\s|$))
