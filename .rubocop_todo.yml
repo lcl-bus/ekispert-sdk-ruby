@@ -8,13 +8,6 @@
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment, ForceEqualSignAlignment.
-Layout/ExtraSpacing:
-  Exclude:
-    - 'ekispert-sdk-ruby.gemspec'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment.
 Layout/SpaceAroundOperators:
   Exclude:
