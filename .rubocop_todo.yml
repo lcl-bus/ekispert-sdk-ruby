@@ -19,11 +19,3 @@ Layout/ExtraSpacing:
 Layout/SpaceAroundOperators:
   Exclude:
     - 'ekispert-sdk-ruby.gemspec'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, AllowInnerSlashes.
-# SupportedStyles: slashes, percent_r, mixed
-Style/RegexpLiteral:
-  Exclude:
-    - 'lib/ekispert/client.rb'

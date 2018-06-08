@@ -78,6 +78,11 @@ Style/NumericPredicate:
 Style/RedundantSelf:
   Enabled: false
 
+# Use %r around regular expression.
+# SupportedStyles: slashes, percent_r, mixed
+Style/RegexpLiteral:
+  Enabled: false
+
 # Use !empty? instead of size > 0.
 Style/ZeroLengthPredicate:
   Enabled: false
