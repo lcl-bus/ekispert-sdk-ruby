@@ -49,15 +49,6 @@ Naming/HeredocDelimiterNaming:
     - 'lib/ekispert/error.rb'
     - 'spec/ekispert/error_spec.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: braces, no_braces, context_dependent
-Style/BracesAroundHashParameters:
-  Exclude:
-    - 'spec/ekispert/client_spec.rb'
-    - 'spec/ekispert/config_spec.rb'
-
 # Offense count: 5
 Style/CommentedKeyword:
   Exclude:
