@@ -20,20 +20,18 @@ module Ekispert
         XML_TAG
       end
 
-      def res_body_rail_and_exit
+      def res_body_welfare_and_exit
         <<~XML_TAG.gsub(/\n\s*/, '')
           <?xml version="1.0" encoding="UTF-8" standalone='yes'?>
           <ResultSet apiVersion="1.27.0.0" engineVersion="201805_03a">
             <Information>
-              <Corporation index="1">
-                <Name>ＪＲ</Name>
-              </Corporation>
-              <Type>rail</Type>
-              <Line corporationIndex="1">
-                <Name>ＪＲ新幹線ひかり(東京－博多)</Name>
-                <Type detail="shinkansen">train</Type>
-                <Color>001044255</Color>
-              </Line>
+              <Type>welfare</Type>
+              <WelfareFacilities>
+                <Name>バリアフリー状況</Name>
+                <Comment>
+                  ※段差なしでの移動経路 （○：有り　△：要駅員設備　×：無し） 【ＪＲ東日本】【ＪＲ東海】：○ 【東京メトロ】：○
+                </Comment>
+              </WelfareFacilities>
             </Information>
             <Information>
               <Type>exit</Type>

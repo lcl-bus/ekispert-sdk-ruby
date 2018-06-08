@@ -52,32 +52,23 @@ RSpec.describe Ekispert::Information do
     end
 
     context 'There are two argument' do
-      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, res_body_rail_and_exit) }
+      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, res_body_welfare_and_exit) }
       let(:information) { Ekispert::Information.send(:to_information_class, parsed_xml) }
 
-      it 'Ekispert::Information::Line instance in line_list' do
-        expect(information[0].line_list[0].class).to eq Ekispert::Information::Line
+      it 'Ekispert::Information::WelfareFacilities instance in welfare_list' do
+        expect(information[0].welfare_facilities_list[0].class).to eq Ekispert::Information::WelfareFacilities
       end
-      it 'Name element is included Ekispert::Information::Line instance' do
-        expect(information[0].line_list[0].name_list[0].text).to eq 'ＪＲ新幹線ひかり(東京－博多)'
+      it 'Name element is included Ekispert::Information::WelfareFacilities instance' do
+        expect(information[0].welfare_facilities_list[0].name_list[0].text).to eq 'バリアフリー状況'
       end
-      it 'Type element is included Ekispert::Information::Line instance' do
-        expect(information[0].line_list[0].type_list[0].text).to eq 'train'
-      end
-      it 'Color element is included Ekispert::Information::Line instance' do
-        expect(information[0].line_list[0].color_list[0].text).to eq '001044255'
-      end
-      it 'Ekispert::Information::Corporation instance in corporation_list' do
-        expect(information[0].corporation_list[0].class).to eq Ekispert::Information::Corporation
-      end
-      it 'Corporation element is included Ekispert::Information::Corporation instance' do
-        expect(information[0].corporation_list[0].name_list[0].text).to eq 'ＪＲ'
+      it 'Type element is included Ekispert::Information::WelfareFacilities instance' do
+        expect(information[0].welfare_facilities_list[0].comment_list[0].text).to eq '※段差なしでの移動経路 （○：有り　△：要駅員設備　×：無し） 【ＪＲ東日本】【ＪＲ東海】：○ 【東京メトロ】：○'
       end
       it 'type_list in Ekispert::Information::Type instance' do
         expect(information[0].type_list[0].class).to eq Ekispert::Information::Type
       end
       it 'Type element is included Ekispert::Information::Type instance' do
-        expect(information[0].type_list[0].text).to eq 'rail'
+        expect(information[0].type_list[0].text).to eq 'welfare'
       end
       it 'Ekispert::Information::Line instance not in Ekispert::Information::Exit instance' do
         expect(information[0].exit_list).to be_empty
