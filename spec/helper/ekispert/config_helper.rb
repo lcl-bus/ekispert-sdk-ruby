@@ -14,7 +14,7 @@ module Ekispert
           c.api_key = api_key
         end
       end
-      alias :set_ekispert_default_config :set_ekispert_config
+      alias set_ekispert_default_config set_ekispert_config
     end
   end
 end
