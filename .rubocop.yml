@@ -43,6 +43,10 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Enabled: false
 
+# Use meaningful heredoc delimiters.
+Naming/HeredocDelimiterNaming:
+  Enabled: false
+
 # Missing top-level class documentation comment.
 Style/Documentation:
   Enabled: false
