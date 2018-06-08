@@ -14,4 +14,3 @@ require 'ekispert/point'
 require 'ekispert/point/station'
 require 'ekispert/point/prefecture'
 require 'ekispert/point/geo_point'
-
