@@ -30,11 +30,6 @@ Metrics/CyclomaticComplexity:
   Max: 7
 
 # Offense count: 2
-# Configuration parameters: CountComments.
-Metrics/MethodLength:
-  Max: 19
-
-# Offense count: 2
 # Configuration parameters: Blacklist.
 # Blacklist: (?-mix:(^|\s)(EO[A-Z]{1}|END)(\s|$))
 Naming/HeredocDelimiterNaming:
