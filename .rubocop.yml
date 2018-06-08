@@ -12,6 +12,10 @@ inherit_from: .rubocop_todo.yml
 AsciiComments:
   Enabled: false
 
+# Surrounding space missing in default value assignment.
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
 # private does not make singleton methods private. Use private_class_method or private inside a class << self block instead.
 Lint/IneffectiveAccessModifier:
   Enabled: false
