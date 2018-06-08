@@ -3,9 +3,8 @@ module Ekispert
     def self.get(path, params=nil)
       set_connection if @connection.nil? || connection_options_update?
       res = request(path, params)
-      # TODO: check status code and raise error
-      # TODO: return parse_xml when res.status == 200
-      parse_xml(res.body)
+      return parse_xml(res.body) if res.status == 200
+      raise_error(res)
     end
 
     def self.connection_options
@@ -37,6 +36,23 @@ module Ekispert
 
     def self.parse_xml(xml)
       Nokogiri::XML.parse(xml).xpath('//ResultSet')
+    end
+
+    def self.raise_error(res)
+      case res.status
+      when 1
+        raise Error::InternalError, 'Engine Error'
+      when 400
+        raise Error::BadRequest, res
+      when 403
+        raise Error::Forbidden, res
+      when 404
+        raise Error::NotFound, res
+      when 400..499
+        raise Error::ClientError, res
+      when 500..599
+        raise Error::ServerError, 'OMG!'
+      end
     end
   end
 end

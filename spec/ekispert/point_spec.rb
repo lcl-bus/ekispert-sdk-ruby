@@ -38,7 +38,7 @@ RSpec.describe Ekispert::Point do
     context 'params include invalid code' do
       let(:point_list) { Ekispert::Point.get_station(code: '00000') }
       it 'station_list array not contains element' do
-        expect(point_list).to be_empty
+        expect { point_list }.to raise_error(Ekispert::Error::BadRequest)
       end
     end
     context 'params include invalid name' do

@@ -61,7 +61,7 @@ RSpec.describe Ekispert::Client do
     context 'request has failed' do
       before { set_ekispert_config(api_key: nil) }
       it 'include "Error" element' do
-        expect(xml.xpath('//Error')).not_to be_empty
+        expect { xml.xpath('//Error') }.to raise_error(Ekispert::Error::Forbidden)
       end
     end
   end
