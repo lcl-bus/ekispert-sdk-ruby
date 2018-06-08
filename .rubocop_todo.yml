@@ -20,11 +20,6 @@ Layout/SpaceAroundOperators:
   Exclude:
     - 'ekispert-sdk-ruby.gemspec'
 
-# Offense count: 7
-# Configuration parameters: CountComments, ExcludedMethods.
-Metrics/BlockLength:
-  Max: 104
-
 # Offense count: 1
 Metrics/CyclomaticComplexity:
   Max: 7
