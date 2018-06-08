@@ -23,7 +23,7 @@ module Ekispert
       options
     end
 
-    def self.set(&block)
+    def self.set
       yield self
     end
   end
