@@ -38,10 +38,3 @@ Style/MutableConstant:
 Style/RegexpLiteral:
   Exclude:
     - 'lib/ekispert/client.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-Style/UnneededPercentQ:
-  Exclude:
-    - 'ekispert-sdk-ruby.gemspec'
-    - 'lib/ekispert/config.rb'
