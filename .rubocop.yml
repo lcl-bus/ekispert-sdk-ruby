@@ -64,6 +64,10 @@ Style/FrozenStringLiteralComment:
 Style/IfUnlessModifier:
   Enabled: false
 
+# Freeze mutable objects assigned to constants.
+Style/MutableConstant:
+  Enabled: false
+
 # Use element.attributes.size.positive? instead of element.attributes.size > 0.
 # https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.md#predicate-methods
 Style/NumericPredicate:

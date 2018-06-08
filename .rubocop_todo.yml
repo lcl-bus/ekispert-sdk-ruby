@@ -22,12 +22,6 @@ Layout/SpaceAroundOperators:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/MutableConstant:
-  Exclude:
-    - 'lib/ekispert/version.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, AllowInnerSlashes.
 # SupportedStyles: slashes, percent_r, mixed
 Style/RegexpLiteral:
