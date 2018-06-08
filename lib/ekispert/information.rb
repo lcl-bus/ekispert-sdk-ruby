@@ -1,6 +1,5 @@
 module Ekispert
   class Information < EkispertBase
-    extend Ekispert::Util
     attr_accessor :line_list, :corporation_list, :welfare_facilities_list, :exit_list, :type_list
 
     def initialize(element)
