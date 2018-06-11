@@ -36,16 +36,16 @@ RSpec.describe Ekispert::Client do
     end
   end
   describe '.get' do
-    let(:xml) { Ekispert::Client.get('dataversion') }
-    context 'request has succeeded' do
-      it 'not include "Error" element' do
-        expect(xml.xpath('//Error')).to be_empty
+    let(:res) { Ekispert::Client.get('dataversion') }
+    context 'request has succeeded（request dataversion）' do
+      it 'should return Nokogiri::XML::NodeSet instance' do
+        expect(res.class).to eq  Nokogiri::XML::NodeSet
       end
     end
-    context 'request has failed' do
+    context 'api_key = nil' do
       before { set_ekispert_config(api_key: nil) }
-      it 'include "Error" element' do
-        expect { xml.xpath('//Error') }.to raise_error(Ekispert::Error::Forbidden)
+      it 'should raise Ekispert::Error::Forbidden' do
+        expect { res }.to raise_error(Ekispert::Error::Forbidden)
       end
     end
   end
