@@ -19,7 +19,7 @@ module Ekispert
     private
 
     def self.station_request_path(**request_params)
-      Station::PAID_REQUEST_PARAMS.any? { |param| request_params.key?(param) } ? '/station' : '/station/light'
+      Station::PAID_REQUEST_PARAMS.any? { |param| request_params.key?(param) } ? 'station' : 'station/light'
     end
 
     def self.to_point(elem_arr)

@@ -35,22 +35,8 @@ RSpec.describe Ekispert::Client do
       end
     end
   end
-  describe '.request' do
-    context 'first char is "/"' do
-      let(:res) { Ekispert::Client.send(:request, '/example', nil) }
-      it 'request url is correct' do
-        expect(res.env.url.to_s).to match 'https://api.ekispert.jp/v1/xml/example'
-      end
-    end
-    context 'first char is not "/"' do
-      let(:res) { Ekispert::Client.send(:request, 'example', nil) }
-      it 'request url is correct' do
-        expect(res.env.url.to_s).to match 'https://api.ekispert.jp/v1/xml/example'
-      end
-    end
-  end
   describe '.get' do
-    let(:xml) { Ekispert::Client.get('/dataversion') }
+    let(:xml) { Ekispert::Client.get('dataversion') }
     context 'request has succeeded' do
       it 'not include "Error" element' do
         expect(xml.xpath('//Error')).to be_empty

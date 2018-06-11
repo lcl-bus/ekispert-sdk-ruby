@@ -12,7 +12,7 @@ module Ekispert
     end
 
     def self.get(**params)
-      to_information_class(Ekispert::Client.get('/station/info', params))
+      to_information_class(Ekispert::Client.get('station/info', params))
     end
 
     class Line < EkispertBase
