@@ -20,12 +20,10 @@ RSpec.describe Ekispert::Config do
   describe '.list' do
     it 'return config list' do
       expect(Ekispert::Config.list).to match(
-        {
-          :@host => 'https://api.ekispert.jp',
-          :@version => 'v1',
-          :@http_proxy => ENV['HTTP_PROXY'],
-          :@api_key => ENV['EKISPERT_API_KEY']
-        }
+        :@host => 'https://api.ekispert.jp',
+        :@version => 'v1',
+        :@http_proxy => ENV['HTTP_PROXY'],
+        :@api_key => ENV['EKISPERT_API_KEY']
       )
     end
   end
@@ -40,12 +38,10 @@ RSpec.describe Ekispert::Config do
     end
     it 'can set the config with a block' do
       expect(Ekispert::Config.list).to match(
-        {
-          :@host => 'https://example.com',
-          :@version => 'v2',
-          :@http_proxy => 'http://example.com:8080',
-          :@api_key => 'test'
-        }
+        :@host => 'https://example.com',
+        :@version => 'v2',
+        :@http_proxy => 'http://example.com:8080',
+        :@api_key => 'test'
       )
     end
   end

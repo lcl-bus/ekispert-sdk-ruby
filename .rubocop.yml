@@ -6,11 +6,13 @@ AllCops:
   Exclude:
     - "vendor/**/*"
 
-inherit_from: .rubocop_todo.yml
-
 # Use only ascii symbols in comments.
 AsciiComments:
   Enabled: false
+
+# Surrounding space missing in default value assignment.
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
 
 # private does not make singleton methods private. Use private_class_method or private inside a class << self block instead.
 Lint/IneffectiveAccessModifier:
@@ -27,10 +29,25 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
 
+Metrics/CyclomaticComplexity:
+  Max: 10
+
 Metrics/LineLength:
   Max: 120
   Exclude:
     - 'spec/**/*'
+
+# Method has too many lines.
+Metrics/MethodLength:
+  Enabled: false
+
+# Use meaningful heredoc delimiters.
+Naming/HeredocDelimiterNaming:
+  Enabled: false
+
+# Do not place comments on the same line as the class keyword.
+Style/CommentedKeyword:
+  Enabled: false
 
 # Missing top-level class documentation comment.
 Style/Documentation:
@@ -45,6 +62,14 @@ Style/FrozenStringLiteralComment:
 Style/IfUnlessModifier:
   Enabled: false
 
+# Freeze mutable objects assigned to constants.
+Style/MutableConstant:
+  Enabled: false
+
+# Use underscores(_) as decimal mark and separate every 3 digits with them.
+Style/NumericLiterals:
+  MinDigits: 8
+
 # Use element.attributes.size.positive? instead of element.attributes.size > 0.
 # https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.md#predicate-methods
 Style/NumericPredicate:
@@ -53,6 +78,11 @@ Style/NumericPredicate:
 # Redundant self detected.
 # https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.md#no-self-unless-required
 Style/RedundantSelf:
+  Enabled: false
+
+# Use %r around regular expression.
+# SupportedStyles: slashes, percent_r, mixed
+Style/RegexpLiteral:
   Enabled: false
 
 # Use !empty? instead of size > 0.

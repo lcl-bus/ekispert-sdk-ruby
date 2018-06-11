@@ -6,13 +6,11 @@ RSpec.describe Ekispert::Client do
   describe '.connection_options' do
     it 'return default options' do
       expect(Ekispert::Client.connection_options).to match(
-        {
-          url: 'https://api.ekispert.jp/v1/xml',
-          proxy: ENV['HTTP_PROXY'],
-          headers: { 'Content-Type' => 'application/xml;charset=utf-8' },
-          params: { key: ENV['EKISPERT_API_KEY'] },
-          request: { timeout: 5, open_timeout: 2 }
-        }
+        url: 'https://api.ekispert.jp/v1/xml',
+        proxy: ENV['HTTP_PROXY'],
+        headers: { 'Content-Type' => 'application/xml;charset=utf-8' },
+        params: { key: ENV['EKISPERT_API_KEY'] },
+        request: { timeout: 5, open_timeout: 2 }
       )
     end
   end

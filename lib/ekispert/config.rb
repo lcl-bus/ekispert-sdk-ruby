@@ -7,11 +7,11 @@ module Ekispert
       api_key: ENV['EKISPERT_API_KEY']
     }.freeze
     DEFAULTS.each do |option, value|
-      class_eval %Q{
+      class_eval <<-EOS, __FILE__, __LINE__ + 1
         class << self
           attr_accessor :#{option}
         end
-      }
+      EOS
       instance_variable_set("@#{option}", value)
     end
 
@@ -23,7 +23,7 @@ module Ekispert
       options
     end
 
-    def self.set(&block)
+    def self.set
       yield self
     end
   end
