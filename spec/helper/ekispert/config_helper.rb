@@ -6,7 +6,7 @@ module Ekispert
           version: 'v1',
           http_proxy: ENV['HTTP_PROXY'],
           api_key: ENV['EKISPERT_API_KEY']
-      )
+        )
         Ekispert::Config.set do |c|
           c.host = host
           c.version = version
