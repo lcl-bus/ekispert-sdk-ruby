@@ -34,8 +34,8 @@ module Ekispert
     #   Ekispert::Point::Statio::Name#to_s #=> '東京'
     def set_method_from_text
       child_elem = @element.children[0]
-      return unless child_elem&.text?
-      define_singleton_method(:text) { child_elem.text }
+      return if child_elem&.element?
+      define_singleton_method(:text) { child_elem&.text || '' }
       instance_eval { alias :to_s :text }
     end
 
