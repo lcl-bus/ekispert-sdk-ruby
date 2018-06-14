@@ -55,4 +55,65 @@ RSpec.describe Ekispert::Course do
       end
     end
   end
+  describe '#relate_line_to_price' do
+    context 'use course/geo_point_search.xml' do
+      let(:xml) { read_xml('course/geo_point_search.xml') }
+      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
+      let(:course) { Ekispert::Course.new(parsed_xml.xpath('//Course')[0]) }
+      context 'course.route_list[0].line_list[0]' do
+        let(:line) { course.route_list[0].line_list[0] }
+        describe '#fare' do
+          it 'should return nil' do
+            expect(line.fare.class).to eq Ekispert::Course::Price
+          end
+          it 'can call #name, return correct value' do
+            expect(line.fare.name).to eq nil
+          end
+        end
+      end
+      context 'course.route_list[0].line_list[1]' do
+        let(:line) { course.route_list[0].line_list[1] }
+        describe '#fare' do
+          it 'can call #oneway, return correct value' do
+            expect(line.fare.oneway).to eq 170
+          end
+          it 'can call #type, return correct value' do
+            expect(line.fare.type).to eq 'Fare'
+          end
+        end
+        describe '#teiki1' do
+          it 'can call #oneway, return correct value' do
+            expect(line.teiki1.oneway).to eq 6300
+          end
+          it 'can call #revision_status, return correct value' do
+            expect(line.teiki1.revision_status).to eq 'latest'
+          end
+        end
+        describe '#teiki3' do
+          it 'can call #oneway, return correct value' do
+            expect(line.teiki3.oneway).to eq 17960
+          end
+        end
+        describe '#teiki6' do
+          it 'can call #oneway, return correct value' do
+            expect(line.teiki6.oneway).to eq 34020
+          end
+        end
+      end
+      context 'course.route_list[0].line_list[3]' do
+        let(:line) { course.route_list[0].line_list[3] }
+        describe '#charge' do
+          it 'can call #name, return correct value' do
+            expect(line.charge.name).to eq '自由席'
+          end
+          it 'can call #revision_status_comment, return correct value' do
+            expect(line.charge.revision_status_comment).to eq 'Dummy'
+          end
+          it 'can call #round, return correct value' do
+            expect(line.charge.round).to eq 9740
+          end
+        end
+      end
+    end
+  end
 end

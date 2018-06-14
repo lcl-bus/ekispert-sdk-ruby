@@ -19,5 +19,14 @@ module Ekispert
     def self.to_course(elem_arr)
       elem_arr.xpath('//Course').map { |course_elem| self.new(course_elem) }
     end
+
+    # This method relate Course::Route::Line instance to Course::Price instance.
+    # If even without those associated with Line, return Price instance.
+    # Ex.
+    #  Course::Route::Line#fare
+    #  Course::Route::Line#charge
+    #  Course::Route::Line#teiki1 etc...
+    def relate_line_to_price
+    end
   end
 end
