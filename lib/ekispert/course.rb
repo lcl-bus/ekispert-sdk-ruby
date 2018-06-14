@@ -8,6 +8,7 @@ module Ekispert
       @pass_status_list = []
       @serialize_data_list = []
       super(element)
+      relate_line_to_price
     end
 
     def self.get(**params)
@@ -27,6 +28,20 @@ module Ekispert
     #  Course::Route::Line#charge
     #  Course::Route::Line#teiki1 etc...
     def relate_line_to_price
+      @route_list[0].line_list.each do |line|
+        line.fare = find_price(line, :fare)
+        line.charge = find_price(line, :charge)
+        line.teiki1 = find_price(line, :teiki1)
+        line.teiki3 = find_price(line, :teiki3)
+        line.teiki6 = find_price(line, :teiki6)
+      end
+    end
+
+    def find_price(line, price_type)
+      index_type = "#{price_type}_index"
+      return Ekispert::Course::Price.new unless line.respond_to?(index_type)
+      kind = price_type.to_s.capitalize
+      @price_list.find { |price| price.kind == kind && price.index == line.send(index_type) }
     end
   end
 end
