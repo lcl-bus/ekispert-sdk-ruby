@@ -116,4 +116,34 @@ RSpec.describe Ekispert::Course do
       end
     end
   end
+  describe '#relate_price_to_line' do
+    context 'use course/include_relation_search.xml' do
+      let(:xml) { read_xml('course/include_relation_search.xml') }
+      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
+      let(:course) { Ekispert::Course.new(parsed_xml.xpath('//Course')[0]) }
+      context 'course.price_list[0]' do
+        let(:price) { course.price_list[2] }
+        describe '#line_list' do
+          it 'should return Array, and it contains two elements' do
+            expect(price.line_list.size).to eq 2
+          end
+          it 'contains Course::Route::Line instance' do
+            expect(price.line_list[0].class).to eq Ekispert::Course::Route::Line
+          end
+          describe 'Course::Route::Line#name_list（Course::Route::Line::Name）' do
+            context 'course.line_list[0]' do
+              it 'can call #text, return correct value' do
+                expect(price.line_list[0].name_list[0].text).to eq 'ＪＲ中央線快速・東京行'
+              end
+            end
+            context 'course.line_list[1]' do
+              it 'can call #text, return correct value' do
+                expect(price.line_list[1].name_list[0].text).to eq 'ＪＲ山手線外回り・池袋・上野方面'
+              end
+            end
+          end
+        end
+      end
+    end
+  end
 end
