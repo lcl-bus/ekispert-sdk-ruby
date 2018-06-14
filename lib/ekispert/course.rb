@@ -9,6 +9,7 @@ module Ekispert
       @serialize_data_list = []
       super(element)
       relate_line_to_price
+      relate_price_to_line
     end
 
     def self.get(**params)
@@ -42,6 +43,18 @@ module Ekispert
       return Ekispert::Course::Price.new unless line.respond_to?(index_type)
       kind = price_type.to_s.capitalize
       @price_list.find { |price| price.kind == kind && price.index == line.send(index_type) }
+    end
+
+    # This method relate Course::Price instance to Course::Route::Line instance.
+    # It's judged based on to Price#from_line_index and Price#from_line_index.
+    # result:
+    #   Course::Price#line_list
+    def relate_price_to_line
+      @price_list.each do |price|
+        next unless price.respond_to?(:from_line_index)
+        price_range = (price.from_line_index.to_i..price.to_line_index.to_i)
+        price.line_list = @route_list[0].line_list.select { |line| price_range.include?(line.index.to_i) }
+      end
     end
   end
 end
