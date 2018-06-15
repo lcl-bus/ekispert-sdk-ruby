@@ -52,11 +52,11 @@ module Ekispert
     #     Ekispert::Point#station_list    #=> [#<Ekispert::Point::Station @...>]
     #     Ekispert::Point#prefecture_list #=> [#<Ekispert::Point::Prefecture @...>]
     def update_class_list_variable(element)
-      element.children.each do |element|
-        elem_name = element.name.to_sym
+      element.children.each do |child_elem|
+        elem_name = child_elem.name.to_sym
         next unless self.class.constants.include?(elem_name)
-        # Ex. Ekispert::DataVersion.new(element)
-        sub_instance = self.class.const_get(elem_name).new(element)
+        # Ex. Ekispert::DataVersion.new(child_elem)
+        sub_instance = self.class.const_get(elem_name).new(child_elem)
         class_list_name = "#{snakecase(elem_name)}_list"
         # Ex. sub_instance.version_list << sub_instance
         self.send(class_list_name) << sub_instance
