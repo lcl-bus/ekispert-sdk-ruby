@@ -5,24 +5,23 @@ module Ekispert
     # argument:
     #   element: XML element (parsed Nokogiri)
     def initialize(element)
-      @element = element
-      set_methods_from_attributes
-      set_method_from_text
-      update_class_list_variable
+      set_methods_from_attributes(element)
+      set_method_from_text(element)
+      update_class_list_variable(element)
     end
 
     private
 
     # Ex. Station class
     #   XML: <Station code = '22828'>...</Station>
-    #   @element.attributes = {
+    #   element.attributes = {
     #     'code' => #(Attr:0x3fe7b6a050a4 { name = 'code', value = '22828' })
     #   }
     # result:
     #   Ekispert::Point::Station#code #=> '22828'
-    def set_methods_from_attributes
-      return if @element.attributes.size == 0
-      @element.attributes.each do |name, attribute|
+    def set_methods_from_attributes(element)
+      return if element.attributes.size == 0
+      element.attributes.each do |name, attribute|
         define_singleton_method(snakecase(name)) { attribute.value }
       end
     end
@@ -32,8 +31,8 @@ module Ekispert
     # result:
     #   Ekispert::Point::Statio::Name#text #=> '東京'
     #   Ekispert::Point::Statio::Name#to_s #=> '東京'
-    def set_method_from_text
-      child_elem = @element.children[0]
+    def set_method_from_text(element)
+      child_elem = element.children[0]
       return if child_elem&.element?
       define_singleton_method(:text) { child_elem&.text || '' }
       instance_eval { alias :to_s :text }
@@ -52,8 +51,8 @@ module Ekispert
     #   after:
     #     Ekispert::Point#station_list    #=> [#<Ekispert::Point::Station @...>]
     #     Ekispert::Point#prefecture_list #=> [#<Ekispert::Point::Prefecture @...>]
-    def update_class_list_variable
-      @element.children.each do |element|
+    def update_class_list_variable(element)
+      element.children.each do |element|
         elem_name = element.name.to_sym
         next unless self.class.constants.include?(elem_name)
         # Ex. Ekispert::DataVersion.new(element)
