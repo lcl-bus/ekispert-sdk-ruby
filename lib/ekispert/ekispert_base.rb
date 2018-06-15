@@ -35,7 +35,7 @@ module Ekispert
       child_elem = element.children[0]
       return if child_elem&.element?
       define_singleton_method(:text) { child_elem&.text || '' }
-      instance_eval { alias :to_s :text }
+      instance_eval { alias to_s text }
     end
 
     # Ex. Point class (When child elements Station and Prefecture)
