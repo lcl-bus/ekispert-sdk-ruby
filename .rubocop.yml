@@ -10,6 +10,10 @@ AllCops:
 AsciiComments:
   Enabled: false
 
+# Unnecessary blank line at the beginning of the source.
+Layout/LeadingBlankLines:
+  Enabled: true
+
 # Surrounding space missing in default value assignment.
 Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
