@@ -30,14 +30,20 @@ jobs:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
+            gem install rubocop
 
       - save_cache:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "ekispert-sdk-ruby.gemspec" }}
 
+      - run:
+          name: run RuboCop
+          command: |
+            rubocop
+
       # run tests!
       - run:
           name: run tests
           command: |
-            echo test
+            bundle exec rspec

@@ -6,9 +6,17 @@ AllCops:
   Exclude:
     - "vendor/**/*"
 
+# Checks the indentation of here document closings.
+Layout/ClosingHeredocIndentation:
+  Enabled: true
+
 # Use only ascii symbols in comments.
 AsciiComments:
   Enabled: false
+
+# Unnecessary blank line at the beginning of the source.
+Layout/LeadingBlankLines:
+  Enabled: true
 
 # Surrounding space missing in default value assignment.
 Layout/SpaceAroundEqualsInParameterDefault:
