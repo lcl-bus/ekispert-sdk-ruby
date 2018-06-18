@@ -7,22 +7,11 @@ RSpec.describe Ekispert::Client do
     let(:error) { Ekispert::Client.send(:raise_error, res) }
     let(:res_data) { Ekispert::ClientError.new(res) }
     let(:stub_conn) { Faraday::Adapter::Test::Stubs.new }
-    let(:error_msg) do
-      <<-EOS
-          \n
-          status  : #{res.status}
-          URL     : #{res.env.url}"
-          message : #{Nokogiri::XML(res.body).xpath('/ResultSet/Error/Message').map(&:text).join("\n")}
-        EOS
-    end
 
     context '001 error' do
       let(:res) { test_faraday.get('/internalerror') }
       it 'Ekispert::InternalError class' do
         expect { error }.to raise_error(Ekispert::Error::InternalError)
-      end
-      it 'ServerError message' do
-        expect { error }.to raise_error('Engine Error')
       end
       it 'status 001' do
         expect(res.status).to eq 1
@@ -37,9 +26,6 @@ RSpec.describe Ekispert::Client do
       it 'Ekispert::BadRequest class' do
         expect { error }.to raise_error(Ekispert::Error::BadRequest)
       end
-      it 'BadRequest error message' do
-        expect { error }.to raise_error(error_msg)
-      end
       it 'status 400' do
         expect(res.status).to eq 400
       end
@@ -52,9 +38,6 @@ RSpec.describe Ekispert::Client do
       let(:res) { test_faraday.get('/raiseerrors') }
       it 'Ekispert::BadRequest class' do
         expect { error }.to raise_error(Ekispert::Error::BadRequest)
-      end
-      it 'BadRequest error message' do
-        expect { error }.to raise_error(error_msg)
       end
       it 'status 400' do
         expect(res.status).to eq 400
@@ -69,9 +52,6 @@ RSpec.describe Ekispert::Client do
       it 'Ekispert::Forbidden class' do
         expect { error }.to raise_error(Ekispert::Error::Forbidden)
       end
-      it 'Forbidden error message' do
-        expect { error }.to raise_error(error_msg)
-      end
       it 'status 403' do
         expect(res.status).to eq 403
       end
@@ -85,9 +65,6 @@ RSpec.describe Ekispert::Client do
       it 'Ekispert::ClientError class' do
         expect { error }.to raise_error(Ekispert::Error::ClientError)
       end
-      it 'ClientError message' do
-        expect { error }.to raise_error(error_msg)
-      end
       it 'status 450' do
         expect(res.status).to eq 450
       end
@@ -100,9 +77,6 @@ RSpec.describe Ekispert::Client do
       let(:res) { test_faraday.get('/servererror') }
       it 'Ekispert::ServerError class' do
         expect { error }.to raise_error(Ekispert::Error::ServerError)
-      end
-      it 'ServerError message' do
-        expect { error }.to raise_error('OMG!')
       end
       it 'status 500' do
         expect(res.status).to eq 500

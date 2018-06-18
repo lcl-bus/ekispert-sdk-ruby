@@ -6,6 +6,10 @@ AllCops:
   Exclude:
     - "vendor/**/*"
 
+# Checks the indentation of here document closings.
+Layout/ClosingHeredocIndentation:
+  Enabled: true
+
 # Use only ascii symbols in comments.
 AsciiComments:
   Enabled: false
