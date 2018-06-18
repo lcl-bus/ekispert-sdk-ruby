@@ -1,7 +1,9 @@
 require 'spec_helper'
+require 'helper/util_helper'
 
 RSpec.describe Ekispert::Point do
   include Ekispert::SpecHelper::Config
+  include UtilHelper
 
   describe '.get_station' do
     before { set_ekispert_default_config }
@@ -45,6 +47,19 @@ RSpec.describe Ekispert::Point do
       let(:point_list) { Ekispert::Point.get_station(name: 'ん') }
       it 'station_list array not contains element' do
         expect(point_list).to be_empty
+      end
+    end
+  end
+  describe '.to_point' do
+    let(:parsed_xml) { Ekispert::Client.send(:parse_xml, read_xml('point/use_geopoint_and_gate_group.xml')) }
+    let(:point_list) { Ekispert::Point.send(:to_point, parsed_xml) }
+    context 'use point/use_geopoint_and_gate_group.xml' do
+      describe 'Ekispert::Point' do
+        describe '#prefecture_list' do
+          it 'return Array and contains Point::Prefecture instance' do
+            expect(point_list[0].prefecture_list[0].class).to eq Ekispert::Point::Prefecture
+          end
+        end
       end
     end
   end
