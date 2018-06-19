@@ -19,9 +19,9 @@ RSpec.describe Ekispert::Point::Station do
     let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
     let(:point_list) { Ekispert::Point.send(:to_point, parsed_xml) }
     let(:station_list) { Ekispert::Point::Station.send(:convert_point_to_station, point_list) }
-    context 'use point/use_geopoint_and_gate_group.xml' do
-      describe 'Point::Station instance' do
-        let(:station) { station_list[0] }
+    describe 'Point::Station instance' do
+      let(:station) { station_list[0] }
+      context 'use point/use_geopoint_and_gate_group.xml' do
         describe '#prefecture_list' do
           it 'contains Point::Prefecture instance' do
             expect(station.prefecture_list[0].class).to eq Ekispert::Point::Prefecture
@@ -46,14 +46,13 @@ RSpec.describe Ekispert::Point::Station do
           end
         end
       end
-      # TODO: params include railName param
-    end
-    context 'use point/use_old_station_name.xml' do
-      # params = { oldName: "業平橋" }
-      let(:xml) { read_xml('point/use_old_station_name.xml') }
-      describe 'Station::OldName#text' do
-        it 'should return "業平橋"' do
-          expect(station_list[0].old_name_list[0].text).to eq '業平橋'
+      context 'use point/use_old_station_name.xml' do
+        # params = { oldName: "業平橋" }
+        let(:xml) { read_xml('point/use_old_station_name.xml') }
+        describe '::OldName#text' do
+          it 'should return "業平橋"' do
+            expect(station_list[0].old_name_list[0].text).to eq '業平橋'
+          end
         end
       end
     end
