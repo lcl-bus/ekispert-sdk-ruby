@@ -60,6 +60,11 @@ RSpec.describe Ekispert::Point do
             expect(point_list[0].prefecture_list[0].class).to eq Ekispert::Point::Prefecture
           end
         end
+        describe '#geo_point_list' do
+          it 'return Array and contains Point::GeoPoint instance' do
+            expect(point_list[0].geo_point_list[0].class).to eq Ekispert::Point::GeoPoint
+          end
+        end
       end
     end
   end
