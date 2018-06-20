@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResultSet apiVersion="1.27.0.0" engineVersion="201806_03a">
+  <Information>
+    <Corporation index="1">
+      <Name>小田急電鉄</Name>
+    </Corporation>
+    <Corporation index="2">
+      <Name>東京地下鉄</Name>
+    </Corporation>
+    <Type>rail</Type>
+    <Line corporationIndex="1">
+      <Name>小田急小田原線(新宿－本厚木)</Name>
+      <Type>train</Type>
+      <Color>013087206</Color>
+    </Line>
+    <Line corporationIndex="1">
+      <Name>小田急小田原線快速急行</Name>
+      <Type>train</Type>
+      <Color>013087206</Color>
+    </Line>
+    <Line corporationIndex="1">
+      <Name>小田急小田原線急行(代々木上原－新百合ケ丘)</Name>
+      <Type>train</Type>
+      <Color>013087206</Color>
+    </Line>
+    <Line corporationIndex="1">
+      <Name>小田急小田原線急行</Name>
+      <Type>train</Type>
+      <Color>013087206</Color>
+    </Line>
+    <Line corporationIndex="1">
+      <Name>小田急小田原線準急</Name>
+      <Type>train</Type>
+      <Color>013087206</Color>
+    </Line>
+    <Line corporationIndex="1">
+      <Name>小田急多摩急行</Name>
+      <Type>train</Type>
+      <Color>013087206</Color>
+    </Line>
+    <Line corporationIndex="2">
+      <Name>東京メトロ千代田線</Name>
+      <Type>train</Type>
+      <Color>000155070</Color>
+    </Line>
+  </Information>
+  <Information>
+    <Corporation index="1">
+      <Name>京王バス</Name>
+    </Corporation>
+    <Corporation index="2">
+      <Name>渋谷区</Name>
+    </Corporation>
+    <Type>nearrail</Type>
+    <Line corporationIndex="1">
+      <Name>京王バス・渋６０</Name>
+      <Type detail="local">bus</Type>
+      <Color>255000204</Color>
+    </Line>
+    <Line corporationIndex="1">
+      <Name>京王バス・渋６８</Name>
+      <Type detail="local">bus</Type>
+      <Color>255000204</Color>
+    </Line>
+    <Line corporationIndex="1">
+      <Name>京王バス・渋６８(渋谷駅－大原一丁目)</Name>
+      <Type detail="local">bus</Type>
+      <Color>255000204</Color>
+    </Line>
+    <Line corporationIndex="1">
+      <Name>京王バス・渋６９(渋谷駅発着)</Name>
+      <Type detail="local">bus</Type>
+      <Color>255000204</Color>
+    </Line>
+    <Line corporationIndex="2">
+      <Name>渋谷区・ハチ公バス(丘を越えてルート)</Name>
+      <Type detail="local">bus</Type>
+      <Color>000195070</Color>
+    </Line>
+  </Information>
+  <Information>
+    <Type>exit</Type>
+    <Exit>
+      <Name>東口</Name>
+      <Comment>西原１－３丁目上原１丁目元代々木町</Comment>
+    </Exit>
+    <Exit>
+      <Name>西口</Name>
+      <Comment>上原２・３丁目西原３丁目大山町代々木上原駅前交番</Comment>
+    </Exit>
+    <Exit>
+      <Name>南口１出口</Name>
+      <Comment>上原１－３丁目</Comment>
+    </Exit>
+    <Exit>
+      <Name>南口２出口</Name>
+      <Comment>上原１・２丁目</Comment>
+    </Exit>
+    <Exit>
+      <Name>北口１出口</Name>
+      <Comment>西原１－３丁目大山町</Comment>
+    </Exit>
+    <Exit>
+      <Name>北口２出口</Name>
+      <Comment>西原３丁目元代々木町</Comment>
+    </Exit>
+  </Information>
+  <Information>
+    <Type>welfare</Type>
+    <WelfareFacilities>
+      <Name>バリアフリー状況</Name>
+      <Comment>　※段差なしでの移動経路（○：有り　△：要駅員設備　×：無し）【小田急電鉄】【東京メトロ】：○（※上記２社の駅は共同）</Comment>
+    </WelfareFacilities>
+    <WelfareFacilities>
+      <Name>エレベータ</Name>
+      <Comment>・各ホーム⇔改札・改札⇔北口・改札⇔南口</Comment>
+    </WelfareFacilities>
+    <WelfareFacilities>
+      <Name>エスカレータ</Name>
+      <Comment>・改札⇔出口方面</Comment>
+    </WelfareFacilities>
+    <WelfareFacilities>
+      <Name>トイレ</Name>
+      <Comment>《多機能トイレ》・改札内</Comment>
+    </WelfareFacilities>
+    <WelfareFacilities>
+      <Name>スロープ</Name>
+      <Comment>・東口</Comment>
+    </WelfareFacilities>
+    <WelfareFacilities>
+      <Name>その他</Name>
+      <Comment>・ＡＥＤ</Comment>
+    </WelfareFacilities>
+  </Information>
+</ResultSet>
