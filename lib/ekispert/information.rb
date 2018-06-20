@@ -16,12 +16,12 @@ module Ekispert
     end
 
     def self.get(**params)
-      to_information_class(Ekispert::Client.get('station/info', params))
+      to_information(Ekispert::Client.get('station/info', params))
     end
 
     private
 
-    def self.to_information_class(elem_arr)
+    def self.to_information(elem_arr)
       elem_arr.xpath('//Information').map { |elem| self.new(elem) }
     end
   end

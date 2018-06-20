@@ -7,7 +7,7 @@ RSpec.describe Ekispert::Information::WelfareFacilities do
   describe '.to_information（WelfareFacilities class part）' do
     context 'use information/all_type_search.xml' do
       let(:parsed_xml) { Ekispert::Client.send(:parse_xml, read_xml('information/all_type_search.xml')) }
-      let(:information_list) { Ekispert::Information.send(:to_information_class, parsed_xml) }
+      let(:information_list) { Ekispert::Information.send(:to_information, parsed_xml) }
       describe 'Ekispert::Information::WelfareFacilities instance' do
         describe '#name_list' do
           it 'contains Ekispert::Information::WelfareFacilities::Name instance' do

@@ -7,7 +7,7 @@ RSpec.describe Ekispert::Information::Line do
   describe '.to_information（Line class part）' do
     context 'use information/all_type_search.xml' do
       let(:parsed_xml) { Ekispert::Client.send(:parse_xml, read_xml('information/all_type_search.xml')) }
-      let(:information_list) { Ekispert::Information.send(:to_information_class, parsed_xml) }
+      let(:information_list) { Ekispert::Information.send(:to_information, parsed_xml) }
       let(:line) { information_list[0].line_list[0] }
       describe 'Ekispert::Information::Line instance' do
         describe '#name_list' do
