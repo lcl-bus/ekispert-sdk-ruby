@@ -9,6 +9,18 @@ module Ekispert
       @exit_list = []
       @type_list = []
       super(element)
+      relate_line_and_corporation
+    end
+
+    def relate_line_and_corporation
+      # Set Information::Line#corporation
+      @line_list.each do |line|
+        line.corporation = @corporation_list.find { |corp| corp.index == line.corporation_index }
+      end
+      # Set Information::Corporation#line_list
+      @corporation_list.each do |corp|
+        corp.line_list = @line_list.select { |line| corp.index == line.corporation_index }
+      end
     end
 
     def type
