@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResultSet apiVersion="1.27.0.0" engineVersion="201806_03a">
+  <Course searchType="departure" dataType="onTimetable">
+    <Route timeOther="14" timeOnBoard="149" exhaustCO2="12194" index="1" exhaustCO2atPassengerCar="93122" distance="5543" timeWalk="11" transferCount="1">
+      <Point index="1">
+        <Name>35.695611594915164,139.7578486511294,wgs84</Name>
+      </Point>
+      <Line stopStationCount="0" timeOnBoard="1" exhaustCO2="0" index="1" exhaustCO2atPassengerCar="0" distance="0">
+        <ArrivalState>
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-13T18:44:00+09:00</Datetime>
+        </ArrivalState>
+        <Destination/>
+        <TimeReliability>average</TimeReliability>
+        <DepartureState>
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-13T18:43:00+09:00</Datetime>
+        </DepartureState>
+        <Color>000000000</Color>
+      </Line>
+      <Point index="2">
+        <Station code="22756">
+          <Name>神保町</Name>
+          <Type>train</Type>
+          <Yomi>じんぼうちょう</Yomi>
+        </Station>
+        <Prefecture code="13">
+          <Name>東京都</Name>
+        </Prefecture>
+        <GeoPoint longi="139.45.40.0" lati="35.41.33.0" longi_d="139.761111" gcs="tokyo" lati_d="35.6925"/>
+      </Point>
+      <Line stopStationCount="0" teiki3Index="1" teiki6Index="1" timeOnBoard="2" track="railway" exhaustCO2="37" fareIndex="1" index="2" exhaustCO2atPassengerCar="285" distance="17" teiki1Index="1">
+        <Name>東京メトロ半蔵門線急行・南栗橋行</Name>
+        <Type>train</Type>
+        <ArrivalState no="8">
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-13T18:47:00+09:00</Datetime>
+        </ArrivalState>
+        <Destination>南栗橋</Destination>
+        <TimeReliability>onTimetable</TimeReliability>
+        <DepartureState no="6">
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-13T18:45:00+09:00</Datetime>
+        </DepartureState>
+        <LineSymbol code="157">
+          <Name>Z</Name>
+        </LineSymbol>
+        <Color>141126186</Color>
+      </Line>
+      <Point index="3">
+        <Station code="22564">
+          <Name>大手町(東京都)</Name>
+          <Type>train</Type>
+          <Yomi>おおてまち</Yomi>
+        </Station>
+        <Prefecture code="13">
+          <Name>東京都</Name>
+        </Prefecture>
+        <GeoPoint longi="139.46.3.0" lati="35.40.57.0" longi_d="139.7675" gcs="tokyo" lati_d="35.6825"/>
+      </Point>
+      <Line stopStationCount="0" timeOnBoard="10" exhaustCO2="0" index="3" exhaustCO2atPassengerCar="0" distance="0">
+        <Name>徒歩</Name>
+        <Type>walk</Type>
+        <ArrivalState>
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-13T18:59:00+09:00</Datetime>
+        </ArrivalState>
+        <Destination/>
+        <TypicalName>徒歩</TypicalName>
+        <TimeReliability>average</TimeReliability>
+        <DepartureState>
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-13T18:49:00+09:00</Datetime>
+        </DepartureState>
+        <Color>230230230</Color>
+      </Line>
+      <Point index="4">
+        <Station code="22828">
+          <Name>東京</Name>
+          <Type>train</Type>
+          <Yomi>とうきょう</Yomi>
+        </Station>
+        <Prefecture code="13">
+          <Name>東京都</Name>
+        </Prefecture>
+        <GeoPoint longi="139.46.13.59" lati="35.40.41.9" longi_d="139.770444" gcs="tokyo" lati_d="35.678083"/>
+      </Point>
+      <Line stopStationCount="4" chargeIndex="2" timeOnBoard="147" track="railway" exhaustCO2="12157" fareIndex="2" index="4" exhaustCO2atPassengerCar="92836" distance="5526">
+        <Name>ＪＲ新幹線のぞみ</Name>
+        <Type detail="shinkansen">train</Type>
+        <ArrivalState no="21">
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-13T21:37:00+09:00</Datetime>
+        </ArrivalState>
+        <Destination>広島</Destination>
+        <Number>125</Number>
+        <TimeReliability>onTimetable</TimeReliability>
+        <DepartureState no="16">
+          <Type>normal</Type>
+          <Datetime operation="today">2018-06-13T19:10:00+09:00</Datetime>
+        </DepartureState>
+        <Color>001032197</Color>
+      </Line>
+      <Point index="5">
+        <Station code="25978">
+          <Name>新大阪</Name>
+          <Type>train</Type>
+          <Yomi>しんおおさか</Yomi>
+        </Station>
+        <Prefecture code="27">
+          <Name>大阪府</Name>
+        </Prefecture>
+        <GeoPoint longi="135.30.10.0" lati="34.43.48.0" longi_d="135.502778" gcs="tokyo" lati_d="34.73"/>
+      </Point>
+    </Route>
+    <Price kind="FareSummary">
+      <Oneway>8920</Oneway>
+      <Round>17840</Round>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="2" fromLineIndex="2" kind="Fare" index="1" selected="true">
+      <Type>Fare</Type>
+      <Oneway>170</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+      <Round>340</Round>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="4" fromLineIndex="4" kind="Fare" index="2" selected="true">
+      <Type>Fare</Type>
+      <Oneway>8750</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+      <Round>17500</Round>
+    </Price>
+    <Price kind="ChargeSummary">
+      <Oneway>4870</Oneway>
+      <Round>9740</Round>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="4" fromLineIndex="4" kind="Charge" index="1" selected="false">
+      <Name>指定席</Name>
+      <Type>Reserved</Type>
+      <Oneway>5500</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+      <Round>11000</Round>
+      <Rate area="Main">Low</Rate>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="4" fromLineIndex="4" kind="Charge" index="2" selected="true">
+      <Name>自由席</Name>
+      <Type>Free</Type>
+      <Oneway>4870</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+      <RevisionStatusComment>Dummy</RevisionStatusComment>
+      <Round>9740</Round>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="4" fromLineIndex="4" kind="Charge" index="3" selected="false">
+      <Name>グリーン</Name>
+      <Type>Green</Type>
+      <Oneway>10480</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+      <Round>20960</Round>
+    </Price>
+    <Price kind="Teiki1Summary"/>
+    <Price fareRevisionStatus="none" toLineIndex="2" fromLineIndex="2" kind="Teiki1" index="1" selected="true">
+      <Type>Teiki1</Type>
+      <Oneway>6300</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <Price kind="Teiki3Summary"/>
+    <Price fareRevisionStatus="none" toLineIndex="2" fromLineIndex="2" kind="Teiki3" index="1" selected="true">
+      <Type>Teiki3</Type>
+      <Oneway>17960</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <Price kind="Teiki6Summary"/>
+    <Price fareRevisionStatus="none" toLineIndex="2" fromLineIndex="2" kind="Teiki6" index="1" selected="true">
+      <Type>Teiki6</Type>
+      <Oneway>34020</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <SerializeData>VkV4QaECpzLKAsMCpgEz7nsDpgEz7nkEkcIBQwAAAAKmATPueQPJAQECAQMBBAEHAQgBCgIPQv9_EKX_9wSSwgJqMzUuNjk1NjExNTk0OTE1MTY0LDEzOS43NTc4NDg2NTExMjk0LHdnczg0BpHDAaVY5ANEk2uV4AQ8oAWYwgEEAgHBAqVY5MECpVgkwQKlWSzBAqVlesECpVaAwQKlWr_BAqVq5QaUwgEDAg_DAQECAQPGAaYAAYlRAhADEQWkggcGCAXDAQMCBQPBAQHDAQECAQPJAaUq2QIBAwYEpH0FDwZEMTI1QQcDCAcJBgeUxQGmATPuhQOlBGMEpQRkBQAIAMYBpgEz7oUCAQOlBGUEpQRnBQAIAMYBpgEz7oUCAgOlBGkEpQRzBQAIAMcBpgEz7oUCAwOlBH4EpQURBQAGAggACJTEAQQEAQUEBwDGAgEEAgUBBgEHpQFPCALFAgIEAwUCBwEJRJNrleDGAgMEBAUBBgEHpIYIBAmSwwEBAgEDAcMBAwIDAwEKkcMBAQIBAwEPkcUBlQABAgMEApTDAQACAAMAwwEBAgEDAcMBAgICAwLDAQMCAwMDA5TDAQACAAMAwwEBAgEDAcMBAgICAwLDAQMCAwMDBJIAAQWRAA**--T3221233232319:F332112212000:A23121141:--92254c39fe00760dd2f941da07d8f640fcd9aa11--0--0--0--481</SerializeData>
+  </Course>
+</ResultSet>
