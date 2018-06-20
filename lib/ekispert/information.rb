@@ -11,6 +11,10 @@ module Ekispert
       super(element)
     end
 
+    def type
+      @type_list[0].text
+    end
+
     def self.get(**params)
       to_information_class(Ekispert::Client.get('station/info', params))
     end
