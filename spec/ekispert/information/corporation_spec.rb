@@ -15,6 +15,28 @@ RSpec.describe Ekispert::Information::Corporation do
             expect(corporation.name_list[0].class).to eq Ekispert::Information::Corporation::Name
           end
         end
+        describe '#line_list' do
+          let(:corporation) { information_list[0].corporation_list[1] }
+          it 'contains Ekispert::Information::Corporation instance' do
+            expect(corporation.line_list[0].class).to eq Ekispert::Information::Line
+          end
+          describe '#name' do
+            it 'should return "東京メトロ千代田線"' do
+              expect(corporation.line_list[0].name).to eq '東京メトロ千代田線'
+            end
+          end
+          describe '#type' do
+            it 'should return "train"' do
+              expect(corporation.line_list[0].type).to eq 'train'
+            end
+          end
+          describe '#color' do
+            let(:corporation) { information_list[0].corporation_list[0] }
+            it 'should return "013087206"' do
+              expect(corporation.line_list[1].color).to eq '013087206'
+            end
+          end
+        end
       end
     end
   end
