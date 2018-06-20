@@ -19,15 +19,6 @@ module Ekispert
       to_information_class(Ekispert::Client.get('station/info', params))
     end
 
-    class Corporation < EkispertBase
-      attr_reader :name_list
-      def initialize(element)
-        @name_list = []
-        super(element)
-      end
-      class Name < EkispertBase; end
-    end
-
     class WelfareFacilities < EkispertBase
       attr_reader :name_list, :comment_list
       def initialize(element)
