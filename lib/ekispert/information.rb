@@ -19,19 +19,6 @@ module Ekispert
       to_information_class(Ekispert::Client.get('station/info', params))
     end
 
-    class Line < EkispertBase
-      attr_reader :name_list, :type_list, :color_list
-      def initialize(element)
-        @name_list = []
-        @type_list = []
-        @color_list = []
-        super(element)
-      end
-      class Name < EkispertBase; end
-      class Type < EkispertBase; end
-      class Color < EkispertBase; end
-    end
-
     class Corporation < EkispertBase
       attr_reader :name_list
       def initialize(element)
