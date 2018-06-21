@@ -19,6 +19,10 @@ module Ekispert
         @type_list[0].text
       end
 
+      def type_detail
+        @type_list[0].respond_to?(:detail) ? @type_list[0].detail : nil
+      end
+
       def color
         @color_list[0].text
       end

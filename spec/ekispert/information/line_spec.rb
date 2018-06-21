@@ -20,6 +20,19 @@ RSpec.describe Ekispert::Information::Line do
             expect(line.type_list[0].class).to eq Ekispert::Information::Line::Type
           end
         end
+        describe '#type_detail' do
+          context 'train' do
+            it 'should return nil' do
+              expect(line.type_detail).to be nil
+            end
+          end
+          context 'local bus' do
+            let(:line) { information_list[1].line_list[4] }
+            it 'should return "local"' do
+              expect(line.type_detail).to eq 'local'
+            end
+          end
+        end
         describe '#color_list' do
           it 'contains Ekispert::Information::Line::Color instance' do
             expect(line.color_list[0].class).to eq Ekispert::Information::Line::Color
