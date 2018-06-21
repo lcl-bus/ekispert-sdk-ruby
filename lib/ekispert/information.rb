@@ -19,8 +19,6 @@ module Ekispert
       to_information_class(Ekispert::Client.get('station/info', params))
     end
 
-    class Type < EkispertBase; end
-
     private
 
     def self.to_information_class(elem_arr)
