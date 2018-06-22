@@ -9,7 +9,7 @@ module Ekispert
     end
 
     def self.get
-      to_data_version(Ekispert::Client.get('/dataversion'))
+      to_data_version(Ekispert::Client.get('dataversion'))
     end
 
     class Version < EkispertBase; end

@@ -13,7 +13,7 @@ module Ekispert
     end
 
     def self.get(**params)
-      to_course(Ekispert::Client.get('/search/course/extreme', params))
+      to_course(Ekispert::Client.get('search/course/extreme', params))
     end
 
     private

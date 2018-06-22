@@ -2,13 +2,22 @@ module Ekispert
   class Error < StandardError
     class ClientError < Error
       def initialize(res)
-        error_body = <<-EOS
-          \n
-          status  : #{res.status}
-          URL     : #{res.env.url}"
-          message : #{Nokogiri::XML(res.body).xpath('/ResultSet/Error/Message').map(&:text).join("\n")}
-        EOS
-        super(error_body)
+        @res = res
+        super(format_error_body)
+      end
+
+      private
+
+      def format_error_body
+        %(
+            status  : #{@res.status}
+            URL     : #{@res.env.url}
+            message : #{split_message(@res.body).join("\n")}
+          )
+      end
+
+      def split_message(res_body)
+        Nokogiri::XML(res_body).xpath('/ResultSet/Error/Message').map(&:text)
       end
     end
     class InternalError < Error; end # 1

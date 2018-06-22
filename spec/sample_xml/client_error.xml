@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ResultSet apiVersion="1.23.4.5" engineVersion="1234_56a">
+  <Error code="xxx">
+    <Message>First row error</Message>
+    <Message>Second row error</Message>
+  </Error>
+</ResultSet>
