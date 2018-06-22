@@ -15,7 +15,6 @@ module Ekispert
     end
 
     def self.get_station_light(**params)
-      binding.pry
       to_point(Ekispert::Client.get('station/light', params))
     end
 
