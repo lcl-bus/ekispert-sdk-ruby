@@ -48,7 +48,6 @@ RSpec.describe Ekispert::Point do
       end
     end
   end
-
   describe '.get_station_light' do
     before { set_ekispert_default_config }
     context 'use station code（東京）' do
@@ -58,5 +57,4 @@ RSpec.describe Ekispert::Point do
       end
     end
   end
-
 end
