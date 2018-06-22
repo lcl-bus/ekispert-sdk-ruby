@@ -27,6 +27,22 @@ module Ekispert
       @type_list[0].text
     end
 
+    def rail?
+      type == 'rail'
+    end
+
+    def nearrail?
+      type == 'nearrail'
+    end
+
+    def welfare?
+      type == 'welfare'
+    end
+
+    def exit?
+      type == 'exit'
+    end
+
     def self.get(**params)
       to_information(Ekispert::Client.get('station/info', params))
     end
