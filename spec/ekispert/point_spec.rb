@@ -50,59 +50,32 @@ RSpec.describe Ekispert::Point do
       end
     end
   end
+  describe '.get_station_light' do
+    before { set_ekispert_default_config }
+    context 'use station code（東京）' do
+      let(:point_list) { Ekispert::Point.get_station_light(code: '22828') }
+      describe 'Ekispert::Point#geo_point_list' do
+        it 'should return empty' do
+          expect(point_list[0].geo_point_list).to be_empty
+        end
+      end
+    end
+  end
   describe '.to_point' do
     let(:parsed_xml) { Ekispert::Client.send(:parse_xml, read_xml('point/use_geopoint_and_gate_group.xml')) }
     let(:point_list) { Ekispert::Point.send(:to_point, parsed_xml) }
     context 'use point/use_geopoint_and_gate_group.xml' do
       describe 'Ekispert::Point' do
         describe '#prefecture_list' do
-          it 'return Array and contains Point::Prefecture instance' do
+          it 'contains Point::Prefecture instance' do
             expect(point_list[0].prefecture_list[0].class).to eq Ekispert::Point::Prefecture
           end
         end
         describe '#geo_point_list' do
-          it 'return Array and contains Point::GeoPoint instance' do
+          it 'contains Point::GeoPoint instance' do
             expect(point_list[0].geo_point_list[0].class).to eq Ekispert::Point::GeoPoint
           end
         end
-      end
-    end
-  end
-  describe '.station_request_path' do
-    context 'params include only code param' do
-      let(:params) { { code: '22828' } }
-      it 'should return "/station/light"' do
-        expect(Ekispert::Point.send(:station_request_path, params)).to eq '/station/light'
-      end
-    end
-    context 'params include code and gcs params' do
-      let(:params) { { code: '22828', gcs: 'tokyo' } }
-      it 'should return "/station"' do
-        expect(Ekispert::Point.send(:station_request_path, params)).to eq '/station'
-      end
-    end
-    context 'params include code and corporationBind params' do
-      let(:params) { { name: '東京', corporationBind: 'JR' } }
-      it 'should return "/station/light"' do
-        expect(Ekispert::Point.send(:station_request_path, params)).to eq '/station/light'
-      end
-    end
-    context 'params include corporationName param' do
-      let(:params) { { corporationName: 'JR' } }
-      it 'should return "/station"' do
-        expect(Ekispert::Point.send(:station_request_path, params)).to eq '/station'
-      end
-    end
-    context 'params include prefectureCode param' do
-      let(:params) { { prefectureCode: '1' } }
-      it 'should return "/station/light"' do
-        expect(Ekispert::Point.send(:station_request_path, params)).to eq '/station/light'
-      end
-    end
-    context 'params include prefectureCode and gcs params' do
-      let(:params) { { prefectureCode: '1', gcs: 'tokyo' } }
-      it 'should return "/station"' do
-        expect(Ekispert::Point.send(:station_request_path, params)).to eq '/station'
       end
     end
   end

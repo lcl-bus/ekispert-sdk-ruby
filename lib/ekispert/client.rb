@@ -2,7 +2,7 @@ module Ekispert
   class Client
     def self.get(path, params=nil)
       set_connection if @connection.nil? || connection_options_update?
-      res = request(path, params)
+      res = @connection.get(path, params)
       return parse_xml(res.body) if res.status == 200
       raise_error(res)
     end
@@ -28,10 +28,6 @@ module Ekispert
 
     def self.connection_options_update?
       @connection_options != connection_options
-    end
-
-    def self.request(path, params)
-      @connection.get(path.sub(/^\//, ''), params)
     end
 
     def self.parse_xml(xml)
