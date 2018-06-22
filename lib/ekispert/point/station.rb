@@ -3,8 +3,6 @@ module Ekispert
     class Station < Point
       attr_reader :name_list, :yomi_list, :type_list, :gate_group_list, :old_name_list
 
-      PAID_REQUEST_PARAMS = open('./data/station_paid_params.yml', 'r') { |f| YAML.safe_load(f, [Symbol]) }.freeze
-
       def initialize(element)
         @name_list = []
         @yomi_list = []
