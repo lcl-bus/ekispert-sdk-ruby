@@ -9,6 +9,14 @@ module Ekispert
         super(element)
       end
 
+      def name
+        @name_list[0]&.text
+      end
+
+      def comment
+        @comment_list[0]&.text
+      end
+
       class Name < EkispertBase; end
       class Comment < EkispertBase; end
     end
