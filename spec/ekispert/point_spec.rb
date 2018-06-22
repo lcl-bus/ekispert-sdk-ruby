@@ -53,7 +53,7 @@ RSpec.describe Ekispert::Point do
     context 'use station code（東京）' do
       let(:point_list) { Ekispert::Point.get_station_light(code: '22828') }
       it 'geo_point_list array not contains instance' do
-        expect(point_list[0].geo_point_list[0].class).to eq NilClass
+        expect(point_list[0].geo_point_list).to be_empty
       end
     end
   end
