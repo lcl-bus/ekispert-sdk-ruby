@@ -18,6 +18,10 @@ AsciiComments:
 Layout/LeadingBlankLines:
   Enabled: true
 
+# Use 'set_' and 'get_' prefix
+AccessorMethodName:
+  Enabled: false
+
 # Surrounding space missing in default value assignment.
 Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
