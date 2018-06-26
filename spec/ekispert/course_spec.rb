@@ -52,6 +52,16 @@ RSpec.describe Ekispert::Course do
             expect(course.serialize_data_list[0].class).to eq Ekispert::Course::SerializeData
           end
         end
+        describe '#route' do
+          it 'should return Ekispert::Course::Route instance' do
+            expect(course_list[0].route.class).to eq Ekispert::Course::Route
+          end
+        end
+        describe '#serialize_data' do
+          it 'should return value of Ekispert::Course::SerializeData#text' do
+            expect(course_list[0].serialize_data).to match(/^VkV4QaECp6/)
+          end
+        end
       end
     end
   end
