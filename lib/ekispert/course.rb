@@ -1,6 +1,7 @@
 module Ekispert
   class Course < EkispertBase
     attr_accessor :route_list, :price_list, :pass_status_list, :serialize_data_list
+    attr_accessor :fare, :charge, :teiki1, :teiki3, :teiki6
 
     def initialize(element)
       @route_list = []
@@ -8,6 +9,7 @@ module Ekispert
       @pass_status_list = []
       @serialize_data_list = []
       super(element)
+      define_summary_method
       relate_line_to_price
       relate_price_to_line
     end
@@ -20,6 +22,22 @@ module Ekispert
 
     def self.to_course(elem_arr)
       elem_arr.xpath('//Course').map { |course_elem| self.new(course_elem) }
+    end
+
+    # This method define summary methods.
+    # If nothing 'HogeSummary' elements, create and set empty Course::Price instance.
+    # result:
+    #   Course#fare
+    #   Course#charge
+    #   Course#teiki1 ...
+    def define_summary_method
+      %w[fare charge teiki1 teiki3 teiki6].each do |summary_type|
+        self.define_singleton_method(summary_type) { price_summary(summary_type) }
+      end
+    end
+
+    def price_summary(type)
+      @price_list.find { |price| price.kind == "#{type.capitalize}Summary" } || Ekispert::Course::Price.new
     end
 
     # This method relate Course::Route::Line instance to Course::Price instance.

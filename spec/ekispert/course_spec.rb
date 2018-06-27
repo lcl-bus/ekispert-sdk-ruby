@@ -146,4 +146,38 @@ RSpec.describe Ekispert::Course do
       end
     end
   end
+  describe '#define_summary_method' do
+    context 'use course/include_relation_search.xml' do
+      let(:xml) { read_xml('course/include_relation_search.xml') }
+      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
+      let(:course) { Ekispert::Course.new(parsed_xml.xpath('//Course')[0]) }
+      describe 'created Ekispert::Course instance' do
+        describe '#fare' do
+          it 'should return Course::Price instance of fare summary' do
+            expect(course.fare.kind).to eq 'FareSummary'
+          end
+        end
+        describe '#charge' do
+          it 'should return empty Course::Price instance' do
+            expect(course.charge.oneway).to eq 0
+          end
+        end
+        describe '#teiki1' do
+          it 'should return Course::Price instance of teiki1 summary' do
+            expect(course.teiki1.kind).to eq 'Teiki1Summary'
+          end
+        end
+        describe '#teiki3' do
+          it 'should return Course::Price instance of teiki3 summary' do
+            expect(course.teiki3.kind).to eq 'Teiki3Summary'
+          end
+        end
+        describe '#teiki6' do
+          it 'should return Course::Price instance of teiki6 summary' do
+            expect(course.teiki6.kind).to eq 'Teiki6Summary'
+          end
+        end
+      end
+    end
+  end
 end
