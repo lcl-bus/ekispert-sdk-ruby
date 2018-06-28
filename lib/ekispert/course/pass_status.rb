@@ -2,11 +2,13 @@ module Ekispert
   class Course < EkispertBase
     class PassStatus < EkispertBase
       attr_accessor :comment_list, :name_list, :type_list
+      attr_accessor :price_list
 
       def initialize(element)
         @comment_list = []
         @name_list = []
         @type_list = []
+        @price_list = [] # Use Course#relate_price_and_pass_status
         super(element)
       end
 

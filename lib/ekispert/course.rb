@@ -66,7 +66,11 @@ module Ekispert
       return if @pass_status_list.empty?
       price_list.each do |price|
         next unless price.respond_to?(:pass_class_index)
-        price.pass_status = @pass_status_list.find { |status| status.index == price.pass_class_index }
+        pass_status = @pass_status_list.find { |status| status.index == price.pass_class_index }
+        # Price to PassStatus
+        price.pass_status = pass_status
+        # PassStatus to Price
+        pass_status.price_list << price
       end
     end
   end

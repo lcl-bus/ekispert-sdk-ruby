@@ -171,6 +171,16 @@ RSpec.describe Ekispert::Course do
           end
         end
       end
+      describe 'Ekispert::Course::PassStatus instance' do
+        describe '#price_list' do
+          it 'should return correct instance' do
+            expect(course.pass_status_list[0].price_list.all? { |price| price.index == '1' && price.kind.match(/^Teiki(1|3)$/) }).to eq true
+          end
+          it 'should return correct instance' do
+            expect(course.pass_status_list[1].price_list.all? { |price| price.index == '3' && price.kind.match(/^Teiki(1|3)$/) }).to eq true
+          end
+        end
+      end
     end
   end
 end
