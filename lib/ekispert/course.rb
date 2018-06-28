@@ -10,6 +10,7 @@ module Ekispert
       super(element)
       relate_line_to_price
       relate_price_to_line
+      relate_price_and_pass_status
     end
 
     def self.get(**params)
@@ -54,6 +55,18 @@ module Ekispert
         next unless price.respond_to?(:from_line_index)
         price_range = (price.from_line_index.to_i..price.to_line_index.to_i)
         price.line_list = @route_list[0].line_list.select { |line| price_range.include?(line.index.to_i) }
+      end
+    end
+
+    # This method relate Course::Price instance and Course::PassStatus instance.
+    # It's judged based on to Price#pass_class_index.
+    # result:
+    #   Course::Price#pass_status
+    def relate_price_and_pass_status
+      return if @pass_status_list.empty?
+      price_list.each do |price|
+        next unless price.respond_to?(:pass_class_index)
+        price.pass_status = @pass_status_list.find { |status| status.index == price.pass_class_index }
       end
     end
   end

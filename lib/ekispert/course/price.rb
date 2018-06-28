@@ -3,7 +3,7 @@ module Ekispert
     class Price < EkispertBase
       attr_accessor :name_list, :oneway_list, :rate_list, :round_list
       attr_accessor :revision_status_list, :revision_status_comment_list, :type_list
-      attr_accessor :line_list
+      attr_accessor :line_list, :pass_status
 
       def initialize(element=nil)
         @name_list = []

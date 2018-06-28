@@ -146,4 +146,31 @@ RSpec.describe Ekispert::Course do
       end
     end
   end
+  describe '#relate_price_and_pass_status' do
+    context 'use course/include_relation_search.xml' do
+      let(:xml) { read_xml('course/include_relation_search.xml') }
+      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
+      let(:course) { Ekispert::Course.new(parsed_xml.xpath('//Course')[0]) }
+      describe 'Ekispert::Course::Price instance' do
+        describe '#pass_status（Ekispert::Course::PassStatus instance）' do
+          # kind='Teiki1', index='1'
+          it 'can call #name, return correct value' do
+            expect(course.price_list[5].pass_status.name).to eq 'ＩＣ定期'
+          end
+          # kind='Teiki1', index='3'
+          it 'can call #type, return correct value' do
+            expect(course.price_list[5].pass_status.type).to eq 'SectionBaseICPass'
+          end
+          # kind='Teiki3', index='1'
+          it 'can call #comment, return correct value' do
+            expect(course.price_list[7].pass_status.comment).to eq ''
+          end
+          # kind='Teiki3', index='3'
+          it 'can call #kind, return correct value' do
+            expect(course.price_list[7].pass_status.kind).to eq 'bycorporation'
+          end
+        end
+      end
+    end
+  end
 end
