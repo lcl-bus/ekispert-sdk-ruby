@@ -147,10 +147,10 @@ RSpec.describe Ekispert::Course do
     end
   end
   describe '#relate_price_and_pass_status' do
+    let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
+    let(:course) { Ekispert::Course.new(parsed_xml.xpath('//Course')[0]) }
     context 'use course/include_relation_search.xml' do
       let(:xml) { read_xml('course/include_relation_search.xml') }
-      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
-      let(:course) { Ekispert::Course.new(parsed_xml.xpath('//Course')[0]) }
       describe 'Ekispert::Course::Price instance' do
         describe '#pass_status（Ekispert::Course::PassStatus instance）' do
           # kind='Teiki1', index='1'
@@ -179,6 +179,19 @@ RSpec.describe Ekispert::Course do
           it 'should return correct instance' do
             expect(course.pass_status_list[1].price_list.all? { |price| price.index == '3' && price.kind.match(/^Teiki(1|3)$/) }).to eq true
           end
+        end
+      end
+    end
+    context 'Not include PassStatus element（Use course/simple_search.xml）' do
+      let(:xml) { read_xml('course/simple_search.xml') }
+      context 'Course::Price#kind should return "Fare"' do
+        it 'should return nil' do
+          expect(course.price_list[1].pass_status).to be nil
+        end
+      end
+      context 'Course::Price#kind should return "Teiki1"' do
+        it 'should return empty PassStatus instance' do
+          expect(course.price_list[4].pass_status.name).to be nil
         end
       end
     end

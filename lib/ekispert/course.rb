@@ -63,15 +63,19 @@ module Ekispert
     # result:
     #   Course::Price#pass_status
     def relate_price_and_pass_status
-      return if @pass_status_list.empty?
       price_list.each do |price|
-        next unless price.respond_to?(:pass_class_index)
-        pass_status = @pass_status_list.find { |status| status.index == price.pass_class_index }
+        next unless price.kind.match?(/^Teiki\d{1}$/)
+        pass_status = find_pass_status(price)
         # Price to PassStatus
         price.pass_status = pass_status
         # PassStatus to Price
         pass_status.price_list << price
       end
+    end
+
+    def find_pass_status(price)
+      return Ekispert::Course::PassStatus.new unless price.respond_to?(:pass_class_index)
+      @pass_status_list.find { |status| status.index == price.pass_class_index }
     end
   end
 end

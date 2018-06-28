@@ -4,11 +4,12 @@ module Ekispert
       attr_accessor :comment_list, :name_list, :type_list
       attr_accessor :price_list
 
-      def initialize(element)
+      def initialize(element=nil)
         @comment_list = []
         @name_list = []
         @type_list = []
         @price_list = [] # Use Course#relate_price_and_pass_status
+        return if element.nil?
         super(element)
       end
 
