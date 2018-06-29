@@ -46,6 +46,18 @@ module Ekispert
         @type_list[0]&.text
       end
 
+      def fare?
+        kind == 'Fare'
+      end
+
+      def charge?
+        kind == 'Charge'
+      end
+
+      def teiki?
+        kind.match?(/^Teiki\d{1}$/)
+      end
+
       class Name < EkispertBase; end
       class Oneway < EkispertBase; end
       class Rate < EkispertBase; end
