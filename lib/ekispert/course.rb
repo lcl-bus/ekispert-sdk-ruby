@@ -12,6 +12,14 @@ module Ekispert
       relate_price_to_line
     end
 
+    def route
+      @route_list[0]
+    end
+
+    def serialize_data
+      @serialize_data_list[0].text
+    end
+
     def self.get(**params)
       to_course(Ekispert::Client.get('search/course/extreme', params))
     end
