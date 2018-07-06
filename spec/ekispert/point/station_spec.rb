@@ -49,9 +49,34 @@ RSpec.describe Ekispert::Point::Station do
       context 'use point/use_old_station_name.xml' do
         # params = { oldName: "業平橋" }
         let(:xml) { read_xml('point/use_old_station_name.xml') }
-        describe '::OldName#text' do
+        describe '#name' do
+          it 'should return "とうきょうスカイツリー"' do
+            expect(station.name).to eq 'とうきょうスカイツリー'
+          end
+        end
+        describe '#yomi' do
+          it 'should return "とうきょうすかいつりー"' do
+            expect(station.yomi).to eq 'とうきょうすかいつりー'
+          end
+        end
+        describe '#type' do
+          it 'should return "train"' do
+            expect(station.type).to eq 'train'
+          end
+        end
+        describe '#old_name' do
           it 'should return "業平橋"' do
-            expect(station_list[0].old_name_list[0].text).to eq '業平橋'
+            expect(station.old_name).to eq '業平橋'
+          end
+        end
+        describe '#geo_point' do
+          it 'should return Ekispert::Point::GeoPoint instance' do
+            expect(station.geo_point.instance_of?(Ekispert::Point::GeoPoint)).to be true
+          end
+        end
+        describe '#prefecture' do
+          it 'should return Ekispert::Point::Prefecture instance' do
+            expect(station.prefecture.instance_of?(Ekispert::Point::Prefecture)).to be true
           end
         end
       end
