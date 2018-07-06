@@ -9,6 +9,18 @@ module Ekispert
       super(element)
     end
 
+    def station
+      @station_list[0]
+    end
+
+    def prefecture
+      @prefecture_list[0]
+    end
+
+    def geo_point
+      @geo_point_list[0]
+    end
+
     # parse Point class
     def self.get_station(**params)
       to_point(Ekispert::Client.get('station', params))
