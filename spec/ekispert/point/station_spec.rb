@@ -45,6 +45,11 @@ RSpec.describe Ekispert::Point::Station do
             end
           end
         end
+        describe '#gate_group' do
+          it 'should return Ekispert::Point::Station::GateGroup instance' do
+            expect(station.gate_group.instance_of?(Ekispert::Point::Station::GateGroup)).to be true
+          end
+        end
       end
       context 'use point/use_old_station_name.xml' do
         # params = { oldName: "業平橋" }

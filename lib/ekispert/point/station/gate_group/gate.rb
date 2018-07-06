@@ -11,6 +11,14 @@ module Ekispert
             super(element)
           end
 
+          def name
+            @name_list[0].text
+          end
+
+          def geo_point
+            @geo_point_list[0]
+          end
+
           class Name < EkispertBase; end
           class GeoPoint < EkispertBase; end
         end
