@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'ekispert/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'ekispert-sdk-ruby'
+  spec.name          = 'ekispert'
   spec.version       = Ekispert::VERSION
   spec.authors       = ['Ekispert Web Service']
 
