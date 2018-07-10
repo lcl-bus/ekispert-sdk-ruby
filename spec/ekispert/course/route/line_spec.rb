@@ -51,4 +51,16 @@ RSpec.describe Ekispert::Course::Route::Line do
       expect(line.departure_state_list[0].class).to eq Ekispert::Course::Route::Line::DepartureState
     end
   end
+  describe '#corporation_list' do
+    let(:xml) { read_xml('course/shinkansen_search.xml') }
+    it 'return Array and contains Course::Route::Line::Corporation instance' do
+      expect(line.corporation_list[0].class).to eq Ekispert::Course::Route::Line::Corporation
+    end
+  end
+  describe '#typical_name_list' do
+    let(:xml) { read_xml('course/include_relation_search.xml') }
+    it 'return Array and contains Course::Route::Line::TypicalName instance' do
+      expect(line.typical_name_list[0].class).to eq Ekispert::Course::Route::Line::TypicalName
+    end
+  end
 end
