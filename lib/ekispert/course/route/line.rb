@@ -22,6 +22,46 @@ module Ekispert
           super(element)
         end
 
+        def arrival_state
+          @arrival_state_list[0]
+        end
+
+        def departure_state
+          @departure_state_list[0]
+        end
+
+        def corporation
+          @corporation_list[0]
+        end
+
+        def color
+          @color_list[0].text
+        end
+
+        def destination
+          @destination_list[0].text
+        end
+
+        def name
+          @name_list[0].text
+        end
+
+        def number
+          @number_list[0]&.text
+        end
+
+        def time_reliability
+          @time_reliability_list[0].text
+        end
+
+        def type
+          @type_list[0]&.text
+        end
+
+        def typical_name
+          @typical_name_list[0]&.text
+        end
+
         class Color < EkispertBase; end
         class Destination < EkispertBase; end
         class Name < EkispertBase; end
