@@ -1,5 +1,5 @@
 module Ekispert
-  class Point
+  class Point < EkispertBase
     class Station < Point
       attr_reader :name_list, :yomi_list, :type_list, :gate_group_list, :old_name_list
 

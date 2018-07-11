@@ -1,5 +1,5 @@
 module Ekispert
-  class Point
+  class Point < EkispertBase
     # when request path '/station'
     class GeoPoint < EkispertBase; end
   end
