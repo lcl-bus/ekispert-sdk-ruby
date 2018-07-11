@@ -1,0 +1,18 @@
+module Ekispert
+  class Course < EkispertBase
+    class Route < EkispertBase
+      class Line < EkispertBase
+        class Corporation < EkispertBase
+          attr_accessor :name_list
+
+          def initialize(element)
+            @name_list = []
+            super(element)
+          end
+
+          class Name < EkispertBase; end
+        end
+      end
+    end
+  end
+end

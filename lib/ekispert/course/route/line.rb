@@ -22,59 +22,6 @@ module Ekispert
           super(element)
         end
 
-        class ArrivalState < EkispertBase
-          attr_accessor :gate_list, :datetime_list, :type_list
-
-          def initialize(element)
-            @gate_list = []
-            @datetime_list = []
-            @type_list = []
-            super(element)
-          end
-
-          class Gate < EkispertBase
-            attr_accessor :geo_point, :name_list
-
-            def initialize(element)
-              @geo_point_list = []
-              @name_list = []
-              super(element)
-            end
-
-            class GeoPoint < EkispertBase; end
-            class Name < EkispertBase; end
-          end
-          class Datetime < EkispertBase; end
-          class Type < EkispertBase; end
-        end
-        class DepartureState < EkispertBase
-          attr_accessor :gate_list, :datetime_list, :type_list
-
-          def initialize(element)
-            @gate_list = []
-            @datetime_list = []
-            @type_list = []
-            super(element)
-          end
-
-          class Gate < EkispertBase
-            attr_accessor :geo_point, :name_list
-
-            def initialize(element)
-              @geo_point_list = []
-              @name_list = []
-              super(element)
-            end
-
-            class GeoPoint < EkispertBase; end
-            class Name < EkispertBase; end
-          end
-          class Datetime < EkispertBase; end
-          class Type < EkispertBase; end
-        end
-        class Corporation < EkispertBase
-          class Name < EkispertBase; end
-        end
         class Color < EkispertBase; end
         class Destination < EkispertBase; end
         class Name < EkispertBase; end
