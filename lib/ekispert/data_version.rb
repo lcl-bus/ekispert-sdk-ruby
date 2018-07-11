@@ -12,9 +12,6 @@ module Ekispert
       to_data_version(Ekispert::Client.get('dataversion'))
     end
 
-    class Version < EkispertBase; end
-    class Copyrights < EkispertBase; end
-
     def self.to_data_version(elem_arr)
       data_version = self.new
       elem_arr.children.each do |element|
@@ -30,5 +27,8 @@ module Ekispert
     end
 
     private_class_method :to_data_version
+
+    class Version < EkispertBase; end
+    class Copyrights < EkispertBase; end
   end
 end
