@@ -23,5 +23,7 @@ module Ekispert
     end
 
     private_class_method :to_point
+
+    class GeoPoint < EkispertBase; end
   end
 end

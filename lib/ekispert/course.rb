@@ -31,6 +31,8 @@ module Ekispert
       elem_arr.xpath('//Course').map { |course_elem| self.new(course_elem) }
     end
 
+    class SerializeData < EkispertBase; end
+
     private_class_method :to_course
 
     private

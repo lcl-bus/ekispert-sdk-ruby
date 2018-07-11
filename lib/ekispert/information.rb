@@ -24,5 +24,7 @@ module Ekispert
     end
 
     private_class_method :to_information
+
+    class Type < EkispertBase; end
   end
 end
