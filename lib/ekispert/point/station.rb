@@ -44,8 +44,6 @@ module Ekispert
         convert_point_to_station(self.superclass.get_station(params))
       end
 
-      private
-
       # argment:
       #   point_list: [#<Ekispert::Point>, #<Ekispert::Point>,...]
       # return:
@@ -61,6 +59,8 @@ module Ekispert
           station
         end
       end
+
+      private_class_method :convert_point_to_station
     end
   end
 end
