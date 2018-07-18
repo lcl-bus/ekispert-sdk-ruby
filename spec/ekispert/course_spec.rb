@@ -52,6 +52,16 @@ RSpec.describe Ekispert::Course do
             expect(course.serialize_data_list[0].class).to eq Ekispert::Course::SerializeData
           end
         end
+        describe '#route' do
+          it 'should return Ekispert::Course::Route instance' do
+            expect(course_list[0].route.class).to eq Ekispert::Course::Route
+          end
+        end
+        describe '#serialize_data' do
+          it 'should return value of Ekispert::Course::SerializeData#text' do
+            expect(course_list[0].serialize_data).to match(/^VkV4QaECp6/)
+          end
+        end
       end
     end
   end
@@ -192,6 +202,40 @@ RSpec.describe Ekispert::Course do
       context 'Course::Price#kind should return "Teiki1"' do
         it 'should return empty PassStatus instance' do
           expect(course.price_list[4].pass_status.name).to be nil
+        end
+      end
+    end
+  end
+  describe '#define_summary_method' do
+    context 'use course/include_relation_search.xml' do
+      let(:xml) { read_xml('course/include_relation_search.xml') }
+      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
+      let(:course) { Ekispert::Course.new(parsed_xml.xpath('//Course')[0]) }
+      describe 'created Ekispert::Course instance' do
+        describe '#fare' do
+          it 'should return Course::Price instance of fare summary' do
+            expect(course.fare.kind).to eq 'FareSummary'
+          end
+        end
+        describe '#charge' do
+          it 'should return empty Course::Price instance' do
+            expect(course.charge.oneway).to eq 0
+          end
+        end
+        describe '#teiki1' do
+          it 'should return Course::Price instance of teiki1 summary' do
+            expect(course.teiki1.kind).to eq 'Teiki1Summary'
+          end
+        end
+        describe '#teiki3' do
+          it 'should return Course::Price instance of teiki3 summary' do
+            expect(course.teiki3.kind).to eq 'Teiki3Summary'
+          end
+        end
+        describe '#teiki6' do
+          it 'should return Course::Price instance of teiki6 summary' do
+            expect(course.teiki6.kind).to eq 'Teiki6Summary'
+          end
         end
       end
     end

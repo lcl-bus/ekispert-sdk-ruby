@@ -1,140 +1,68 @@
 require 'spec_helper'
-require 'helper/ekispert/information_helper'
+require 'helper/util_helper'
 
 RSpec.describe Ekispert::Information do
   include Ekispert::SpecHelper::Config
-  include Ekispert::SpecHelper::Information
+  include UtilHelper
+
   describe '.get' do
     before { set_ekispert_default_config }
-    context 'Use type = rail' do
-      let(:information) { Ekispert::Information.get(code: 22828, type: 'rail') }
-      it 'Return array class' do
-        expect(information.class).to eq Array
+    context 'params = { code: 22828, type: "rail" }' do
+      let(:information_list) { Ekispert::Information.get(code: 22828, type: 'rail') }
+      it 'return Array contain Ekispert::Information instance' do
+        expect(information_list[0].class).to eq Ekispert::Information
       end
-      it 'Array include Ekispert::Information instance' do
-        expect(information[0].class).to eq Ekispert::Information
+      describe 'Ekispert::Information#type' do
+        it 'should return "rail"' do
+          expect(information_list[0].type).to eq 'rail'
+        end
       end
     end
   end
-
-  describe '.to_information_class' do
-    context 'There is only one argument' do
-      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, res_body_rail) }
-      let(:information) { Ekispert::Information.send(:to_information_class, parsed_xml) }
-
-      it 'line_list in Ekispert::Information::Line instance' do
-        expect(information[0].line_list[0].class).to eq Ekispert::Information::Line
-      end
-      it 'Name element is included Ekispert::Information::Line instance' do
-        expect(information[0].line_list[0].name_list[0].text).to eq 'ＪＲ新幹線のぞみ'
-      end
-      it 'Type element is included Ekispert::Information::Line instance' do
-        expect(information[0].line_list[0].type_list[0].text).to eq 'train'
-      end
-      it 'Color element is included Ekispert::Information::Line instance' do
-        expect(information[0].line_list[0].color_list[0].text).to eq '051102255'
-      end
-      it 'corporation_list in Ekispert::Information::Corporation instance' do
-        expect(information[0].corporation_list[0].class).to eq Ekispert::Information::Corporation
-      end
-      it 'Corporation element is included Ekispert::Information::Corporation instance' do
-        expect(information[0].corporation_list[0].name_list[0].text).to eq 'ＪＲ'
-      end
-      it 'type_list in Ekispert::Information::Type instance' do
-        expect(information[0].type_list[0].class).to eq Ekispert::Information::Type
-      end
-      it 'Type element is included in Ekispert::Information::Type instance' do
-        expect(information[0].type_list[0].text).to eq 'rail'
-      end
-      it 'Other list is empty' do
-        expect(information[0].exit_list).to be_empty
-      end
-    end
-
-    context 'There are two argument' do
-      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, res_body_welfare_and_exit) }
-      let(:information) { Ekispert::Information.send(:to_information_class, parsed_xml) }
-
-      it 'Ekispert::Information::WelfareFacilities instance in welfare_list' do
-        expect(information[0].welfare_facilities_list[0].class).to eq Ekispert::Information::WelfareFacilities
-      end
-      it 'Name element is included Ekispert::Information::WelfareFacilities instance' do
-        expect(information[0].welfare_facilities_list[0].name_list[0].text).to eq 'バリアフリー状況'
-      end
-      it 'Type element is included Ekispert::Information::WelfareFacilities instance' do
-        expect(information[0].welfare_facilities_list[0].comment_list[0].text).to eq '※段差なしでの移動経路 （○：有り　△：要駅員設備　×：無し） 【ＪＲ東日本】【ＪＲ東海】：○ 【東京メトロ】：○'
-      end
-      it 'type_list in Ekispert::Information::Type instance' do
-        expect(information[0].type_list[0].class).to eq Ekispert::Information::Type
-      end
-      it 'Type element is included Ekispert::Information::Type instance' do
-        expect(information[0].type_list[0].text).to eq 'welfare'
-      end
-      it 'Ekispert::Information::Line instance not in Ekispert::Information::Exit instance' do
-        expect(information[0].exit_list).to be_empty
-      end
-      it 'Ekispert::Information::Exit instance in exit_list' do
-        expect(information[-1].exit_list[0].class).to eq Ekispert::Information::Exit
-      end
-      it 'Name element is included Ekispert::Information::Exit instance' do
-        expect(information[-1].exit_list[0].name_list[0].text).to eq '１出口'
-      end
-      it 'Ekispert::Information::Exit instance not in Ekispert::Information::Line instance' do
-        expect(information[-1].line_list).to be_empty
-      end
-    end
-
-    context 'There are same elements' do
-      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, res_body_same_elements) }
-      let(:information) { Ekispert::Information.send(:to_information_class, parsed_xml) }
-
-      it 'Ekispert::Information::Line RailInstance in line_list' do
-        expect(information[0].line_list[0].class).to eq Ekispert::Information::Line
-      end
-      it 'Name element of RailInstance is included Ekispert::Information::Line RailInstance' do
-        expect(information[0].line_list[0].name_list[0].text).to eq 'ＪＲ新幹線やまびこ'
-      end
-      it 'Type element of RailInstance is included Ekispert::Information::Line RailInstance' do
-        expect(information[0].line_list[0].type_list[0].text).to eq 'train'
-      end
-      it 'Color element of is included Ekispert::Information::Line RailInstance' do
-        expect(information[0].line_list[0].color_list[0].text).to eq '000208030'
-      end
-      it 'Ekispert::Information::Corporation RailInstance in corporation_list' do
-        expect(information[0].corporation_list[0].class).to eq Ekispert::Information::Corporation
-      end
-      it 'Corporation element of RailInstance is included Ekispert::Information::Corporation RailInstance' do
-        expect(information[0].corporation_list[0].name_list[0].text).to eq 'ＪＲ'
-      end
-      it 'type_list in Ekispert::Information::Type RailInstance' do
-        expect(information[0].type_list[0].class).to eq Ekispert::Information::Type
-      end
-      it 'Type element of RailInstance is included Ekispert::Information::Type RailInstance' do
-        expect(information[0].type_list[0].text).to eq 'rail'
-      end
-      it 'Ekispert::Information::Line RailInstance in line_list' do
-        expect(information[-1].line_list[0].class).to eq Ekispert::Information::Line
-      end
-      it 'Name element of NearraailInstance is included Ekispert::Information::Line NearraailInstance' do
-        expect(information[-1].line_list[0].name_list[0].text).to eq '都営バス・Ｓ－１(東京駅丸の内北口－錦糸町駅前)'
-      end
-      it 'Type element of NearraailInstance is included Ekispert::Information::Line NearraailInstance' do
-        expect(information[-1].line_list[0].type_list[0].text).to eq 'bus'
-      end
-      it 'Color element of NearraailInstance is included Ekispert::Information::Line NearraailInstance' do
-        expect(information[-1].line_list[0].color_list[0].text).to eq '015128015'
-      end
-      it 'Ekispert::Information::Corporation NearraailInstance in corporation_list' do
-        expect(information[-1].corporation_list[0].class).to eq Ekispert::Information::Corporation
-      end
-      it 'Corporation element of NearraailInstance is included Ekispert::Information::Corporation NearraailInstance' do
-        expect(information[-1].corporation_list[0].name_list[0].text).to eq '都営バス'
-      end
-      it 'type_list in Ekispert::Information::Type NearraailInstance' do
-        expect(information[-1].type_list[0].class).to eq Ekispert::Information::Type
-      end
-      it 'Type element of NearraailInstance is included Ekispert::Information::Type NearraailInstance' do
-        expect(information[-1].type_list[0].text).to eq 'nearrail'
+  describe '.to_information' do
+    describe 'Ekispert::Information instance' do
+      context 'use information/all_type_search.xml' do
+        let(:parsed_xml) { Ekispert::Client.send(:parse_xml, read_xml('information/all_type_search.xml')) }
+        let(:information_list) { Ekispert::Information.send(:to_information, parsed_xml) }
+        context '#type == "rail"' do
+          let(:information) { information_list[0] }
+          describe '#line_list' do
+            it 'contain Ekispert::Information::Line instance' do
+              expect(information.line_list[0].class).to eq Ekispert::Information::Line
+            end
+          end
+          describe '#corporation_list' do
+            it 'contain Ekispert::Information::Corporation instance' do
+              expect(information.corporation_list[0].class).to eq Ekispert::Information::Corporation
+            end
+          end
+          describe '#exit_list' do
+            it 'empty' do
+              expect(information.exit_list).to be_empty
+            end
+          end
+          describe '#welfare_facilities_list' do
+            it 'empty' do
+              expect(information.welfare_facilities_list).to be_empty
+            end
+          end
+        end
+        context '#type == "exit"' do
+          let(:information) { information_list[2] }
+          describe '#exit_list' do
+            it 'contain Ekispert::Information::Exit' do
+              expect(information.exit_list[0].class).to eq Ekispert::Information::Exit
+            end
+          end
+        end
+        context '#type == "welfare"' do
+          let(:information) { information_list[3] }
+          describe '#welfare_facilities_list' do
+            it 'contain Ekispert::Information::WelfareFacilities' do
+              expect(information.welfare_facilities_list[0].class).to eq Ekispert::Information::WelfareFacilities
+            end
+          end
+        end
       end
     end
   end
