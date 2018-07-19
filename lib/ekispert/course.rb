@@ -12,6 +12,7 @@ module Ekispert
       define_summary_method
       relate_line_to_price
       relate_price_to_line
+      relate_price_and_pass_status
     end
 
     def route
@@ -81,6 +82,26 @@ module Ekispert
         price_range = (price.from_line_index.to_i..price.to_line_index.to_i)
         price.line_list = @route_list[0].line_list.select { |line| price_range.include?(line.index.to_i) }
       end
+    end
+
+    # This method relate Course::Price instance and Course::PassStatus instance.
+    # It's judged based on to Price#pass_class_index.
+    # result:
+    #   Course::Price#pass_status
+    def relate_price_and_pass_status
+      price_list.each do |price|
+        next unless price.kind.match?(/^Teiki\d{1}$/)
+        pass_status = find_pass_status(price)
+        # Price to PassStatus
+        price.pass_status = pass_status
+        # PassStatus to Price
+        pass_status.price_list << price
+      end
+    end
+
+    def find_pass_status(price)
+      return Ekispert::Course::PassStatus.new unless price.respond_to?(:pass_class_index)
+      @pass_status_list.find { |status| status.index == price.pass_class_index }
     end
   end
 end

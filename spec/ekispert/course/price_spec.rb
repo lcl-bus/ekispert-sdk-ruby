@@ -4,11 +4,11 @@ require 'helper/util_helper'
 RSpec.describe Ekispert::Course::Price do
   include UtilHelper
 
+  let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
+  let(:course_list) { Ekispert::Course.send(:to_course, parsed_xml) }
   describe '.to_course（Price class part）' do
     # From: Tokyo, To: Shin-Osaka
     let(:xml) { read_xml('course/shinkansen_search.xml') }
-    let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
-    let(:course_list) { Ekispert::Course.send(:to_course, parsed_xml) }
     let(:price) { course_list[0].price_list[3] }
     describe 'Course::Price instance' do
       describe '#name_list' do
@@ -45,6 +45,82 @@ RSpec.describe Ekispert::Course::Price do
         it 'return Array and contains Course::Price::Type instance' do
           expect(price.type_list[0].class).to eq Ekispert::Course::Price::Type
         end
+      end
+    end
+  end
+  context '#kind == "Teiki1Summary"' do
+    let(:xml) { read_xml('course/include_relation_search.xml') }
+    let(:price) { course_list[0].price_list[4] }
+    describe '#fare?' do
+      it 'should return false' do
+        expect(price.fare?).to be false
+      end
+    end
+    describe '#charge?' do
+      it 'should return false' do
+        expect(price.charge?).to be false
+      end
+    end
+    describe '#teiki?' do
+      it 'should return false' do
+        expect(price.teiki?).to be false
+      end
+    end
+  end
+  context '#kind == "Fare"' do
+    let(:xml) { read_xml('course/include_relation_search.xml') }
+    let(:price) { course_list[0].price_list[1] }
+    describe '#fare?' do
+      it 'should return true' do
+        expect(price.fare?).to be true
+      end
+    end
+    describe '#charge?' do
+      it 'should return false' do
+        expect(price.charge?).to be false
+      end
+    end
+    describe '#teiki?' do
+      it 'should return false' do
+        expect(price.teiki?).to be false
+      end
+    end
+  end
+  context '#kind == "Charge"' do
+    let(:xml) { read_xml('course/shinkansen_search.xml') }
+    let(:price) { course_list[0].price_list[3] }
+    describe '#fare?' do
+      it 'should return false' do
+        expect(price.fare?).to be false
+      end
+    end
+    describe '#charge?' do
+      it 'should return true' do
+        expect(price.charge?).to be true
+      end
+    end
+    describe '#teiki?' do
+      it 'should return false' do
+        expect(price.teiki?).to be false
+      end
+    end
+  end
+  context '#kind == "Teiki1"' do
+    let(:xml) { read_xml('course/include_relation_search.xml') }
+    let(:price) { course_list[0].price_list[5] }
+    describe '#fare?' do
+      it 'should return false' do
+        expect(price.fare?).to be false
+      end
+    end
+    describe '#charge?' do
+      it 'should return false' do
+        expect(price.charge?).to be false
+      end
+    end
+    describe '#teiki?' do
+      it 'should return true' do
+        expect(price.teiki?).to be true
       end
     end
   end
