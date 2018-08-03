@@ -7,6 +7,8 @@ module Ekispert
         @name_list = []
         super(element)
       end
+
+      class Name < EkispertBase; end
     end
   end
 end
