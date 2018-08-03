@@ -9,6 +9,8 @@ module Ekispert
             @number_list = []
             super(element)
           end
+
+          class Number < EkispertBase; end
         end
       end
     end
