@@ -24,5 +24,7 @@ module Ekispert
     end
 
     private_class_method :to_train_time_table
+
+    class Datetime < EkispertBase; end
   end
 end

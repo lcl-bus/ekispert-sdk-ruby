@@ -26,5 +26,13 @@ RSpec.describe Ekispert::TrainTimeTable do
         end
       end
     end
+    context 'Tokyo station (Yamagata Shinkansen)' do
+      let(:xml) { read_xml('train_time_table/yamagata_shinkansen_from_tokyo.xml') }
+      describe '#datetime_list' do
+        it 'return Array, contains TrainTimeTable::Datetime instance' do
+          expect(train_time_table.datetime_list[0].class).to eq Ekispert::TrainTimeTable::Datetime
+        end
+      end
+    end
   end
 end
