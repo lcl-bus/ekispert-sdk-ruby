@@ -38,6 +38,11 @@ RSpec.describe Ekispert::TrainTimeTable do
           expect(train_time_table.line_list[0].class).to eq Ekispert::TrainTimeTable::Line
         end
       end
+      describe '#line_name_list' do
+        it 'return Array, contains TrainTimeTable::LineName instance' do
+          expect(train_time_table.line_name_list[0].class).to eq Ekispert::TrainTimeTable::LineName
+        end
+      end
       describe '#datetime_list' do
         it 'return Array, contains TrainTimeTable::Datetime instance' do
           expect(train_time_table.datetime_list[0].class).to eq Ekispert::TrainTimeTable::Datetime
