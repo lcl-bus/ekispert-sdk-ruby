@@ -7,6 +7,7 @@
     <HourTable>
       <TimeReliability>onTimeTable</TimeReliability>
       <Hour>13</Hour>
+      <PreCautionalComment>Dummy</PreCautionalComment>
       <MinuteTable>
         <Minute>45</Minute>
         <Stop kindCode="1" platformNo="23" lineCode="1980" extra="True" nameCode="1" destinationCode="2">
