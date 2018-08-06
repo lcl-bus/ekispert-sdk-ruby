@@ -10,6 +10,10 @@ module Ekispert
             super(element)
           end
 
+          def number
+            @number_list[0].text
+          end
+
           class Number < EkispertBase; end
         end
       end

@@ -15,5 +15,10 @@ RSpec.describe Ekispert::TrainStationTimetable::HourTable::MinuteTable::Stop do
         expect(stop.number_list[0].class).to eq Ekispert::TrainStationTimetable::HourTable::MinuteTable::Stop::Number
       end
     end
+    describe '#number' do
+      it 'should return "120"' do
+        expect(stop.number).to eq '120'
+      end
+    end
   end
 end
