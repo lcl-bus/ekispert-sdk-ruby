@@ -9,6 +9,10 @@ module Ekispert
         super(element)
       end
 
+      def type
+        @type_list[0].text
+      end
+
       class Type < EkispertBase; end
     end
   end
