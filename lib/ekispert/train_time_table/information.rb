@@ -9,7 +9,6 @@ module Ekispert
         super(element)
       end
 
-      class Line < EkispertBase; end
       class Type < EkispertBase; end
     end
   end
