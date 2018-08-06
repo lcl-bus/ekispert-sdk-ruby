@@ -16,6 +16,10 @@ module Ekispert
       super(element)
     end
 
+    def station
+      @station_list[0]
+    end
+
     def self.get(**params)
       to_train_station_timetable(Ekispert::Client.get('operationLine/timetable', params))
     end
