@@ -15,5 +15,10 @@ RSpec.describe Ekispert::TrainStationTimetable::LineDestination do
         expect(line_destination.mark_list[0].class).to eq Ekispert::TrainStationTimetable::LineDestination::Mark
       end
     end
+    describe '#mark' do
+      it 'should return ""' do
+        expect(line_destination.mark).to eq ''
+      end
+    end
   end
 end

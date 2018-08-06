@@ -8,6 +8,10 @@ module Ekispert
         super(element)
       end
 
+      def mark
+        @mark_list[0].text
+      end
+
       class Mark < EkispertBase; end
     end
   end
