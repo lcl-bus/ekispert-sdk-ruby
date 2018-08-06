@@ -15,5 +15,10 @@ RSpec.describe Ekispert::TrainStationTimetable::Station do
         expect(station.name_list[0].class).to eq Ekispert::TrainStationTimetable::Station::Name
       end
     end
+    describe '#name' do
+      it 'should return "東京"' do
+        expect(station.name).to eq '東京'
+      end
+    end
   end
 end
