@@ -68,6 +68,11 @@ RSpec.describe Ekispert::TrainStationTimetable do
           expect(train_station_timetable.station.class).to eq Ekispert::TrainStationTimetable::Station
         end
       end
+      describe '#datetime' do
+        it 'sould return TrainStationTimetable::Datetime instance' do
+          expect(train_station_timetable.datetime.class).to eq Ekispert::TrainStationTimetable::Datetime
+        end
+      end
     end
   end
 end
