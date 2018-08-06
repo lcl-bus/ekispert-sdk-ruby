@@ -20,5 +20,10 @@ RSpec.describe Ekispert::TrainStationTimetable::HourTable::MinuteTable do
         expect(minute_table.stop_list[0].class).to eq Ekispert::TrainStationTimetable::HourTable::MinuteTable::Stop
       end
     end
+    describe '#minute' do
+      it 'should return "45"' do
+        expect(minute_table.minute).to eq '45'
+      end
+    end
   end
 end

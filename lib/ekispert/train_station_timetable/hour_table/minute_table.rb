@@ -10,6 +10,10 @@ module Ekispert
           super(element)
         end
 
+        def minute
+          @minute_list[0].text
+        end
+
         class Minute < EkispertBase; end
       end
     end
