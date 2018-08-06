@@ -15,5 +15,10 @@ RSpec.describe Ekispert::TrainStationTimetable::LineName do
         expect(line_name.mark_list[0].class).to eq Ekispert::TrainStationTimetable::LineName::Mark
       end
     end
+    describe '#mark' do
+      it 'should return "つ"' do
+        expect(line_name.mark).to eq 'つ'
+      end
+    end
   end
 end
