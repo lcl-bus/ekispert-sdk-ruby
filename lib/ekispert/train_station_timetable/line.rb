@@ -11,6 +11,22 @@ module Ekispert
         super(element)
       end
 
+      def name
+        @name_list[0].text
+      end
+
+      def direction
+        @direction_list[0].text
+      end
+
+      def source
+        @source_list[0]&.text
+      end
+
+      def color
+        @color_list[0]&.text
+      end
+
       class Name < EkispertBase; end
       class Direction < EkispertBase; end
       class Source < EkispertBase; end

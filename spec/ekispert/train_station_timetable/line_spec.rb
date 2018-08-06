@@ -30,5 +30,25 @@ RSpec.describe Ekispert::TrainStationTimetable::Line do
         expect(line.color_list[0].class).to eq Ekispert::TrainStationTimetable::Line::Color
       end
     end
+    describe '#name' do
+      it 'should return "ＪＲ山形新幹線"' do
+        expect(line.name).to eq 'ＪＲ山形新幹線'
+      end
+    end
+    describe '#direction' do
+      it 'should return "山形・新庄"' do
+        expect(line.direction).to eq '山形・新庄'
+      end
+    end
+    describe '#source' do
+      it 'should return "東京"' do
+        expect(line.source).to eq '東京'
+      end
+    end
+    describe '#color' do
+      it 'should return "201201201"' do
+        expect(line.color).to eq '201201201'
+      end
+    end
   end
 end
