@@ -34,6 +34,11 @@ Lint/IneffectiveAccessModifier:
 Lint/UselessAccessModifier:
   Enabled: false
 
+# It is set Max:18 at Rubocop.
+# https://github.com/rubocop-hq/rubocop/blob/v0.58.1/.rubocop_todo.yml#L9-L11
+Metrics/AbcSize:
+  Max: 18
+
 # Offense count: 12
 # Configuration parameters: CountComments, ExcludedMethods.
 Metrics/BlockLength:
