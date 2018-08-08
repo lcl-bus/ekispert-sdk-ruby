@@ -50,7 +50,7 @@ Metrics/CyclomaticComplexity:
   Max: 10
 
 Metrics/LineLength:
-  Max: 120
+  Max: 130
   Exclude:
     - 'spec/**/*'
 
