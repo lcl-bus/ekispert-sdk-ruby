@@ -14,6 +14,10 @@ module Ekispert
           @minute_list[0].text
         end
 
+        def stop
+          @stop_list[0]
+        end
+
         class Minute < EkispertBase; end
       end
     end
