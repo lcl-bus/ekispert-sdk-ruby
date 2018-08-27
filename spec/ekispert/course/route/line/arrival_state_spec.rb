@@ -9,11 +9,14 @@ RSpec.describe Ekispert::Course::Route::Line::ArrivalState do
   let(:course_list) { Ekispert::Course.send(:to_course, parsed_xml) }
   let(:arrival_state) { course_list[0].route_list[0].line_list[0].arrival_state_list[0] }
 
-  describe '#gate_list' do
-    it 'return Array and contains Course::Route::Line::ArrivalState::Gate instance' do
-      expect(arrival_state.gate_list[0].class).to eq Ekispert::Course::Route::Line::ArrivalState::Gate
-    end
-  end
+  # This class is only used for route search using data created using '/toolbox/course/point' API.
+  # This feature has not been implemented yet.
+  #
+  # describe '#gate_list' do
+  #   it 'return Array and contains Course::Route::Line::ArrivalState::Gate instance' do
+  #     expect(arrival_state.gate_list[0].class).to eq Ekispert::Course::Route::Line::ArrivalState::Gate
+  #   end
+  # end
   describe '#type_list' do
     it 'return Array and contains Course::Route::Line::ArrivalState::Type instance' do
       expect(arrival_state.type_list[0].class).to eq Ekispert::Course::Route::Line::ArrivalState::Type
