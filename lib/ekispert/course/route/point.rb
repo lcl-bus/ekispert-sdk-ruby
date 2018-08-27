@@ -11,6 +11,7 @@ module Ekispert
           super(element)
         end
 
+        # Pointを継承するように書き換える
         class Station < EkispertBase
           attr_accessor :name_list, :yomi_list, :type_list
 
