@@ -17,14 +17,14 @@ module Ekispert
       }
     end
 
-    private
-
     def self.set_connection
       @connection_options = connection_options
       @connection = Faraday.new(@connection_options) do |c|
         c.adapter Faraday.default_adapter
       end
     end
+
+    # Below are private class methods
 
     def self.connection_options_update?
       @connection_options != connection_options
@@ -50,5 +50,8 @@ module Ekispert
         raise Error::ServerError, 'OMG!'
       end
     end
+
+    private_class_method :connection_options_update?
+    private_class_method :parse_xml, :raise_error
   end
 end

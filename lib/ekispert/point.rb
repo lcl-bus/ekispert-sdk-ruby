@@ -18,10 +18,12 @@ module Ekispert
       to_point(Ekispert::Client.get('station/light', params))
     end
 
-    private
-
     def self.to_point(elem_arr)
       elem_arr.xpath('//Point').map { |elem| self.new(elem) }
     end
+
+    private_class_method :to_point
+
+    class GeoPoint < EkispertBase; end
   end
 end

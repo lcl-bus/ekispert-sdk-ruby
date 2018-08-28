@@ -1,5 +1,5 @@
 module Ekispert
-  class Point
+  class Point < EkispertBase
     class Station < Point
       attr_reader :name_list, :yomi_list, :type_list, :gate_group_list, :old_name_list
 
@@ -14,37 +14,9 @@ module Ekispert
         super(element)
       end
 
-      class Name < EkispertBase; end
-      class Yomi < EkispertBase; end
-      class Type < EkispertBase; end
-      class OldName < EkispertBase; end
-      class GateGroup < EkispertBase
-        attr_accessor :gate_list
-
-        def initialize(element)
-          @gate_list = []
-          super(element)
-        end
-
-        class Gate < EkispertBase
-          attr_accessor :name_list, :geo_point_list
-
-          def initialize(element)
-            @name_list = []
-            @geo_point_list = []
-            super(element)
-          end
-
-          class Name < EkispertBase; end
-          class GeoPoint < EkispertBase; end
-        end
-      end
-
       def self.get(**params)
         convert_point_to_station(self.superclass.get_station(params))
       end
-
-      private
 
       # argment:
       #   point_list: [#<Ekispert::Point>, #<Ekispert::Point>,...]
@@ -61,6 +33,13 @@ module Ekispert
           station
         end
       end
+
+      private_class_method :convert_point_to_station
+
+      class Name < EkispertBase; end
+      class Yomi < EkispertBase; end
+      class Type < EkispertBase; end
+      class OldName < EkispertBase; end
     end
   end
 end

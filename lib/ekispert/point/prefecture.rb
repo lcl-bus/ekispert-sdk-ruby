@@ -1,5 +1,5 @@
 module Ekispert
-  class Point
+  class Point < EkispertBase
     class Prefecture < EkispertBase
       attr_accessor :name_list
 

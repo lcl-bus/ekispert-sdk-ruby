@@ -19,10 +19,12 @@ module Ekispert
       to_information(Ekispert::Client.get('station/info', params))
     end
 
-    private
-
     def self.to_information(elem_arr)
       elem_arr.xpath('//Information').map { |elem| self.new(elem) }
     end
+
+    private_class_method :to_information
+
+    class Type < EkispertBase; end
   end
 end
