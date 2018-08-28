@@ -95,6 +95,13 @@ RSpec.describe Ekispert::Course::Route::Line do
       expect(line.destination).to eq '広島'
     end
   end
+  describe '#line_symbol' do
+    let(:xml) { read_xml('course/include_relation_search.xml') }
+    let(:line) { course_list[0].route_list[0].line_list[2] }
+    it 'should return correct value' do
+      expect(line.line_symbol.class).to eq Ekispert::Course::Route::Line::LineSymbol
+    end
+  end
   describe '#name' do
     it 'should return correct value' do
       expect(line.name).to eq 'ＪＲ新幹線のぞみ'

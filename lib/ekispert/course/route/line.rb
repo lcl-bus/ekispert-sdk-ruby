@@ -44,6 +44,10 @@ module Ekispert
           @destination_list[0].text
         end
 
+        def line_symbol
+          @line_symbol_list[0]
+        end
+
         def name
           @name_list[0].text
         end
