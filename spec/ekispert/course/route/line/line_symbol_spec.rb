@@ -14,4 +14,9 @@ RSpec.describe Ekispert::Course::Route::Line::LineSymbol do
       expect(line_symbol.name_list[0].class).to eq Ekispert::Course::Route::Line::LineSymbol::Name
     end
   end
+  describe '#name' do
+    it 'should return correct value' do
+      expect(line_symbol.name).to eq 'JC'
+    end
+  end
 end
