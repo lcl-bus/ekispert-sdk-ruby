@@ -11,6 +11,18 @@ module Ekispert
           super(element)
         end
 
+        def station
+          @station_list[0]
+        end
+
+        def prefecture
+          @prefecture_list[0]
+        end
+
+        def geo_point
+          @geo_point_list[0]
+        end
+
         class GeoPoint < EkispertBase; end
       end
     end

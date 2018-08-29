@@ -24,4 +24,19 @@ RSpec.describe Ekispert::Course::Route::Point do
       expect(point.geo_point_list[0].class).to eq Ekispert::Course::Route::Point::GeoPoint
     end
   end
+  describe '#station' do
+    it 'can call #code, return correct value' do
+      expect(point.station.code).to eq '22828'
+    end
+  end
+  describe '#prefecture' do
+    it 'can call #code, return correct value' do
+      expect(point.prefecture.code).to eq '13'
+    end
+  end
+  describe '#geopoint' do
+    it 'can call #longi, return correct value' do
+      expect(point.geo_point.longi).to eq '139.46.13.59'
+    end
+  end
 end
