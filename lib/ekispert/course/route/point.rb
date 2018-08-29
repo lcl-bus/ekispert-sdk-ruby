@@ -3,11 +3,13 @@ module Ekispert
     class Route < EkispertBase
       class Point < EkispertBase
         attr_accessor :station_list, :prefecture_list, :geo_point_list
+        attr_accessor :name_list
 
         def initialize(element)
           @station_list = []
           @prefecture_list = []
           @geo_point_list = []
+          @name_list = []
           super(element)
         end
 
@@ -23,7 +25,12 @@ module Ekispert
           @geo_point_list[0]
         end
 
+        def name
+          @name_list[0]&.text
+        end
+
         class GeoPoint < EkispertBase; end
+        class Name < EkispertBase; end
       end
     end
   end

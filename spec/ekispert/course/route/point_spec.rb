@@ -24,6 +24,12 @@ RSpec.describe Ekispert::Course::Route::Point do
       expect(point.geo_point_list[0].class).to eq Ekispert::Course::Route::Point::GeoPoint
     end
   end
+  describe '#name_list' do
+    let(:xml) { read_xml('course/geo_point_search.xml') }
+    it 'return Array and contains Course::Route::Point::Name instance' do
+      expect(point.name_list[0].class).to eq Ekispert::Course::Route::Point::Name
+    end
+  end
   describe '#station' do
     it 'can call #code, return correct value' do
       expect(point.station.code).to eq '22828'
@@ -37,6 +43,12 @@ RSpec.describe Ekispert::Course::Route::Point do
   describe '#geopoint' do
     it 'can call #longi, return correct value' do
       expect(point.geo_point.longi).to eq '139.46.13.59'
+    end
+  end
+  describe '#name' do
+    let(:xml) { read_xml('course/geo_point_search.xml') }
+    it 'should return correct value' do
+      expect(point.name).to eq '35.695611594915164,139.7578486511294,wgs84'
     end
   end
 end
