@@ -2,7 +2,7 @@ module Ekispert
   class Course < EkispertBase
     class Route < EkispertBase
       class Point < EkispertBase
-        class Station < EkispertBase
+        class Station < Point
           attr_accessor :name_list, :yomi_list, :type_list
 
           def initialize(element)

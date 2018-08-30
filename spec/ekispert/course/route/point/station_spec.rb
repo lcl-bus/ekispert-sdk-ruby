@@ -39,4 +39,14 @@ RSpec.describe Ekispert::Course::Route::Point::Station do
       expect(station.yomi).to eq 'とうきょう'
     end
   end
+  describe '#prefecture' do
+    it 'can call #code, return correct value' do
+      expect(station.prefecture.code).to eq '13'
+    end
+  end
+  describe '#geopoint' do
+    it 'can call #longi, return correct value' do
+      expect(station.geo_point.longi).to eq '139.46.13.59'
+    end
+  end
 end

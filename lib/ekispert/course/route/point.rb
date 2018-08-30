@@ -11,6 +11,7 @@ module Ekispert
           @geo_point_list = []
           @name_list = []
           super(element)
+          set_station_instance_variables if station?
         end
 
         def station
@@ -35,6 +36,13 @@ module Ekispert
 
         class GeoPoint < EkispertBase; end
         class Name < EkispertBase; end
+
+        private
+
+        def set_station_instance_variables
+          station.prefecture_list = prefecture_list
+          station.geo_point_list = geo_point_list
+        end
       end
     end
   end
