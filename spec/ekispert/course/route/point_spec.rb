@@ -51,4 +51,17 @@ RSpec.describe Ekispert::Course::Route::Point do
       expect(point.name).to eq '35.695611594915164,139.7578486511294,wgs84'
     end
   end
+  describe '#station?' do
+    context 'Point type Station' do
+      it 'should return true' do
+        expect(point.station?).to be true
+      end
+    end
+    context 'Point type Geopoint' do
+      let(:xml) { read_xml('course/geo_point_search.xml') }
+      it 'should return false' do
+        expect(point.station?).to be false
+      end
+    end
+  end
 end

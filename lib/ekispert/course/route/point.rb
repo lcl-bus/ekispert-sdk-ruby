@@ -29,6 +29,10 @@ module Ekispert
           @name_list[0]&.text
         end
 
+        def station?
+          station.instance_of?(Ekispert::Course::Route::Point::Station)
+        end
+
         class GeoPoint < EkispertBase; end
         class Name < EkispertBase; end
       end
