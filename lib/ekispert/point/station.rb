@@ -14,6 +14,26 @@ module Ekispert
         super(element)
       end
 
+      def name
+        @name_list[0].text
+      end
+
+      def yomi
+        @yomi_list[0].text
+      end
+
+      def type
+        @type_list[0].text
+      end
+
+      def gate_group
+        @gate_group_list[0]
+      end
+
+      def old_name
+        @old_name_list[0]&.text
+      end
+
       def self.get(**params)
         convert_point_to_station(self.superclass.get_station(params))
       end

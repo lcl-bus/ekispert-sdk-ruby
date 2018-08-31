@@ -79,4 +79,25 @@ RSpec.describe Ekispert::Point do
       end
     end
   end
+  context 'use point/use_old_station_name.xml' do
+    let(:parsed_xml) { Ekispert::Client.send(:parse_xml, read_xml('point/use_old_station_name.xml')) }
+    describe '#station' do
+      let(:point_list) { Ekispert::Point.send(:to_point, parsed_xml) }
+      it 'should return Point::Station instance' do
+        expect(point_list[0].station.instance_of?(Ekispert::Point::Station)).to be true
+      end
+    end
+    describe '#prefecture' do
+      let(:point_list) { Ekispert::Point.send(:to_point, parsed_xml) }
+      it 'should return Point::Prefecture instance' do
+        expect(point_list[0].prefecture.instance_of?(Ekispert::Point::Prefecture)).to be true
+      end
+    end
+    describe '#geo_point' do
+      let(:point_list) { Ekispert::Point.send(:to_point, parsed_xml) }
+      it 'should return Point::GeoPoint instance' do
+        expect(point_list[0].geo_point.instance_of?(Ekispert::Point::GeoPoint)).to be true
+      end
+    end
+  end
 end
