@@ -12,6 +12,10 @@ module Ekispert
             super(element)
           end
 
+          def datetime
+            DateTime.parse(@datetime_list[0].text)
+          end
+
           class Datetime < EkispertBase; end
           class Type < EkispertBase; end
         end
