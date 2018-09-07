@@ -8,6 +8,14 @@ module Ekispert
         @point_list = []
         super(element)
       end
+
+      def departure_point
+        @point_list[0]
+      end
+
+      def arrival_point
+        @point_list[-1]
+      end
     end
   end
 end
