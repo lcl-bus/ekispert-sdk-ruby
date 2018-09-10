@@ -15,6 +15,7 @@ module Ekispert
         @type_list = []
         @line_list = [] # Use Course#relate_price_to_line
         return if element.nil?
+
         super(element)
       end
 

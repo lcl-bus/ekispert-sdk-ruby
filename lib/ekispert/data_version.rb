@@ -17,6 +17,7 @@ module Ekispert
       elem_arr.children.each do |element|
         elem_name = element.name.to_sym
         next unless self.constants.include?(elem_name)
+
         # Ex. Ekispert::DataVersion::Version.new
         sub_instance = self.const_get(elem_name).new(element)
         class_list_name = "#{snakecase(elem_name)}_list"

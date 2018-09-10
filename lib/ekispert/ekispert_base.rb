@@ -21,6 +21,7 @@ module Ekispert
     #   Ekispert::Point::Station#code #=> '22828'
     def set_methods_from_attributes(element)
       return if element.attributes.size == 0
+
       element.attributes.each do |name, attribute|
         define_singleton_method(snakecase(name)) { attribute.value }
       end
@@ -34,6 +35,7 @@ module Ekispert
     def set_method_from_text(element)
       child_elem = element.children[0]
       return if child_elem&.element?
+
       define_singleton_method(:text) { child_elem&.text || '' }
       instance_eval { alias to_s text }
     end
@@ -55,6 +57,7 @@ module Ekispert
       element.children.each do |child_elem|
         elem_name = child_elem.name.to_sym
         next unless self.class.constants.include?(elem_name)
+
         # Ex. Ekispert::DataVersion.new(child_elem)
         sub_instance = self.class.const_get(elem_name).new(child_elem)
         class_list_name = "#{snakecase(elem_name)}_list"
