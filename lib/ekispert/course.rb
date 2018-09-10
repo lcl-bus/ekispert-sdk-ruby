@@ -72,6 +72,7 @@ module Ekispert
     def find_price(line, price_type)
       index_type = "#{price_type}_index"
       return Ekispert::Course::Price.new unless line.respond_to?(index_type)
+
       kind = price_type.to_s.capitalize
       @price_list.find { |price| price.kind == kind && price.index == line.send(index_type) }
     end
@@ -83,6 +84,7 @@ module Ekispert
     def relate_price_to_line
       @price_list.each do |price|
         next unless price.respond_to?(:from_line_index)
+
         price_range = (price.from_line_index.to_i..price.to_line_index.to_i)
         price.line_list = @route_list[0].line_list.select { |line| price_range.include?(line.index.to_i) }
       end
@@ -95,6 +97,7 @@ module Ekispert
     def relate_price_and_pass_status
       price_list.each do |price|
         next unless price.kind.match?(/^Teiki\d{1}$/)
+
         pass_status = find_pass_status(price)
         # Price to PassStatus
         price.pass_status = pass_status
@@ -105,6 +108,7 @@ module Ekispert
 
     def find_pass_status(price)
       return Ekispert::Course::PassStatus.new unless price.respond_to?(:pass_class_index)
+
       @pass_status_list.find { |status| status.index == price.pass_class_index }
     end
   end

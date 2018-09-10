@@ -10,6 +10,7 @@ module Ekispert
         @type_list = []
         @price_list = [] # Use Course#relate_price_and_pass_status
         return if element.nil?
+
         super(element)
       end
 

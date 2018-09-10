@@ -4,6 +4,7 @@ module Ekispert
       set_connection if @connection.nil? || connection_options_update?
       res = @connection.get(path, params)
       return parse_xml(res.body) if res.status == 200
+
       raise_error(res)
     end
 
