@@ -65,6 +65,10 @@ Naming/HeredocDelimiterNaming:
 Style/CommentedKeyword:
   Enabled: false
 
+# Web API respons includes "<Datetime>" elements.
+Style/DateTime:
+  Enabled: false
+
 # Missing top-level class documentation comment.
 Style/Documentation:
   Enabled: false
