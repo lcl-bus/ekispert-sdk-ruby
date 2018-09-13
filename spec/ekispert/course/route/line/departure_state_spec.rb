@@ -27,4 +27,12 @@ RSpec.describe Ekispert::Course::Route::Line::DepartureState do
       expect(departure_state.datetime_list[0].class).to eq Ekispert::Course::Route::Line::DepartureState::Datetime
     end
   end
+  describe '#datetime' do
+    it 'return DateTime instance' do
+      expect(departure_state.datetime.class).to eq DateTime
+    end
+    it 'should return correct value' do
+      expect(departure_state.datetime.strftime('%Y年%02m月%02d日 %H:%M:%S')).to eq '2018年06月06日 15:18:00'
+    end
+  end
 end
