@@ -109,6 +109,18 @@ RSpec.describe Ekispert::Information do
           end
         end
       end
+      context 'use information/empty_type.xml' do
+        let(:parsed_xml) { Ekispert::Client.send(:parse_xml, read_xml('information/type_empty.xml')) }
+        let(:information_list) { Ekispert::Information.send(:to_information, parsed_xml) }
+        it 'should return one Information instance' do
+          expect(information_list.size).to eq 1
+        end
+        describe '#type' do
+          it 'should return "rail"' do
+            expect(information_list[0].type).to eq 'rail'
+          end
+        end
+      end
     end
   end
 end

@@ -48,7 +48,7 @@ module Ekispert
     end
 
     def self.to_information(elem_arr)
-      elem_arr.xpath('//Information').map { |elem| self.new(elem) }
+      elem_arr.xpath('//Information').map { |elem| self.new(elem) if elem.children.size > 1 }.compact
     end
 
     private_class_method :to_information
