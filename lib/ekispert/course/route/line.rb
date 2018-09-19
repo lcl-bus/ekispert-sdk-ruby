@@ -7,7 +7,7 @@ module Ekispert
         attr_accessor :destination_list, :name_list, :number_list
         attr_accessor :time_reliability_list, :type_list, :typical_name_list
         attr_accessor :line_symbol_list
-        attr_accessor :fare, :charge, :teiki1, :teiki3, :teiki6
+        attr_accessor :fare, :charge, :teiki1, :teiki3, :teiki6, :teiki12
 
         def initialize(element)
           @arrival_state_list = []
