@@ -6,6 +6,7 @@ module Ekispert
         attr_accessor :corporation_list, :color_list
         attr_accessor :destination_list, :name_list, :number_list
         attr_accessor :time_reliability_list, :type_list, :typical_name_list
+        attr_accessor :line_symbol_list
         attr_accessor :fare, :charge, :teiki1, :teiki3, :teiki6
 
         def initialize(element)
@@ -14,12 +15,57 @@ module Ekispert
           @corporation_list = []
           @color_list = []
           @destination_list = []
+          @line_symbol_list = []
           @name_list = []
           @number_list = []
           @time_reliability_list = []
           @type_list = []
           @typical_name_list = []
           super(element)
+        end
+
+        def arrival_state
+          @arrival_state_list[0]
+        end
+
+        def departure_state
+          @departure_state_list[0]
+        end
+
+        def corporation
+          @corporation_list[0]
+        end
+
+        def color
+          @color_list[0].text
+        end
+
+        def destination
+          @destination_list[0].text
+        end
+
+        def line_symbol
+          @line_symbol_list[0]
+        end
+
+        def name
+          @name_list[0].text
+        end
+
+        def number
+          @number_list[0]&.text
+        end
+
+        def time_reliability
+          @time_reliability_list[0].text
+        end
+
+        def type
+          @type_list[0]&.text
+        end
+
+        def typical_name
+          @typical_name_list[0]&.text
         end
 
         class Color < EkispertBase; end

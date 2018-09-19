@@ -16,6 +16,14 @@ module Ekispert
       def arrival_point
         @point_list[-1]
       end
+
+      def departure_time
+        @line_list[0].departure_state_list[0].datetime
+      end
+
+      def arrival_time
+        @line_list[-1].arrival_state_list[0].datetime
+      end
     end
   end
 end

@@ -2,8 +2,8 @@ module Ekispert
   class Course < EkispertBase
     class Route < EkispertBase
       class Line < EkispertBase
-        class Corporation < EkispertBase
-          attr_accessor :name_list
+        class LineSymbol < EkispertBase
+          attr_reader :name_list
 
           def initialize(element)
             @name_list = []

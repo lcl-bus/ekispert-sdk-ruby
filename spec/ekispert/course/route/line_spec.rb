@@ -4,7 +4,7 @@ require 'helper/util_helper'
 RSpec.describe Ekispert::Course::Route::Line do
   include UtilHelper
 
-  let(:xml) { read_xml('course/simple_search.xml') }
+  let(:xml) { read_xml('course/shinkansen_search.xml') }
   let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
   let(:course_list) { Ekispert::Course.send(:to_course, parsed_xml) }
   let(:line) { course_list[0].route_list[0].line_list[0] }
@@ -49,6 +49,83 @@ RSpec.describe Ekispert::Course::Route::Line do
   describe '#departure_state_list' do
     it 'return Array and contains Course::Route::Line::DepartureState instance' do
       expect(line.departure_state_list[0].class).to eq Ekispert::Course::Route::Line::DepartureState
+    end
+  end
+  describe '#corporation_list' do
+    let(:xml) { read_xml('course/shinkansen_search.xml') }
+    it 'return Array and contains Course::Route::Line::Corporation instance' do
+      expect(line.corporation_list[0].class).to eq Ekispert::Course::Route::Line::Corporation
+    end
+  end
+  describe '#typical_name_list' do
+    let(:xml) { read_xml('course/include_relation_search.xml') }
+    it 'return Array and contains Course::Route::Line::TypicalName instance' do
+      expect(line.typical_name_list[0].class).to eq Ekispert::Course::Route::Line::TypicalName
+    end
+  end
+  describe '#line_symbol_list' do
+    let(:xml) { read_xml('course/include_relation_search.xml') }
+    let(:line) { course_list[0].route_list[0].line_list[2] }
+    it 'return Array and contains Course::Route::Line::LineSymbol instance' do
+      expect(line.line_symbol_list[0].class).to eq Ekispert::Course::Route::Line::LineSymbol
+    end
+  end
+  describe '#arrival_state' do
+    it 'can call #no, return correct value' do
+      expect(line.arrival_state.no).to eq '21'
+    end
+  end
+  describe '#departure_state' do
+    it 'can call #no, return correct value' do
+      expect(line.departure_state.no).to eq '18'
+    end
+  end
+  describe '#corporation' do
+    it 'should return Course::Route::Line::Corporation instance' do
+      expect(line.corporation.class).to eq Ekispert::Course::Route::Line::Corporation
+    end
+  end
+  describe '#color' do
+    it 'should return correct value' do
+      expect(line.color).to eq '001032197'
+    end
+  end
+  describe '#destination' do
+    it 'should return correct value' do
+      expect(line.destination).to eq '広島'
+    end
+  end
+  describe '#line_symbol' do
+    let(:xml) { read_xml('course/include_relation_search.xml') }
+    let(:line) { course_list[0].route_list[0].line_list[2] }
+    it 'should return correct value' do
+      expect(line.line_symbol.class).to eq Ekispert::Course::Route::Line::LineSymbol
+    end
+  end
+  describe '#name' do
+    it 'should return correct value' do
+      expect(line.name).to eq 'ＪＲ新幹線のぞみ'
+    end
+  end
+  describe '#number' do
+    it 'should return correct value' do
+      expect(line.number).to eq '130'
+    end
+  end
+  describe '#time_reliability' do
+    it 'should return correct value' do
+      expect(line.time_reliability).to eq 'onTimetable'
+    end
+  end
+  describe '#type' do
+    it 'should return correct value' do
+      expect(line.type).to eq 'train'
+    end
+  end
+  describe '#typical_name' do
+    let(:xml) { read_xml('course/include_relation_search.xml') }
+    it 'should return correct value' do
+      expect(line.typical_name).to eq '関東バス・荻５１'
     end
   end
 end
