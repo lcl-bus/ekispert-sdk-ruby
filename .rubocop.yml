@@ -53,10 +53,6 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Enabled: false
 
-Naming/FileName:
-  Exclude:
-    - '**/ekispert-sdk-ruby.gemspec'
-
 # Use meaningful heredoc delimiters.
 Naming/HeredocDelimiterNaming:
   Enabled: false
