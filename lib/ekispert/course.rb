@@ -23,6 +23,14 @@ module Ekispert
       @serialize_data_list[0].text
     end
 
+    def oneway_price
+      fare.oneway + charge.oneway
+    end
+
+    def round_price
+      fare.round + charge.round
+    end
+
     def self.get(**params)
       to_course(Ekispert::Client.get('search/course/extreme', params))
     end
