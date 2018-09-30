@@ -16,12 +16,11 @@ RSpec.describe Ekispert::Course do
     end
   end
   describe '.to_course' do
-    # From: Tokyo, To: Chiba
+    let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
+    let(:course_list) { Ekispert::Course.send(:to_course, parsed_xml) }
+    let(:course) { course_list[0] }
     context 'use course/simple_search.xml' do
       let(:xml) { read_xml('course/simple_search.xml') }
-      let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
-      let(:course_list) { Ekispert::Course.send(:to_course, parsed_xml) }
-      let(:course) { course_list[0] }
       it 'return Array and contains two elements' do
         expect(course_list.size).to eq 2
       end
@@ -61,6 +60,19 @@ RSpec.describe Ekispert::Course do
           it 'should return value of Ekispert::Course::SerializeData#text' do
             expect(course_list[0].serialize_data).to match(/^VkV4QaECp6/)
           end
+        end
+      end
+    end
+    context 'use course/shinkansen_search.xml' do
+      let(:xml) { read_xml('course/shinkansen_search.xml') }
+      describe '#oneway_price' do
+        it 'should return correct value（fare.oneway + charge.oneway）' do
+          expect(course_list[0].oneway_price).to eq 13620
+        end
+      end
+      describe '#round_price' do
+        it 'should return correct value（fare.round + charge.round）' do
+          expect(course_list[0].round_price).to eq 27240
         end
       end
     end

@@ -39,4 +39,9 @@ RSpec.describe Ekispert::Course::Route do
       expect(route.arrival_time.strftime('%Y年%02m月%02d日 %H:%M:%S')).to eq '2018年06月06日 16:05:00'
     end
   end
+  describe '#total_required_time' do
+    it 'should return correct value（time_other + time_on_board + time_walk）' do
+      expect(route.total_required_time).to eq 47
+    end
+  end
 end
