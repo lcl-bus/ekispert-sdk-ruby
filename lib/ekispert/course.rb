@@ -1,7 +1,7 @@
 module Ekispert
   class Course < EkispertBase
     attr_accessor :route_list, :price_list, :pass_status_list, :serialize_data_list
-    attr_accessor :fare, :charge, :teiki1, :teiki3, :teiki6
+    attr_accessor :fare, :charge, :teiki1, :teiki3, :teiki6, :teiki12
 
     def initialize(element)
       @route_list = []
@@ -44,7 +44,7 @@ module Ekispert
     #   Course#charge
     #   Course#teiki1 ...
     def define_summary_method
-      %w[fare charge teiki1 teiki3 teiki6].each do |summary_type|
+      %w[fare charge teiki1 teiki3 teiki6 teiki12].each do |summary_type|
         self.define_singleton_method(summary_type) { price_summary(summary_type) }
       end
     end
@@ -66,6 +66,7 @@ module Ekispert
         line.teiki1 = find_price(line, :teiki1)
         line.teiki3 = find_price(line, :teiki3)
         line.teiki6 = find_price(line, :teiki6)
+        line.teiki12 = find_price(line, :teiki12)
       end
     end
 

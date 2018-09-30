@@ -56,7 +56,7 @@ module Ekispert
       end
 
       def teiki?
-        kind.match?(/^Teiki\d{1}$/)
+        kind.match?(/^Teiki\d{1,2}$/)
       end
 
       class Name < EkispertBase; end
