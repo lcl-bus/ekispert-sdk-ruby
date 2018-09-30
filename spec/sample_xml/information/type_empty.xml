@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResultSet apiVersion="1.27.0.0" engineVersion="201809_04a">
+  <Information>
+    <Corporation index="1">
+      <Name>ＪＲ</Name>
+    </Corporation>
+    <Type>rail</Type>
+    <Line corporationIndex="1">
+      <Name>ＪＲ宗谷本線(名寄－稚内)</Name>
+      <Type>train</Type>
+      <Color>150075055</Color>
+    </Line>
+  </Information>
+  <Information>
+    <Type>nearrail</Type>
+  </Information>
+  <Information>
+    <Type>exit</Type>
+  </Information>
+  <Information>
+    <Type>welfare</Type>
+  </Information>
+</ResultSet>

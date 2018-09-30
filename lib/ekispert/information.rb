@@ -9,10 +9,38 @@ module Ekispert
       @exit_list = []
       @type_list = []
       super(element)
+      relate_line_and_corporation
+    end
+
+    def relate_line_and_corporation
+      # Set Information::Line#corporation
+      @line_list.each do |line|
+        line.corporation = @corporation_list.find { |corp| corp.index == line.corporation_index }
+      end
+      # Set Information::Corporation#line_list
+      @corporation_list.each do |corp|
+        corp.line_list = @line_list.select { |line| corp.index == line.corporation_index }
+      end
     end
 
     def type
       @type_list[0].text
+    end
+
+    def rail?
+      type == 'rail'
+    end
+
+    def nearrail?
+      type == 'nearrail'
+    end
+
+    def welfare?
+      type == 'welfare'
+    end
+
+    def exit?
+      type == 'exit'
     end
 
     def self.get(**params)
@@ -20,7 +48,7 @@ module Ekispert
     end
 
     def self.to_information(elem_arr)
-      elem_arr.xpath('//Information').map { |elem| self.new(elem) }
+      elem_arr.xpath('//Information').map { |elem| self.new(elem) if elem.children.size > 1 }.compact
     end
 
     private_class_method :to_information

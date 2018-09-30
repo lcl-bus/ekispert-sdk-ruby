@@ -19,6 +19,16 @@ RSpec.describe Ekispert::Information::WelfareFacilities do
             expect(information_list[3].welfare_facilities_list[0].comment_list[0].class).to eq Ekispert::Information::WelfareFacilities::Comment
           end
         end
+        describe '#name' do
+          it 'should return "エスカレータ"' do
+            expect(information_list[3].welfare_facilities_list[2].name).to eq 'エスカレータ'
+          end
+        end
+        describe '#comment' do
+          it 'should return "・改札⇔出口方面"' do
+            expect(information_list[3].welfare_facilities_list[2].comment).to eq '・改札⇔出口方面'
+          end
+        end
       end
     end
   end
