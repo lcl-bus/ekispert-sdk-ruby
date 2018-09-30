@@ -19,6 +19,16 @@ RSpec.describe Ekispert::Course::Route do
       expect(route.point_list[0].class).to eq Ekispert::Course::Route::Point
     end
   end
+  describe '#departure_point' do
+    it 'should return the first departure point' do
+      expect(route.departure_point.station.name).to eq '東京'
+    end
+  end
+  describe '#arrival_point' do
+    it 'should return the last arrival point' do
+      expect(route.arrival_point.station.name).to eq '千葉'
+    end
+  end
   describe '#departure_time' do
     it 'should return the first departure time' do
       expect(route.departure_time.strftime('%Y年%02m月%02d日 %H:%M:%S')).to eq '2018年06月06日 15:18:00'
