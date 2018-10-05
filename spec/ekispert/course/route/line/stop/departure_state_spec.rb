@@ -14,4 +14,13 @@ RSpec.describe Ekispert::Course::Route::Line::Stop::DepartureState do
       expect(departure_state.datetime_list[0].class).to eq Ekispert::Course::Route::Line::Stop::DepartureState::Datetime
     end
   end
+  describe '#datetime' do
+    it 'should return DateTime instance' do
+      expect(departure_state.datetime.class).to eq DateTime
+    end
+    # first, check only of time.
+    it 'should return correct value' do
+      expect(departure_state.datetime.strftime('%H:%M:%S')).to eq '12:56:00'
+    end
+  end
 end
