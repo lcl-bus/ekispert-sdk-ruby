@@ -19,4 +19,9 @@ RSpec.describe Ekispert::Course::Route::Line::Stop::Point::Station do
       expect(station.prefecture_list[0].class).to eq Ekispert::Course::Route::Line::Stop::Point::Prefecture
     end
   end
+  describe '#name' do
+    it 'should return correct value' do
+      expect(station.name).to eq '蒲田'
+    end
+  end
 end
