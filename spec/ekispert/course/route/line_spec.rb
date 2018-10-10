@@ -70,6 +70,13 @@ RSpec.describe Ekispert::Course::Route::Line do
       expect(line.line_symbol_list[0].class).to eq Ekispert::Course::Route::Line::LineSymbol
     end
   end
+  describe '#stop_list' do
+    let(:xml) { read_xml('course/add_stop_station.xml') }
+    let(:line) { course_list[0].route_list[0].line_list[0] }
+    it 'return Array and contains Course::Route::Line::Stop instance' do
+      expect(line.stop_list[0].class).to eq Ekispert::Course::Route::Line::Stop
+    end
+  end
   describe '#arrival_state' do
     it 'can call #no, return correct value' do
       expect(line.arrival_state.no).to eq '21'
