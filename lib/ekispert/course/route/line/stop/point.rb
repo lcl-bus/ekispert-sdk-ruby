@@ -5,7 +5,7 @@ module Ekispert
         class Stop < EkispertBase
           class Point < EkispertBase
             attr_accessor :station_list, :prefecture_list
-    
+
             def initialize(element)
               @station_list = []
               @prefecture_list = []
