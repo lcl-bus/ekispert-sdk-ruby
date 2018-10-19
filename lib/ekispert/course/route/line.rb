@@ -24,8 +24,8 @@ module Ekispert
           @stop_list = []
           super(element)
           @stop_list.each do |stop|
-            stop.arrival_state.set_date(departure_state.datetime)
-            stop.departure_state.set_date(departure_state.datetime)
+            stop.arrival_state&.set_date(departure_state.datetime)
+            stop.departure_state&.set_date(departure_state.datetime)
           end
         end
 

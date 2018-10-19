@@ -22,9 +22,6 @@
         </ArrivalState>
         <Destination>大船</Destination>
         <Stop index="1">
-          <ArrivalState>
-            <Datetime operation="today">12:57:00+09:00</Datetime>
-          </ArrivalState>
           <Point getOff="True" getOn="True">
             <Station code="22602">
               <Name>蒲田</Name>
@@ -113,9 +110,6 @@
               <Name>神奈川県</Name>
             </Prefecture>
           </Point>
-          <DepartureState>
-            <Datetime operation="today">13:15:00+09:00</Datetime>
-          </DepartureState>
         </Stop>
         <TimeReliability>onTimetable</TimeReliability>
         <DepartureState no="1・2">
