@@ -23,6 +23,10 @@ module Ekispert
           @typical_name_list = []
           @stop_list = []
           super(element)
+          @stop_list.each do |stop|
+            stop.arrival_state.set_date(departure_state.datetime)
+            stop.departure_state.set_date(departure_state.datetime)
+          end
         end
 
         def arrival_state
