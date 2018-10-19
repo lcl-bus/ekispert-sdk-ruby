@@ -15,7 +15,8 @@ module Ekispert
             # ex. <Datetime operation="today">12:57:00+09:00</Datetime>
             def set_date(date)
               time = @datetime_list[0].text.split(/[:\+]/).first(3).map(&:to_i)
-              @datetime = DateTime.new(date.year, date.month, date.day, *time)
+              @datetime = DateTime.new(date.year, date.month, date.day, *time) rescue DateTime.now
+              @datetime += 1 if @datetime_list[0].operation == 'yesterday'
             end
 
             class Datetime < EkispertBase; end
