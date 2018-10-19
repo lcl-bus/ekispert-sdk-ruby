@@ -101,6 +101,9 @@ Style/RedundantSelf:
 Style/RegexpLiteral:
   Enabled: false
 
+Style/RescueModifier:
+  Enabled: false
+
 # Use !empty? instead of size > 0.
 Style/ZeroLengthPredicate:
   Enabled: false
