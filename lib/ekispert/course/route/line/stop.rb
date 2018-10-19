@@ -23,7 +23,6 @@ module Ekispert
           def point
             @point_list[0]
           end
-
         end
       end
     end
