@@ -18,5 +18,12 @@ RSpec.describe Ekispert::Course::Route::Line::Stop::ArrivalState do
     it 'should return correct value' do
       expect(arrival_state.datetime.strftime('%Y年%02m月%02d日 %H:%M:%S')).to eq '2018年10月05日 12:57:00'
     end
+    describe 'when train runs over 2 days' do
+      let(:xml) { read_xml('course/add_stop_station_2days.xml') }
+      let(:last_arrival_state) { course_list[0].route_list[0].line_list[0].stop_list[-1].arrival_state_list[0] }
+      it 'should return correct value' do
+        expect(last_arrival_state.datetime.strftime('%Y年%02m月%02d日 %H:%M:%S')).to eq '2018年10月20日 00:15:00'
+      end
+    end
   end
 end

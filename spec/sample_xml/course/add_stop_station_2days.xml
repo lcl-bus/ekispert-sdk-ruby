@@ -1,0 +1,181 @@
+<ResultSet apiVersion="1.27.0.0" engineVersion="201810_03a">
+  <Course searchType="departure" dataType="onTimetable">
+    <Route timeOther="0" timeOnBoard="20" exhaustCO2="288" index="1" exhaustCO2atPassengerCar="2030" distance="144" timeWalk="0" transferCount="0">
+      <Point index="1">
+        <Station code="22602">
+          <Name>蒲田</Name>
+          <Type>train</Type>
+          <Yomi>かまた</Yomi>
+        </Station>
+        <Prefecture code="13">
+          <Name>東京都</Name>
+        </Prefecture>
+        <GeoPoint longi="139.43.7.50" lati="35.33.32.9" longi_d="139.71875" gcs="tokyo" lati_d="35.558916"/>
+      </Point>
+      <Line stopStationCount="4" teiki3Index="1" teiki6Index="1" timeOnBoard="20" track="railway" exhaustCO2="288" fareIndex="1" index="1" exhaustCO2atPassengerCar="2030" distance="144" teiki1Index="1">
+        <Name>ＪＲ京浜東北・根岸線・大船行</Name>
+        <Type>train</Type>
+        <ArrivalState no="3">
+          <Type>normal</Type>
+          <Datetime operation="yesterday">2018-10-20T00:15:00+09:00</Datetime>
+        </ArrivalState>
+        <Destination>大船</Destination>
+        <Stop index="1">
+          <ArrivalState>
+            <Datetime operation="today">23:55:00+09:00</Datetime>
+          </ArrivalState>
+          <Point getOff="True" getOn="True">
+            <Station code="22602">
+              <Name>蒲田</Name>
+            </Station>
+            <Prefecture code="13">
+              <Name>東京都</Name>
+            </Prefecture>
+          </Point>
+          <DepartureState>
+            <Datetime operation="today">23:55:00+09:00</Datetime>
+          </DepartureState>
+        </Stop>
+        <Stop index="2">
+          <ArrivalState>
+            <Datetime operation="yesterday">00:00:00+09:00</Datetime>
+          </ArrivalState>
+          <Point getOff="True" getOn="True">
+            <Station code="23126">
+              <Name>川崎</Name>
+            </Station>
+            <Prefecture code="14">
+              <Name>神奈川県</Name>
+            </Prefecture>
+          </Point>
+          <DepartureState>
+            <Datetime operation="yesterday">00:00:00+09:00</Datetime>
+          </DepartureState>
+        </Stop>
+        <Stop index="3">
+          <ArrivalState>
+            <Datetime operation="yesterday">00:03:00+09:00</Datetime>
+          </ArrivalState>
+          <Point getOff="True" getOn="True">
+            <Station code="23244">
+              <Name>鶴見</Name>
+            </Station>
+            <Prefecture code="14">
+              <Name>神奈川県</Name>
+            </Prefecture>
+          </Point>
+          <DepartureState>
+            <Datetime operation="yesterday">00:03:00+09:00</Datetime>
+          </DepartureState>
+        </Stop>
+        <Stop index="4">
+          <ArrivalState>
+            <Datetime operation="yesterday">00:07:00+09:00</Datetime>
+          </ArrivalState>
+          <Point getOff="True" getOn="True">
+            <Station code="23205">
+              <Name>新子安</Name>
+            </Station>
+            <Prefecture code="14">
+              <Name>神奈川県</Name>
+            </Prefecture>
+          </Point>
+          <DepartureState>
+            <Datetime operation="yesterday">00:07:00+09:00</Datetime>
+          </DepartureState>
+        </Stop>
+        <Stop index="5">
+          <ArrivalState>
+            <Datetime operation="yesterday">00:12:00+09:00</Datetime>
+          </ArrivalState>
+          <Point getOff="True" getOn="True">
+            <Station code="23289">
+              <Name>東神奈川</Name>
+            </Station>
+            <Prefecture code="14">
+              <Name>神奈川県</Name>
+            </Prefecture>
+          </Point>
+          <DepartureState>
+            <Datetime operation="yesterday">00:12:00+09:00</Datetime>
+          </DepartureState>
+        </Stop>
+        <Stop index="6">
+          <ArrivalState>
+            <Datetime operation="yesterday">00:15:00+09:00</Datetime>
+          </ArrivalState>
+          <Point getOff="True" getOn="True">
+            <Station code="23368">
+              <Name>横浜</Name>
+            </Station>
+            <Prefecture code="14">
+              <Name>神奈川県</Name>
+            </Prefecture>
+          </Point>
+          <DepartureState>
+            <Datetime operation="yesterday">00:15:00+09:00</Datetime>
+          </DepartureState>
+        </Stop>
+        <TimeReliability>onTimetable</TimeReliability>
+        <DepartureState no="1・2">
+          <Type>normal</Type>
+          <Datetime operation="today">2018-10-19T23:55:00+09:00</Datetime>
+        </DepartureState>
+        <LineSymbol code="3">
+          <Name>JK</Name>
+        </LineSymbol>
+        <Color>021175255</Color>
+      </Line>
+      <Point index="2">
+        <Station code="23368">
+          <Name>横浜</Name>
+          <Type>train</Type>
+          <Yomi>よこはま</Yomi>
+        </Station>
+        <Prefecture code="14">
+          <Name>神奈川県</Name>
+        </Prefecture>
+        <GeoPoint longi="139.37.28.0" lati="35.27.44.0" longi_d="139.624444" gcs="tokyo" lati_d="35.462222"/>
+      </Point>
+    </Route>
+    <Price kind="FareSummary">
+      <Oneway>220</Oneway>
+      <Round>440</Round>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Fare" index="1" selected="true">
+      <Type>Fare</Type>
+      <Oneway>220</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+      <Round>440</Round>
+    </Price>
+    <Price kind="Teiki1Summary">
+      <Oneway>6460</Oneway>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Teiki1" index="1" selected="true">
+      <Type>Teiki1</Type>
+      <Oneway>6460</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <Price kind="Teiki3Summary">
+      <Oneway>18410</Oneway>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Teiki3" index="1" selected="true">
+      <Type>Teiki3</Type>
+      <Oneway>18410</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <Price kind="Teiki6Summary">
+      <Oneway>31020</Oneway>
+    </Price>
+    <Price fareRevisionStatus="none" toLineIndex="1" fromLineIndex="1" kind="Teiki6" index="1" selected="true">
+      <Type>Teiki6</Type>
+      <Oneway>31020</Oneway>
+      <RevisionStatus>latest</RevisionStatus>
+    </Price>
+    <SerializeData>VkV4QaECpyHIAsMCpgEz8AsDpgEz8AsEkcIBQwAAAAKmATPwCwPJAQECAQMBBAEHAQgBCgIPQv9_EKX_9wWUwQKlWErBAqVbSMECpVo4wQKlVeMGkcMBAQIBA8cBpYTxAh4DIwWkeQZFMjIzNUMHAwgCB5HFAaYBM_AbA6UFmwSlBa8FAAgACJHFBAEFAQYBB6RzCAEJkcEDAQ|RxQGSAAECkcMBAAIAAwADkcMBAAIAAwAEkQAFkQA*--T3221233232319:F332112212000:A23121141:--46459d45fc82a84dcad4f23564fde021ef1fa7cb--0--0--0--185</SerializeData>
+    <Teiki>
+      <SerializeData>VkV4QaECp0jHAQEDpgEz8BsEksEBpVhKwQGlW0gFkcQBAQIBA6RzBKVbSAeRxQGlWEoCpVtIAwAEAAUACAEKAQ**--8f7950d089f3d6817934af798bba6a410c268bf5--1--64</SerializeData>
+      <DisplayRoute>蒲田--ＪＲ京浜東北線--横浜</DisplayRoute>
+    </Teiki>
+  </Course>
+</ResultSet>
