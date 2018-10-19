@@ -21,7 +21,7 @@ RSpec.describe Ekispert::Course::Route::Line::Stop do
   end
   describe '#arrival_state_list' do
     it 'should return Array and contains Course::Route::Line::Stop::ArrivalState instance' do
-      expect(stop_list[0].arrival_state_list[0].class).to eq Ekispert::Course::Route::Line::Stop::ArrivalState
+      expect(stop_list[1].arrival_state_list[0].class).to eq Ekispert::Course::Route::Line::Stop::ArrivalState
     end
   end
 end
