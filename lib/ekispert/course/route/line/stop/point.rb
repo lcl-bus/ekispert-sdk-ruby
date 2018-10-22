@@ -11,6 +11,10 @@ module Ekispert
               @prefecture_list = []
               super(element)
             end
+
+            def station
+              @station_list[0]
+            end
           end
         end
       end
