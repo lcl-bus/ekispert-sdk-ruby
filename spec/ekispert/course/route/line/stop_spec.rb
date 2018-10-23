@@ -24,4 +24,19 @@ RSpec.describe Ekispert::Course::Route::Line::Stop do
       expect(stop_list[1].arrival_state_list[0].class).to eq Ekispert::Course::Route::Line::Stop::ArrivalState
     end
   end
+  describe '#point' do
+    it 'should have correct station name' do
+      expect(stop_list[0].point.station_list[0].name_list[0].text).to eq '蒲田'
+    end
+  end
+  describe '#departure_state' do
+    it 'should have correct datetime' do
+      expect(stop_list[0].departure_state.datetime_list[0].text).to eq '12:56:00+09:00'
+    end
+  end
+  describe '#arrival_state' do
+    it 'should have correct datetime' do
+      expect(stop_list[1].arrival_state.datetime_list[0].text).to eq '13:01:00+09:00'
+    end
+  end
 end

@@ -19,4 +19,14 @@ RSpec.describe Ekispert::Course::Route::Line::Stop::Point do
       expect(point.prefecture_list[0].class).to eq Ekispert::Course::Route::Line::Stop::Point::Prefecture
     end
   end
+  describe '#station' do
+    it 'can call #code, return correct value' do
+      expect(point.station.code).to eq '22602'
+    end
+  end
+  describe '#prefecture' do
+    it 'can call #code, return correct value' do
+      expect(point.prefecture.code).to eq '13'
+    end
+  end
 end
