@@ -1,5 +1,5 @@
 module Ekispert
-  class TrainTimeTable < EkispertBase
+  class TrainStationTimetable < EkispertBase
     class HourTable < EkispertBase
       attr_reader :hour_list, :minute_table_list
       attr_reader :time_reliability_list, :pre_cautional_comment_list

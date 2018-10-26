@@ -1,6 +1,6 @@
 module Ekispert
-  class TrainTimeTable < EkispertBase
-    class LineName < EkispertBase
+  class TrainStationTimetable < EkispertBase
+    class LineKind < EkispertBase
       attr_reader :mark_list
 
       def initialize(element)

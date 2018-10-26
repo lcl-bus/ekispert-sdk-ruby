@@ -1,5 +1,5 @@
 module Ekispert
-  class TrainTimeTable < EkispertBase
+  class TrainStationTimetable < EkispertBase
     class Information < EkispertBase
       class Line < EkispertBase
         attr_reader :name_list, :guide_comment_list

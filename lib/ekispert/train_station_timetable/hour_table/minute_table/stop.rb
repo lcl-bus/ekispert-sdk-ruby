@@ -1,5 +1,5 @@
 module Ekispert
-  class TrainTimeTable < EkispertBase
+  class TrainStationTimetable < EkispertBase
     class HourTable < EkispertBase
       class MinuteTable < EkispertBase
         class Stop < EkispertBase
