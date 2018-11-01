@@ -1,0 +1,61 @@
+two:
+  never: '1'
+  normal: '2'
+three:
+  never: '1'
+  little: '2'
+  normal: '3'
+four:
+  never: '1'
+  bit: '2'
+  normal: '3'
+  light: '4'
+boolean:
+  'false': '1'
+  'true': '2'
+sleeper_train:
+  never: '1'
+  normal: '2'
+  possible: '3'
+surcharge_kind:
+  green: '1'
+  reserved: '2'
+  free: '3'
+teiki_kind:
+  university: '1'
+  highSchool: '2'
+  bussiness: '3'
+  juniorHighSchool: '4'
+ticket_system_type:
+  ic: '1'
+  normal: '2'
+preferred_ticket_order:
+  none: '0'
+  normal: '1'
+  ic: '2'
+  cheap: '3'
+jr_reservation_ex:
+  none: '0'
+  exYoyaku: '1'
+  exETokkyu: '2'
+  exHayatoku: '3'
+  exHayatoku21: '4'
+  exGreenHayatoku: '5'
+jr_reservation_smart_ex:
+  none: '0'
+  smartEx: '1'
+  smartExHayatoku: '2'
+  smartExHayatoku21: '3'
+  smartExGreenHayatoku: '4'
+use_jr:
+  bit: '1'
+  normal: '2'
+  light: '3'
+express_starting_station:
+  normal: '1'
+  possible: '2'
+transfer_time:
+  lessMargin: '1'
+  mostMargin: '2'
+  moreMargin: '3'
+  normal: '4'

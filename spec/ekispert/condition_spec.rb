@@ -8,4 +8,8 @@ RSpec.describe Ekispert::Condition do
       expect(condition.class).to eq Ekispert::Condition
     end
   end
+  describe '.generate' do
+    let(:params) { {} }
+    let(:condition) { Ekispert::Condition.generate(params) }
+  end
 end

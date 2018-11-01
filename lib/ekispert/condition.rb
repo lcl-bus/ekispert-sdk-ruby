@@ -8,6 +8,11 @@ module Ekispert
       self.new(elem_arr.xpath('//Condition')[0])
     end
 
+    # It create instance without api call.
+    def self.generate(**params)
+      # TODO: return same the #get value
+    end
+
     private_class_method :to_condition
   end
 end
