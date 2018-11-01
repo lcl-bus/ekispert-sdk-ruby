@@ -1,5 +1,7 @@
 module Ekispert
   class Condition < EkispertBase
+    extend Ekispert::ConditionDefiner
+
     def self.get(**params)
       to_condition(Ekispert::Client.get('toolbox/course/condition', params))
     end
