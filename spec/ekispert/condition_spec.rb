@@ -2,7 +2,8 @@ require 'shared_condition'
 
 RSpec.describe Ekispert::Condition do
   include Ekispert::SpecHelper::Config
-  include_context 'shared Condition'
+  include_context 'shared Condition params'
+  include_context 'shared Condition detail'
 
   describe '.get' do
     before { set_ekispert_default_config }
