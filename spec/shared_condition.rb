@@ -42,10 +42,27 @@ RSpec.shared_context 'shared Condition params' do
       entry_path_behavior: 'false'
     }
   end
+  let(:custom_traffic_params) do
+    {
+      plane: 'bit',
+      shinkansen: 'never',
+      shinkansen_nozomi: 'never',
+      sleeper_train: 'normal',
+      limited_express: 'never',
+      highway_bus: 'bit',
+      connection_bus: 'bit',
+      local_bus: 'never',
+      ship: 'bit',
+      liner: 'never',
+      walk: 'little',
+      midnight_bus: 'normal'
+    }
+  end
 end
 RSpec.shared_context 'shared Condition detail' do
   let(:default_detail) { "#{default_traffic_detail}#{default_fee_detail}#{default_adjunctive_detail}" }
   let(:default_traffic_detail) { 'T3221233232319:' }
   let(:default_fee_detail) { 'F332112212000:' }
   let(:default_adjunctive_detail) { 'A23121141:' }
+  let(:custom_traffic_detail) { 'T2112122121229:' }
 end

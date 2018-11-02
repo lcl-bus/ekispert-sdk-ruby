@@ -21,6 +21,15 @@ module Ekispert
       # TODO: return same the #get value
       condition = self.new
 
+      # Update @params from params arguments.
+      # params = { plane: 'normal' }
+      # instance.params = {
+      #   'plane' => 'normal',
+      #   'shinkansen' => 'never'
+      #   ...
+      # }
+      params.each_pair { |key, value| condition.update_params(key, value) }
+
       # Convert @params to detail code. and set @text.
       condition.text = condition.convert_params_to_detail
       condition.symbolize_params_keys
@@ -29,6 +38,11 @@ module Ekispert
     end
 
     private_class_method :to_condition
+
+    def update_params(key, value)
+      key = snakecase(key)
+      @params[key] = value
+    end
 
     # Convert @params to detail code.(@text)
     # Ex.
