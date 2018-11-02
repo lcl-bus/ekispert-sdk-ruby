@@ -11,6 +11,16 @@ RSpec.describe Ekispert::Condition do
     it 'should return Ekispert::Condition instance' do
       expect(condition.class).to eq Ekispert::Condition
     end
+    describe '#params' do
+      it 'should return correct value' do
+        expect(condition.params).to eq default_params
+      end
+    end
+    describe '#text' do
+      it 'should return correct value' do
+        expect(condition.text).to eq default_detail
+      end
+    end
   end
   describe '.generate' do
     let(:params) { {} }

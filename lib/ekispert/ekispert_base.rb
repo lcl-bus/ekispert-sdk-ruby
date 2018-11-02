@@ -36,7 +36,8 @@ module Ekispert
       child_elem = element.children[0]
       return if child_elem&.element?
 
-      define_singleton_method(:text) { child_elem&.text || '' }
+      instance_variable_set(:@text, child_elem&.text || '')
+      define_singleton_method(:text) { @text }
       instance_eval { alias to_s text }
     end
 

@@ -13,12 +13,19 @@ module Ekispert
     end
 
     def self.to_condition(elem_arr)
-      self.new(elem_arr.xpath('//Condition')[0])
+      condition = self.new(elem_arr.xpath('//Condition')[0])
+      condition.convert_detail_to_params
+      condition.symbolize_params_keys
+      condition
     end
 
     # It create instance without api call.
+    # 1. Update @params from detail.
+    # 2. Update @params from argument params.
+    # 3. Set text. (detail code)
+    # 4. Symbolize @params keys.
+    # 5. return Ekispert::Condition instance.
     def self.generate(**params)
-      # TODO: return same the #get value
       condition = self.new
 
       # Convert detail code to @params when params include :detail.
