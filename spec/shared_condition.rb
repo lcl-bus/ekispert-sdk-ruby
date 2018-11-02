@@ -58,6 +58,18 @@ RSpec.shared_context 'shared Condition params' do
       midnight_bus: 'normal'
     }
   end
+  let(:custom_fee_params) do
+    {
+      surcharge_kind: 'green',
+      teiki_kind: 'university',
+      jr_seasonal_rate: 'false',
+      student_discount: 'true',
+      ticket_system_type: 'ic',
+      nikukanteiki: 'true',
+      preferred_ticket_order: 'normal',
+      jr_reservation: 'none'
+    }
+  end
 end
 RSpec.shared_context 'shared Condition detail' do
   let(:default_detail) { "#{default_traffic_detail}#{default_fee_detail}#{default_adjunctive_detail}" }
@@ -65,4 +77,5 @@ RSpec.shared_context 'shared Condition detail' do
   let(:default_fee_detail) { 'F332112212000:' }
   let(:default_adjunctive_detail) { 'A23121141:' }
   let(:custom_traffic_detail) { 'T2112122121229:' }
+  let(:custom_fee_detail) { 'F111212122100:' }
 end

@@ -41,6 +41,19 @@ RSpec.describe Ekispert::Condition do
           end
         end
       end
+      context 'custom fee' do
+        let(:params) { custom_fee_params }
+        describe '#params' do
+          it 'should return correct value' do
+            expect(condition.params).to eq default_params.merge(custom_fee_params)
+          end
+        end
+        describe '#text' do
+          it 'should return correct value' do
+            expect(condition.text).to eq "#{default_traffic_detail}#{custom_fee_detail}#{default_adjunctive_detail}"
+          end
+        end
+      end
     end
   end
 end
