@@ -5,7 +5,8 @@ module Ekispert
       str = str.to_s
       return str unless /[A-Z-]/.match?(str)
 
-      str.gsub(/([a-z\d])([A-Z])/, '\1_\2').downcase
+      words = str.split(/(JR|CO2|IC)/).reject(&:empty?)
+      words.map { |word| word.gsub(/([a-z\d])([A-Z])/, '\1_\2') }.join('_').downcase
     end
   end
 end
