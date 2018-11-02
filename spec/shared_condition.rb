@@ -42,6 +42,9 @@ RSpec.shared_context 'shared Condition params' do
       entry_path_behavior: 'false'
     }
   end
+  let(:custom_params) do
+    custom_traffic_params.merge(custom_fee_params).merge(custom_adjunctive_params)
+  end
   let(:custom_traffic_params) do
     {
       plane: 'bit',
@@ -82,12 +85,44 @@ RSpec.shared_context 'shared Condition params' do
       entry_path_behavior: 'true'
     }
   end
+  let(:camelcase_params) do
+    {
+      plane: 'bit',
+      shinkansen: 'never',
+      shinkansenNozomi: 'never',
+      sleeperTrain: 'normal',
+      limitedExpress: 'never',
+      highwayBus: 'bit',
+      connectionBus: 'bit',
+      localBus: 'never',
+      ship: 'bit',
+      liner: 'never',
+      walk: 'little',
+      midnightBus: 'normal',
+      surchargeKind: 'green',
+      teikiKind: 'university',
+      JRSeasonalRate: 'false',
+      studentDiscount: 'true',
+      ticketSystemType: 'ic',
+      nikukanteiki: 'true',
+      preferredTicketOrder: 'normal',
+      useJR: 'bit',
+      transfer: 'little',
+      expressStartingStation: 'possible',
+      waitAverageTime: 'false',
+      localBusOnly: 'true',
+      fuzzyLine: 'true',
+      transferTime: 'lessMargin',
+      entryPathBehavior: 'true'
+    }
+  end
 end
 RSpec.shared_context 'shared Condition detail' do
   let(:default_detail) { "#{default_traffic_detail}#{default_fee_detail}#{default_adjunctive_detail}" }
   let(:default_traffic_detail) { 'T3221233232319:' }
   let(:default_fee_detail) { 'F332112212000:' }
   let(:default_adjunctive_detail) { 'A23121141:' }
+  let(:custom_detail) { "#{custom_traffic_detail}#{custom_fee_detail}#{custom_adjunctive_detail}" }
   let(:custom_traffic_detail) { 'T2112122121229:' }
   let(:custom_fee_detail) { 'F111212122100:' }
   let(:custom_adjunctive_detail) { 'A12212212:' }

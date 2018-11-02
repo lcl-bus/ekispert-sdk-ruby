@@ -106,6 +106,19 @@ RSpec.describe Ekispert::Condition do
           end
         end
       end
+      context 'camelcase params' do
+        let(:params) { camelcase_params }
+        describe '#params' do
+          it 'should return correct value' do
+            expect(condition.params).to eq custom_params
+          end
+        end
+        describe '#text' do
+          it 'should return correct value' do
+            expect(condition.text).to eq custom_detail
+          end
+        end
+      end
     end
   end
 end
