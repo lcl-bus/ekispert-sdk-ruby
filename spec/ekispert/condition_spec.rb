@@ -93,6 +93,19 @@ RSpec.describe Ekispert::Condition do
           end
         end
       end
+      context 'custom adjunctive' do
+        let(:params) { custom_adjunctive_params }
+        describe '#params' do
+          it 'should return correct value' do
+            expect(condition.params).to eq default_params.merge(custom_adjunctive_params)
+          end
+        end
+        describe '#text' do
+          it 'should return correct value' do
+            expect(condition.text).to eq "#{default_traffic_detail}#{default_fee_detail}#{custom_adjunctive_detail}"
+          end
+        end
+      end
     end
   end
 end

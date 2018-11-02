@@ -70,6 +70,18 @@ RSpec.shared_context 'shared Condition params' do
       jr_reservation: 'none'
     }
   end
+  let(:custom_adjunctive_params) do
+    {
+      use_jr: 'bit',
+      transfer: 'little',
+      express_starting_station: 'possible',
+      wait_average_time: 'false',
+      local_bus_only: 'true',
+      fuzzy_line: 'true',
+      transfer_time: 'lessMargin',
+      entry_path_behavior: 'true'
+    }
+  end
 end
 RSpec.shared_context 'shared Condition detail' do
   let(:default_detail) { "#{default_traffic_detail}#{default_fee_detail}#{default_adjunctive_detail}" }
@@ -78,4 +90,5 @@ RSpec.shared_context 'shared Condition detail' do
   let(:default_adjunctive_detail) { 'A23121141:' }
   let(:custom_traffic_detail) { 'T2112122121229:' }
   let(:custom_fee_detail) { 'F111212122100:' }
+  let(:custom_adjunctive_detail) { 'A12212212:' }
 end
