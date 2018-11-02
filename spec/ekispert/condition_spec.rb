@@ -120,5 +120,33 @@ RSpec.describe Ekispert::Condition do
         end
       end
     end
+    context 'params include :detail' do
+      context 'not include condition params (only :detail)' do
+        let(:params) { { detail: custom_detail } }
+        describe '#params' do
+          it 'should return correct value' do
+            expect(condition.params).to eq custom_params
+          end
+        end
+        describe '#text' do
+          it 'should return correct value' do
+            expect(condition.text).to eq custom_detail
+          end
+        end
+      end
+      context 'include condition params' do
+        let(:params) { default_traffic_params.merge(detail: custom_detail) }
+        describe '#params' do
+          it 'should return correct value' do
+            expect(condition.params).to eq custom_params.merge(default_traffic_params)
+          end
+        end
+        describe '#text' do
+          it 'should return correct value' do
+            expect(condition.text).to eq "#{default_traffic_detail}#{custom_fee_detail}#{custom_adjunctive_detail}"
+          end
+        end
+      end
+    end
   end
 end

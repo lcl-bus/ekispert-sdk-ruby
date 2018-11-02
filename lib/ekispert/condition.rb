@@ -21,6 +21,17 @@ module Ekispert
       # TODO: return same the #get value
       condition = self.new
 
+      # Convert detail code to @params when params include :detail.
+      # Ex.
+      #   :detail => 'T2112122121229:F111212121100:A12212212:'
+      #   instance.params = {
+      #     'plane' => 'bit',
+      #     'shinkansen' => 'never'
+      #     ...
+      #   }
+      condition.text = params.delete(:detail)
+      condition.convert_detail_to_params if condition.text
+
       # Update @params from params arguments.
       # params = { plane: 'normal' }
       # instance.params = {
@@ -38,6 +49,20 @@ module Ekispert
     end
 
     private_class_method :to_condition
+
+    # Convert detail code(@text) to @params.
+    # Ex.
+    #   instance.text => 'T2112122121229:F111212121100:A12212212:'
+    #   instance.params = {
+    #     'plane' => 'bit',
+    #     'shinkansen' => 'never'
+    #     ...
+    #   }
+    def convert_detail_to_params
+      # ['T2112122121229', 'F111212121100', 'A12212212']
+      detail_codes = text.split(/([TFA]\d+):/).reject(&:empty?)
+      detail_codes.each { |detail_code| set_params_by_detail(detail_code) }
+    end
 
     def update_params(key, value)
       key = snakecase(key)
@@ -61,6 +86,20 @@ module Ekispert
     end
 
     private
+
+    # Set @params by detail code.
+    def set_params_by_detail(code)
+      category_data = self.class.const_get("#{code[0]}_DATA")
+      category_data.each.with_index(1) do |data, i|
+        next if data['name'].nil?
+
+        # Ex. When category_data[1], code #=> 'T2112122121229'
+        #   @params['shinkansen'] = two_condition.key('1')
+        #   -> @params['shinkansen'] = { 'never' => '1', 'normal' => '2' }.key('1')
+        #   -> @params['shinkansen'] = 'never'
+        @params[data['name']] = self.class.send("#{data['condition_type']}_condition").key(code[i])
+      end
+    end
 
     # Get and Set detail code from @params
     def set_detail_by_params(initial)
