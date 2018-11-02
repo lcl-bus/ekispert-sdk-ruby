@@ -57,6 +57,20 @@ module Ekispert
 
     private_class_method :to_condition
 
+    def update(**params)
+      params.delete(:detail) # Use self#text
+
+      # Update @params
+      stringize_params_keys
+      params.each_pair { |key, value| update_params(key, value) }
+
+      # Update detail code(@text)
+      @text = convert_params_to_detail
+      symbolize_params_keys
+
+      self
+    end
+
     # Convert detail code(@text) to @params.
     # Ex.
     #   instance.text => 'T2112122121229:F111212121100:A12212212:'
@@ -90,6 +104,10 @@ module Ekispert
 
     def symbolize_params_keys
       @params = @params.map { |k, v| [k.to_sym, v] }.to_h
+    end
+
+    def stringize_params_keys
+      @params = @params.map { |k, v| [k.to_s, v] }.to_h
     end
 
     private
