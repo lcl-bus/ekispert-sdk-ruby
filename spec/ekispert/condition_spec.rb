@@ -53,6 +53,45 @@ RSpec.describe Ekispert::Condition do
             expect(condition.text).to eq "#{default_traffic_detail}#{custom_fee_detail}#{default_adjunctive_detail}"
           end
         end
+        context 'jr_reservation: "exYoyaku"' do
+          let(:params) { custom_fee_params.merge(jr_reservation: 'exYoyaku') }
+          describe '#params' do
+            it 'should return correct value' do
+              expect(condition.params[:jr_reservation]).to eq 'exYoyaku'
+            end
+          end
+          describe '#text' do
+            it 'should return correct value' do
+              expect(condition.text.split(':')[1][11..12]).to eq '10'
+            end
+          end
+        end
+        context 'jr_reservation: "smartExHayatoku"' do
+          let(:params) { custom_fee_params.merge(jr_reservation: 'smartExHayatoku') }
+          describe '#params' do
+            it 'should return correct value' do
+              expect(condition.params[:jr_reservation]).to eq 'smartExHayatoku'
+            end
+          end
+          describe '#text' do
+            it 'should return correct value' do
+              expect(condition.text.split(':')[1][11..12]).to eq '02'
+            end
+          end
+        end
+        context 'jr_reservation: "exYoyaku" and "smartExHayatoku"' do
+          let(:params) { custom_fee_params.merge(jr_reservation: 'exYoyaku', jr_reservation: 'smartExHayatoku') }
+          describe '#params' do
+            it 'should return correct value' do
+              expect(condition.params[:jr_reservation]).to eq 'smartExHayatoku'
+            end
+          end
+          describe '#text' do
+            it 'should return correct value' do
+              expect(condition.text.split(':')[1][11..12]).to eq '02'
+            end
+          end
+        end
       end
     end
   end

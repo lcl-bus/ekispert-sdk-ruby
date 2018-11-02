@@ -26,6 +26,11 @@ AccessorMethodName:
 Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
 
+Lint/DuplicatedKey:
+  Exclude:
+    # Condition#generate spec (:jr_reservation)
+    - 'spec/ekispert/condition_spec.rb'
+
 # private does not make singleton methods private. Use private_class_method or private inside a class << self block instead.
 Lint/IneffectiveAccessModifier:
   Enabled: false
