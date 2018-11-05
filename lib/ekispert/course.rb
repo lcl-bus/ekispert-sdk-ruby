@@ -31,7 +31,7 @@ module Ekispert
       fare.round + charge.round
     end
 
-    def self.get(**params)
+    def self.get(params={})
       to_course(Ekispert::Client.get('search/course/extreme', params))
     end
 
