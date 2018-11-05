@@ -8,7 +8,7 @@ module Ekispert
       super(element) if element
     end
 
-    def self.get(**params)
+    def self.get(params={})
       to_condition(Ekispert::Client.get('toolbox/course/condition', params))
     end
 
@@ -25,7 +25,7 @@ module Ekispert
     # 3. Set text. (detail code)
     # 4. Symbolize @params keys.
     # 5. return Ekispert::Condition instance.
-    def self.generate(**params)
+    def self.generate(params={})
       condition = self.new
 
       # Convert detail code to @params when params include :detail.
@@ -57,7 +57,7 @@ module Ekispert
 
     private_class_method :to_condition
 
-    def update(**params)
+    def update(params={})
       params.delete(:detail) # Use self#text
 
       # Update @params
