@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResultSet apiVersion="1.27.0.0" engineVersion="201808_02a">
+  <TimeTable trainCount="19" code="271" dateGroup="weekday">
+    <Station>
+      <Name>東京</Name>
+    </Station>
+    <HourTable>
+      <TimeReliability>onTimeTable</TimeReliability>
+      <Hour>13</Hour>
+      <PreCautionalComment>Dummy</PreCautionalComment>
+      <MinuteTable>
+        <Minute>45</Minute>
+        <Stop kindCode="1" platformNo="23" lineCode="1980" extra="True" nameCode="1" destinationCode="2">
+          <Number>120</Number>
+        </Stop>
+      </MinuteTable>
+    </HourTable>
+    <HourTable>
+      <TimeReliability>onTimeTable</TimeReliability>
+      <MinuteTable>
+        <Minute>10</Minute>
+        <Stop kindCode="1" platformNo="20" lineCode="1986" nameCode="1" destinationCode="2">
+          <Number>141</Number>
+        </Stop>
+      </MinuteTable>
+      <Hour>14</Hour>
+    </HourTable>
+    <HourTable>
+      <TimeReliability>onTimeTable</TimeReliability>
+      <MinuteTable>
+        <Minute>20</Minute>
+        <Stop kindCode="1" platformNo="21" lineCode="1976" nameCode="1" destinationCode="1">
+          <Number>143</Number>
+        </Stop>
+      </MinuteTable>
+      <Hour>15</Hour>
+    </HourTable>
+    <HourTable>
+      <TimeReliability>onTimeTable</TimeReliability>
+      <MinuteTable>
+        <Minute>25</Minute>
+        <Stop kindCode="1" platformNo="23" lineCode="1987" nameCode="1" destinationCode="2">
+          <Number>145</Number>
+        </Stop>
+      </MinuteTable>
+      <Hour>16</Hour>
+    </HourTable>
+    <HourTable>
+      <TimeReliability>onTimeTable</TimeReliability>
+      <MinuteTable>
+        <Minute>12</Minute>
+        <Stop kindCode="1" platformNo="21" lineCode="2005" extra="True" nameCode="1" destinationCode="1">
+          <Number>97</Number>
+        </Stop>
+      </MinuteTable>
+      <MinuteTable>
+        <Minute>35</Minute>
+        <Stop kindCode="1" platformNo="21" lineCode="1992" extra="True" nameCode="1" destinationCode="1">
+          <Number>90</Number>
+        </Stop>
+      </MinuteTable>
+      <Hour>17</Hour>
+    </HourTable>
+    <Information>
+      <Type>train</Type>
+      <Line code="1980">
+        <Name>新幹線 つばさ100号</Name>
+        <GuideComment>全車禁煙。</GuideComment>
+        <Type>train</Type>
+        <DriveComment>7月27日運転</DriveComment>
+      </Line>
+      <Line code="1992">
+        <Name>新幹線 つばさ90号</Name>
+        <GuideComment>全車禁煙。</GuideComment>
+        <Type>train</Type>
+        <DriveComment>7月22日運転</DriveComment>
+      </Line>
+      <Line code="2005">
+        <Name>新幹線 つばさ97号</Name>
+        <GuideComment>全車禁煙。</GuideComment>
+        <Type>train</Type>
+        <DriveComment>7月20日運転</DriveComment>
+      </Line>
+    </Information>
+    <Line>
+      <Name>ＪＲ山形新幹線</Name>
+      <Direction>山形・新庄</Direction>
+      <Source>東京</Source>
+      <Color>201201201</Color>
+    </Line>
+    <LineName code="1">
+      つばさ
+      <Mark>つ</Mark>
+    </LineName>
+    <LineDestination code="1">
+      山形
+      <Mark/>
+    </LineDestination>
+    <LineDestination code="2">
+      新庄
+      <Mark>新</Mark>
+    </LineDestination>
+    <Datetime operation="today">2018-08-03</Datetime>
+    <LineKind code="1">
+      つばさ
+      <Mark/>
+    </LineKind>
+  </TimeTable>
+</ResultSet>

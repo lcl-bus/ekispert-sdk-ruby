@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResultSet apiVersion="1.27.0.0" engineVersion="201808_02a">
+  <TimeTable trainCount="311" code="1341" dateGroup="weekday">
+    <Station>
+      <Name>東京</Name>
+    </Station>
+    <Line>
+      <Name>ＪＲ東海道新幹線</Name>
+      <Direction>新大阪・博多</Direction>
+      <Source>東京</Source>
+      <Color>051102255</Color>
+    </Line>
+  </TimeTable>
+  <TimeTable trainCount="31" code="271" dateGroup="weekday">
+    <Station>
+      <Name>東京</Name>
+    </Station>
+    <Line>
+      <Name>ＪＲ山形新幹線</Name>
+      <Direction>山形・新庄</Direction>
+      <Source>東京</Source>
+      <Color>201201201</Color>
+    </Line>
+  </TimeTable>
+  <TimeTable trainCount="338" code="3280" dateGroup="weekday">
+    <Station>
+      <Name>東京</Name>
+    </Station>
+    <Line>
+      <Name>東京メトロ丸ノ内線</Name>
+      <Direction>池袋・茗荷谷</Direction>
+      <Source>荻窪・新宿</Source>
+      <Color>230000020</Color>
+    </Line>
+  </TimeTable>
+</ResultSet>
