@@ -22,11 +22,11 @@ module Ekispert
     end
 
     # parse Point class
-    def self.get_station(**params)
+    def self.get_station(params={})
       to_point(Ekispert::Client.get('station', params))
     end
 
-    def self.get_station_light(**params)
+    def self.get_station_light(params={})
       to_point(Ekispert::Client.get('station/light', params))
     end
 

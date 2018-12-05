@@ -34,7 +34,7 @@ module Ekispert
         @old_name_list[0]&.text
       end
 
-      def self.get(**params)
+      def self.get(params={})
         convert_point_to_station(self.superclass.get_station(params))
       end
 

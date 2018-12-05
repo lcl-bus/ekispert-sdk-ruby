@@ -8,15 +8,23 @@ RSpec.describe Ekispert::Point do
   describe '.get_station' do
     before { set_ekispert_default_config }
     context 'use station code（東京）' do
-      let(:point_list) { Ekispert::Point.get_station(code: '22828') }
-      it 'return Array class' do
-        expect(point_list.class).to eq Array
+      context 'params key type is String' do
+        let(:point_list) { Ekispert::Point.get_station('code' => '22828') }
+        it 'point_list array include Ekispert::Point instance' do
+          expect(point_list[0].class).to eq Ekispert::Point
+        end
       end
-      it 'point_list array contains one element' do
-        expect(point_list.size).to eq 1
-      end
-      it 'point_list array include Ekispert::Point instance' do
-        expect(point_list[0].class).to eq Ekispert::Point
+      context 'params key type is Symbol' do
+        let(:point_list) { Ekispert::Point.get_station(code: '22828') }
+        it 'return Array class' do
+          expect(point_list.class).to eq Array
+        end
+        it 'point_list array contains one element' do
+          expect(point_list.size).to eq 1
+        end
+        it 'point_list array include Ekispert::Point instance' do
+          expect(point_list[0].class).to eq Ekispert::Point
+        end
       end
     end
     context 'use name "東京"' do

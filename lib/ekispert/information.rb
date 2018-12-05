@@ -43,7 +43,7 @@ module Ekispert
       type == 'exit'
     end
 
-    def self.get(**params)
+    def self.get(params={})
       to_information(Ekispert::Client.get('station/info', params))
     end
 
