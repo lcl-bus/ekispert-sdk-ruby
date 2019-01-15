@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResultSet apiVersion="1.27.0.0" max="10" offset="1" engineVersion="201901_03a">
+  <Corporation index="1" code="1">
+    <Name>ＪＲ</Name>
+  </Corporation>
+  <Corporation index="2" code="41">
+    <Name>秋田内陸縦貫鉄道</Name>
+  </Corporation>
+  <Corporation index="3" code="42">
+    <Name>由利高原鉄道</Name>
+  </Corporation>
+  <Line corporationIndex="1" code="28">
+    <Name>ＪＲ秋田新幹線</Name>
+    <Yomi>じぇいあーるあきたしんかんせん</Yomi>
+    <Color>214023108</Color>
+  </Line>
+  <Line corporationIndex="1" code="29">
+    <Name>ＪＲ五能線</Name>
+    <Yomi>じぇいあーるごのうせん</Yomi>
+    <Color>255102000</Color>
+  </Line>
+  <Line corporationIndex="1" code="34">
+    <Name>ＪＲ奥羽本線</Name>
+    <Yomi>じぇいあーるおううほんせん</Yomi>
+    <Color>255100000</Color>
+  </Line>
+  <Line corporationIndex="1" code="36">
+    <Name>ＪＲ男鹿線</Name>
+    <Yomi>じぇいあーるおがせん</Yomi>
+    <Color>240000143</Color>
+  </Line>
+  <Line corporationIndex="1" code="38">
+    <Name>ＪＲ花輪線</Name>
+    <Yomi>じぇいあーるはなわせん</Yomi>
+    <Color>255004000</Color>
+  </Line>
+  <Line corporationIndex="1" code="40">
+    <Name>ＪＲ羽越本線</Name>
+    <Yomi>じぇいあーるうえつほんせん</Yomi>
+    <Color>020190235</Color>
+  </Line>
+  <Line corporationIndex="1" code="41">
+    <Name>ＪＲ田沢湖線</Name>
+    <Yomi>じぇいあーるたざわこせん</Yomi>
+    <Color>255051000</Color>
+  </Line>
+  <Line corporationIndex="1" code="46">
+    <Name>ＪＲ北上線</Name>
+    <Yomi>じぇいあーるきたかみせん</Yomi>
+    <Color>000223098</Color>
+  </Line>
+  <Line corporationIndex="2" code="459">
+    <Name>秋田内陸線</Name>
+    <Yomi>あきたないりくせん</Yomi>
+    <Color>113075255</Color>
+  </Line>
+  <Line corporationIndex="3" code="460">
+    <Name>由利高原鉄道鳥海山ろく線</Name>
+    <Yomi>ゆりこうげんてつどうちょうかいさんろくせん</Yomi>
+    <Color>255045109</Color>
+  </Line>
+</ResultSet>
