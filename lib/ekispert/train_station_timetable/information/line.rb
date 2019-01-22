@@ -13,6 +13,22 @@ module Ekispert
           super(element)
         end
 
+        def name
+          @name_list[0].text
+        end
+
+        def guide_comment
+          @guide_comment_list[0].text
+        end
+
+        def type
+          @type_list[0].text
+        end
+
+        def drive_comment
+          @drive_comment_list[0].text
+        end
+
         class Name < EkispertBase; end
         class GuideComment < EkispertBase; end
         class Type < EkispertBase; end

@@ -15,5 +15,34 @@ RSpec.describe Ekispert::TrainStationTimetable::HourTable::MinuteTable::Stop do
         expect(stop.number_list[0].class).to eq Ekispert::TrainStationTimetable::HourTable::MinuteTable::Stop::Number
       end
     end
+    describe '#number' do
+      it 'should return "120"' do
+        expect(stop.number).to eq '120'
+      end
+    end
+    describe '#line_kind' do
+      it 'should return TrainStationTimetable::LineKind instance' do
+        expect(stop.line_kind.class).to eq Ekispert::TrainStationTimetable::LineKind
+      end
+      it 'can call #text, return correct value' do
+        expect(stop.line_kind.text).to eq 'つばさ'
+      end
+    end
+    describe '#line_name' do
+      it 'should return TrainStationTimetable::LineName instance' do
+        expect(stop.line_name.class).to eq Ekispert::TrainStationTimetable::LineName
+      end
+      it 'can call #mark, return correct value' do
+        expect(stop.line_name.mark).to eq 'つ'
+      end
+    end
+    describe '#line_destination' do
+      it 'should return TrainStationTimetable::LineDestination instance' do
+        expect(stop.line_destination.class).to eq Ekispert::TrainStationTimetable::LineDestination
+      end
+      it 'can call #mark, return correct value' do
+        expect(stop.line_destination.mark).to eq '新'
+      end
+    end
   end
 end

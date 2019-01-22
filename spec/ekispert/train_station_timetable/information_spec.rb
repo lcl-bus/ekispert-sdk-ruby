@@ -20,5 +20,10 @@ RSpec.describe Ekispert::TrainStationTimetable::Information do
         expect(information.type_list[0].class).to eq Ekispert::TrainStationTimetable::Information::Type
       end
     end
+    describe '#type' do
+      it 'should return "train"' do
+        expect(information.type).to eq 'train'
+      end
+    end
   end
 end

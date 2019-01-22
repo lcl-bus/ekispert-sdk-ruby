@@ -30,5 +30,20 @@ RSpec.describe Ekispert::TrainStationTimetable::HourTable do
         expect(hour_table.pre_cautional_comment_list[0].class).to eq Ekispert::TrainStationTimetable::HourTable::PreCautionalComment
       end
     end
+    describe '#hour' do
+      it 'should return "13"' do
+        expect(hour_table.hour).to eq '13'
+      end
+    end
+    describe '#time_reliability' do
+      it 'should return "onTimeTable"' do
+        expect(hour_table.time_reliability).to eq 'onTimeTable'
+      end
+    end
+    describe '#pre_cautional_comment' do
+      it 'should return "Dummy"' do
+        expect(hour_table.pre_cautional_comment).to eq 'Dummy'
+      end
+    end
   end
 end

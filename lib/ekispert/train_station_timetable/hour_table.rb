@@ -12,6 +12,18 @@ module Ekispert
         super(element)
       end
 
+      def hour
+        @hour_list[0].text
+      end
+
+      def time_reliability
+        @time_reliability_list[0].text
+      end
+
+      def pre_cautional_comment
+        @pre_cautional_comment_list[0]&.text
+      end
+
       class Hour < EkispertBase; end
       class TimeReliability < EkispertBase; end
       class PreCautionalComment < EkispertBase; end

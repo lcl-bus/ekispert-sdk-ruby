@@ -30,5 +30,25 @@ RSpec.describe Ekispert::TrainStationTimetable::Information::Line do
         expect(line.drive_comment_list[0].class).to eq Ekispert::TrainStationTimetable::Information::Line::DriveComment
       end
     end
+    describe '#name' do
+      it 'should return "新幹線 つばさ100号"' do
+        expect(line.name).to eq '新幹線 つばさ100号'
+      end
+    end
+    describe '#guide_comment' do
+      it 'should return "全車禁煙。"' do
+        expect(line.guide_comment).to eq '全車禁煙。'
+      end
+    end
+    describe '#type' do
+      it 'should return "train"' do
+        expect(line.type).to eq 'train'
+      end
+    end
+    describe '#drive_comment' do
+      it 'should return "7月27日運転"' do
+        expect(line.drive_comment).to eq '7月27日運転'
+      end
+    end
   end
 end
