@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResultSet apiVersion="1.27.0.0" engineVersion="">
+  <Information provider="レスキューナウ" status="運転状況">
+    <Line corporationIndex="2" code="481">
+      <Name>山万ユーカリが丘線(ユーカリが丘－女子大)</Name>
+    </Line>
+    <Title>山万ユーカリが丘線 運転計画</Title>
+    <Comment status="long">保守工事の影響で、28日までの各日10:00頃〜16:20頃まで、列車が運休となります。なお、バス代行輸送を行います。</Comment>
+    <Comment status="short">保守工事の影響で、28日までの各日10:00頃〜16:20頃まで、列車が運休となります。</Comment>
+    <Datetime>2019-02-08T05:00:00+09:00</Datetime>
+  </Information>
+  <Information provider="レスキューナウ" status="平常運転">
+    <Line corporationIndex="1" code="106">
+      <Name>ＪＲ埼京線</Name>
+    </Line>
+    <Title>ＪＲ埼京線 平常運転</Title>
+    <Comment status="long">運転を見合わせていましたが、16:00頃運転を再開し現在ほぼ平常通り運転しています。</Comment>
+    <Comment status="short">運転を見合わせていましたが、16:00頃運転を再開し現在ほぼ平常通り運転しています。</Comment>
+    <Datetime>2019-02-08T16:00:00+09:00</Datetime>
+  </Information>
+  <Information provider="レスキューナウ" status="列車遅延">
+    <Line corporationIndex="1" code="109">
+      <Name>ＪＲ中央線快速</Name>
+    </Line>
+    <Title>ＪＲ中央線快速 列車遅延</Title>
+    <Comment status="long">混雑の影響で、列車に遅れが出ています。</Comment>
+    <Comment status="short">混雑の影響で、列車に遅れが出ています。</Comment>
+    <Datetime>2019-02-08T16:00:00+09:00</Datetime>
+  </Information>
+  <Corporation index="1" code="1">
+    <Name>ＪＲ</Name>
+  </Corporation>
+  <Corporation index="2" code="62">
+    <Name>山万</Name>
+  </Corporation>
+</ResultSet>
