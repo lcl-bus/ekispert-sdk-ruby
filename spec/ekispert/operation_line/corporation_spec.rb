@@ -13,4 +13,12 @@ RSpec.describe Ekispert::OperationLine::Corporation do
       expect(corporation.name_list[0].class).to eq Ekispert::OperationLine::Corporation::Name
     end
   end
+  describe '#line_list' do
+    context '秋田内陸縦貫鉄道' do
+      let(:akita_corporation) { operation_line.corporation_list[1] }
+      it 'should return correct value' do
+        expect(akita_corporation.line_list[0].name_list[0].text).to eq '秋田内陸線'
+      end
+    end
+  end
 end

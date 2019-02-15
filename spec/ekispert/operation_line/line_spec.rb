@@ -23,4 +23,12 @@ RSpec.describe Ekispert::OperationLine::Line do
       expect(line.color_list[0].class).to eq Ekispert::OperationLine::Line::Color
     end
   end
+  describe '#corporation' do
+    context '由利高原鉄道鳥海山ろく線' do
+      let(:sanroku_line) { operation_line.line_list[-1] }
+      it 'should return correct value' do
+        expect(sanroku_line.corporation.name_list[0].text).to eq '由利高原鉄道'
+      end
+    end
+  end
 end
