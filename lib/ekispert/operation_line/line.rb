@@ -2,6 +2,7 @@ module Ekispert
   class OperationLine
     class Line < EkispertBase
       attr_reader :name_list, :yomi_list, :color_list
+      attr_accessor :corporation
 
       def initialize(element)
         @name_list = []
