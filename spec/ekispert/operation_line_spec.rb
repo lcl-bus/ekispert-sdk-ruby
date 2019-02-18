@@ -11,16 +11,15 @@ RSpec.describe Ekispert::OperationLine do
     it 'return Ekispert::OperationLine instance' do
       expect(operation_line.class).to eq Ekispert::OperationLine
     end
-  end
-  describe '.to_operation_line' do
-    let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
     context 'results not found' do
-      let(:xml) { read_xml('empty_elem.xml') }
-      let(:no_operation_line) { Ekispert::OperationLine.send(:to_operation_line, parsed_xml) }
+      let(:no_operation_line) { Ekispert::OperationLine.find(name: 'x') }
       it 'should return nil' do
         expect(no_operation_line).to be nil
       end
     end
+  end
+  describe '.to_operation_line' do
+    let(:parsed_xml) { Ekispert::Client.send(:parse_xml, xml) }
     context 'params = { prefectureCode: 5 }' do
       let(:xml) { read_xml('operation_line/akita.xml') }
       let(:akita_operation_line) { Ekispert::OperationLine.send(:to_operation_line, parsed_xml) }
