@@ -31,4 +31,19 @@ RSpec.describe Ekispert::OperationLine::Line do
       end
     end
   end
+  describe '#name' do
+    it 'should return correct value' do
+      expect(line.name).to eq 'ＪＲ秋田新幹線'
+    end
+  end
+  describe '#yomi' do
+    it 'should return correct value' do
+      expect(line.yomi).to eq 'じぇいあーるあきたしんかんせん'
+    end
+  end
+  describe '#color' do
+    it 'should return correct value' do
+      expect(line.color).to eq '214023108'
+    end
+  end
 end
