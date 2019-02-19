@@ -28,6 +28,16 @@ RSpec.describe Ekispert::OperationLine::Service::Information do
       expect(information.title_list[0].class).to eq Ekispert::OperationLine::Service::Information::Title
     end
   end
+  describe '#comment' do
+    it 'should return correct value' do
+      expect(information.comment).to eq '保守工事の影響で、28日までの各日10:00頃〜16:20頃まで、列車が運休となります。なお、バス代行輸送を行います。'
+    end
+  end
+  describe '#short_comment' do
+    it 'should return correct value' do
+      expect(information.short_comment).to eq '保守工事の影響で、28日までの各日10:00頃〜16:20頃まで、列車が運休となります。'
+    end
+  end
   describe '#datetime' do
     it 'should return correct value' do
       expect(information.datetime.strftime('%Y年%02m月%02d日 %H:%M:%S')).to eq '2019年02月08日 05:00:00'

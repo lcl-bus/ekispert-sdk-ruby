@@ -12,6 +12,14 @@ module Ekispert
           super(element)
         end
 
+        def comment
+          @comment_list.find { |comment| comment.status == 'long' }.text
+        end
+
+        def short_comment
+          @comment_list.find { |comment| comment.status == 'short' }.text
+        end
+
         def datetime
           DateTime.parse(@datetime_list[0].text)
         end
