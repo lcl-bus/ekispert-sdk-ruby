@@ -2,11 +2,10 @@ module Ekispert
   class OperationLine
     class Service
       class Corporation < EkispertBase
-        attr_accessor :name_list, :line_list
+        attr_accessor :name_list, :information_list
 
         def initialize(element)
           @name_list = []
-          @line_list = []
           super(element)
         end
 

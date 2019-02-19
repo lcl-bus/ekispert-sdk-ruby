@@ -43,4 +43,9 @@ RSpec.describe Ekispert::OperationLine::Service::Information do
       expect(information.title).to eq '山万ユーカリが丘線 運転計画'
     end
   end
+  describe '#corporation' do
+    it 'should return correct value' do
+      expect(information.corporation.name_list[0].text).to eq '山万'
+    end
+  end
 end

@@ -18,12 +18,12 @@ RSpec.describe Ekispert::OperationLine::Service::Corporation do
       expect(corporation.name).to eq 'ＪＲ'
     end
   end
-  describe '#line_list' do
+  describe '#information_list' do
     it 'Array size is 2' do
-      expect(corporation.line_list.size).to eq 2
+      expect(corporation.information_list.size).to eq 2
     end
     it 'should return correct value' do
-      expect(corporation.line_list[0].name_list[0].text).to eq 'ＪＲ埼京線'
+      expect(corporation.information_list[0].line_list[0].name_list[0].text).to eq 'ＪＲ埼京線'
     end
   end
 end

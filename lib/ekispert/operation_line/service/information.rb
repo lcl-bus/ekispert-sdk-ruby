@@ -2,7 +2,7 @@ module Ekispert
   class OperationLine
     class Service
       class Information < EkispertBase
-        attr_accessor :comment_list, :datetime_list, :line_list, :title_list
+        attr_accessor :comment_list, :datetime_list, :line_list, :title_list, :corporation
 
         def initialize(element)
           @comment_list = []

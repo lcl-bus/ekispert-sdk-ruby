@@ -28,24 +28,22 @@ module Ekispert
           # Ex. service.corporation_list << sub_instance
           service.send(class_list_name) << sub_instance
         end
-        service.relate_corp_and_line
+        service.relate_corp_and_info
 
         service
       end
 
       # This method relate OperationLine::Service::Corporation instance
-      # and OperationLine::Service::Information::Line instance.
+      # and OperationLine::Service::Information instance.
       # Ex.
-      #  OperationLine::Service::Corporation#line_list
-      #  OperationLine::Service::Information::Line#corporation
-      def relate_corp_and_line
+      #  OperationLine::Service::Corporation#information_list
+      #  OperationLine::Service::Information#corporation
+      def relate_corp_and_info
         @corporation_list.each do |corp|
-          @information_list.each do |info|
-            next unless info.line.corporation_index == corp.index
-
-            corp.line_list << info.line
-            info.line.corporation = corp
-          end
+          corp.information_list = @information_list.select { |info| info.line.corporation_index == corp.index }
+        end
+        @information_list.each do |info|
+          info.corporation = @corporation_list.find { |corp| info.line.corporation_index == corp.index }
         end
       end
 
