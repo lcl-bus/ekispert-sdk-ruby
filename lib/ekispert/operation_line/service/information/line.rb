@@ -3,7 +3,7 @@ module Ekispert
     class Service
       class Information
         class Line < EkispertBase
-          attr_accessor :name_list
+          attr_accessor :name_list, :corporation
 
           def initialize(element)
             @name_list = []

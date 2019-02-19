@@ -18,4 +18,9 @@ RSpec.describe Ekispert::OperationLine::Service::Information::Line do
       expect(line.name).to eq '山万ユーカリが丘線(ユーカリが丘－女子大)'
     end
   end
+  describe '#corporation' do
+    it 'should return correct value' do
+      expect(line.corporation.name_list[0].text).to eq '山万'
+    end
+  end
 end

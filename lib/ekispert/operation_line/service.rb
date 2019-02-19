@@ -10,12 +10,13 @@ module Ekispert
       end
 
       def self.find(params={})
-        to_service(Ekispert::Client.get('operationLine/service/rescuenow/information', params))
+        xmls = Ekispert::Client.get('operationLine/service/rescuenow/information', params)
+        return nil if xmls.children.empty?
+
+        to_service(xmls)
       end
 
       def self.to_service(elem_arr)
-        return nil if elem_arr.children.empty?
-
         service = self.new
         elem_arr.children.each do |element|
           elem_name = element.name.to_sym
@@ -27,7 +28,25 @@ module Ekispert
           # Ex. service.corporation_list << sub_instance
           service.send(class_list_name) << sub_instance
         end
+        service.relate_corp_and_line
+
         service
+      end
+
+      # This method relate OperationLine::Service::Corporation instance
+      # and OperationLine::Service::Information::Line instance.
+      # Ex.
+      #  OperationLine::Service::Corporation#line_list
+      #  OperationLine::Service::Information::Line#corporation
+      def relate_corp_and_line
+        @corporation_list.each do |corp|
+          @information_list.each do |info|
+            next unless info.line.corporation_index == corp.index
+
+            corp.line_list << info.line
+            info.line.corporation = corp
+          end
+        end
       end
 
       private_class_method :to_service
