@@ -13,4 +13,9 @@ RSpec.describe Ekispert::OperationLine::Service::Corporation do
       expect(corporation.name_list[0].class).to eq Ekispert::OperationLine::Service::Corporation::Name
     end
   end
+  describe '#name' do
+    it 'should return correct value' do
+      expect(corporation.name).to eq 'ＪＲ'
+    end
+  end
 end

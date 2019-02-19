@@ -9,6 +9,10 @@ module Ekispert
           super(element)
         end
 
+        def name
+          @name_list[0].text
+        end
+
         class Name < EkispertBase; end
       end
     end
