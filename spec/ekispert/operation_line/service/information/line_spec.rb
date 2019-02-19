@@ -13,4 +13,9 @@ RSpec.describe Ekispert::OperationLine::Service::Information::Line do
       expect(line.name_list[0].class).to eq Ekispert::OperationLine::Service::Information::Line::Name
     end
   end
+  describe '#name' do
+    it 'should return correct value' do
+      expect(line.name).to eq '山万ユーカリが丘線(ユーカリが丘－女子大)'
+    end
+  end
 end
