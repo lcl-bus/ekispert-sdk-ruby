@@ -96,7 +96,8 @@ If you want to see more sample code, see the `/example` directory.
 
 ## Supported Ruby Versions
 This library supports and is tested against the following Ruby inplementations:
-- Ruby 2.5.0
+- Ruby 2.5
+- Ruby 2.6
 
 ## Document
 [Ekispert web service reference](http://docs.ekispert.com/v1/api/)
