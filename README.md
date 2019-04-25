@@ -6,36 +6,38 @@ A module for using the EkispertWebService API.
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'ekispert'
+```
+gem 'ekispert-sdk-ruby', :git => 'git@github.com:EkispertWebService/ekispert-sdk-ruby.git'
 ```
 
-And then execute:
+or
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ekispert
+```
+gem 'ekispert-sdk-ruby',  :github => 'EkispertWebService/ekispert-sdk-ruby'
+```
 
 ## Settings
 
 ```
-export EKISPERT_API_KEY=api_key
+$ echo export EKISPERT_API_KEY=api_key >> ~/.bash_profile
+
+# If you need to access Web through proxy
+$ echo export HTTP_PROXY="http://www.example.com:8080" >> ~/.bash_profile
+
+$ source ~/.bash_profile
+
+$ bundle install
 ```
 
-And
+## Trial use
 
-```
-Ekispert::Config.set do |c|
-  c.host = host
-  c.version = version
-  c.http_proxy = http_proxy
-  c.api_key = EKISPERT_API_KEY
-end
+Don't forget to require ekispert.
+
+```ruby
+require 'ekispert'
 ```
 
-## Search Station
+### Search Station
 
 The base of this module is its `/v1/xml/station` API.
 [-> Ekispert web service reference.](http://docs.ekispert.com/v1/api/station.html)
@@ -43,18 +45,18 @@ The base of this module is its `/v1/xml/station` API.
 ```ruby
 station_list = Ekispert::Point::Station.get(code: '22828')
 
-station_list[0].name
+p station_list[0].name
 #=> "東京"
 
-station_list[0].prefecture
+p station_list[0].prefecture.name
 #=> "東京都"
 
 jr_station_list = Ekispert::Point::Station.get(corporationName: 'JＲ', limit: 2)
 
-jr_station_list[0].name
+p jr_station_list[0].name
 #=> "相生(兵庫県)"
 
-jr_station_list[1].name
+p jr_station_list[1].name
 #=> "相賀"
 ```
 
