@@ -5,6 +5,7 @@ AllCops:
   StyleGuideBaseURL: https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.ja.md
   Exclude:
     - "vendor/**/*"
+    - "example/**/*"
 
 # Checks the indentation of here document closings.
 Layout/ClosingHeredocIndentation:
