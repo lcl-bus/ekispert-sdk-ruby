@@ -2,6 +2,10 @@
 
 A module for using the EkispertWebService API.
 
+This SDK development is moving at a very slow pace and we haven't reached version 1.0 yet.
+There are often backward-incompatible changes between minor releases.
+Please use after understanding the it enough.
+
 ## Installation
 
 Add this line to your application's Gemfile:
