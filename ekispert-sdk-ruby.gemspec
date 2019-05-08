@@ -5,12 +5,15 @@ require 'ekispert/version'
 Gem::Specification.new do |spec|
   spec.name          = 'ekispert'
   spec.version       = Ekispert::VERSION
-  spec.authors       = ['Ekispert Web Service']
+  spec.authors       = ['Ekispert Web Service Team']
 
-  spec.summary       = 'Ekispert API Client'
-  spec.description   = 'wrapper for the Ekispert API'
+  spec.summary       = 'SDK for Ekispert Web Service'
+  spec.description   = 'SDK for Ekispert Web Service'
   spec.homepage      = 'https://github.com/EkispertWebService/ekispert-sdk-ruby/'
   spec.license       = 'MIT'
+
+  spec.required_ruby_version     = '>= 2.5.0'
+  spec.required_rubygems_version = '>= 1.8.11'
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
