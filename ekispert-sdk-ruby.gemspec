@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/EkispertWebService/ekispert-sdk-ruby/'
   spec.license       = 'MIT'
 
-  spec.required_ruby_version     = '>= 2.5.0'
+  spec.required_ruby_version     = '>= 2.7.0'
   spec.required_rubygems_version = '>= 1.8.11'
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'faraday', ['>= 0.7.4', '< 1.0']
   spec.add_dependency 'faraday_middleware', '~> 0.12.2'
-  spec.add_dependency 'nokogiri', '~> 1.8.2'
+  spec.add_dependency 'nokogiri', '~> 1.10.10'
 
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'pry-byebug'
